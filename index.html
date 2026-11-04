@@ -1590,6 +1590,74 @@ textarea.mono { font-family: var(--f-mono); font-size: .82rem; }
 .libi { display: flex; justify-content: space-between; align-items: center; gap: .6em; flex-wrap: wrap; padding: .55em .75em; border: 1px solid var(--line2); border-radius: 6px; background: rgba(8, 13, 18, .55); }
 .libi > div:first-child { display: grid; } .libi small { color: var(--muted); }
 
+/* ============ v7: tutorial ============ */
+#tour { position: fixed; inset: 0; z-index: 80; pointer-events: none; display: none; }
+#tour.on { display: block; }
+.tr-spot { position: fixed; border-radius: 8px; box-shadow: 0 0 0 9999px rgba(3, 7, 10, .72), 0 0 0 2px var(--holo-cyan), 0 0 24px rgba(140, 235, 250, .45); transition: top .3s, left .3s, width .3s, height .3s; pointer-events: none; }
+.tr-card { position: fixed; pointer-events: auto; padding: .9em 1em; background: rgba(8, 13, 18, .98); border: 1px solid var(--holo-cyan); border-radius: 10px; box-shadow: 0 18px 44px rgba(0, 0, 0, .6); transition: top .3s, left .3s; }
+.tr-h { display: flex; align-items: center; gap: .6em; }
+.tr-h > div { display: grid; }
+.tr-k { font-family: var(--f-display); font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--holo-cyan); }
+.tr-h b { font-family: var(--f-display); font-size: 1.2rem; }
+.tr-card p { margin: .5em 0; font-size: 1.02rem; line-height: 1.5; }
+.tr-dots { display: flex; gap: .3em; margin: .3em 0 .6em; }
+.tr-dots i { width: 9px; height: 9px; border-radius: 50%; background: var(--surface-2); }
+.tr-dots i.done { background: var(--neon-violet); } .tr-dots i.on { background: var(--holo-cyan); box-shadow: 0 0 8px var(--holo-cyan); }
+.tr-acts { display: flex; flex-wrap: wrap; gap: .4em; align-items: center; }
+.tr-skip { margin-left: auto; background: none; border: 0; color: var(--muted); text-decoration: underline; font-size: .85rem; min-height: 34px; }
+html.rm .tr-spot, html.rm .tr-card { transition: none; }
+@media (max-width: 640px) { .tr-card { left: 12px !important; right: 12px; width: auto !important; } }
+.tutbtn { border-color: rgba(169, 139, 255, .6) !important; }
+.tutbtn.on { color: var(--neon-violet); }
+.tut-back { margin-bottom: .8em; }
+.tut-hero { display: grid; grid-template-columns: auto 1fr; gap: 1.2em; align-items: center; padding: 1em 1.3em; }
+.tut-map { list-style: none; padding: 0; margin: 1em 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .5em; counter-reset: none; }
+.tut-map a { display: flex; align-items: center; gap: .45em; padding: .6em .7em; min-height: 52px; color: var(--ink); text-decoration: none; background: rgba(12, 19, 26, .75); border: 1px solid rgba(140, 235, 250, .22); border-radius: 6px; }
+.tut-map a:hover { border-color: var(--holo-cyan); }
+.tut-map a span { width: 28px; height: 28px; flex: none; display: grid; place-items: center; border-radius: 50%; background: var(--holo-cyan); color: #0B1117; font-family: var(--f-display); font-weight: 700; }
+.tut-map a b { font-size: .9rem; line-height: 1.2; }
+.tut-st header { display: flex; align-items: center; gap: .6em; flex-wrap: wrap; }
+.tut-st header h2 { margin: 0; flex: 1; }
+.tut-st header .ic { color: var(--neon-violet); }
+.ts-n { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 50%; border: 2px solid var(--holo-cyan); color: var(--holo-cyan); font-family: var(--f-display); font-weight: 700; font-size: 1.2rem; }
+.ts-g { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 1em; margin-top: .6em; align-items: start; }
+.ts-que { font-size: 1.04rem; }
+.ts-ok { background: rgba(140, 235, 250, .07); border-left: 3px solid var(--holo-cyan); padding: .4em .6em; }
+.ts-tip { display: flex; gap: .4em; align-items: flex-start; color: var(--muted); font-size: .92rem; }
+.ts-fig { margin: 0; padding: .8em; border: 1px dashed rgba(140, 235, 250, .3); border-radius: 8px; background: rgba(6, 11, 15, .6); display: grid; gap: .5em; }
+.ts-fig figcaption { font-size: .72rem; color: var(--muted); font-family: var(--f-display); letter-spacing: .1em; text-transform: uppercase; text-align: center; }
+.mk { display: flex; flex-wrap: wrap; gap: .35em; align-items: center; justify-content: center; }
+.mk-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); }
+.mk-l { width: 100%; text-align: center; font-size: .8rem; color: var(--muted); }
+.mk-in { padding: .3em 1.2em; border: 1px solid rgba(140, 235, 250, .3); border-radius: 4px; letter-spacing: .2em; }
+.mk-b { padding: .3em .8em; border: 1px solid var(--line2); border-radius: 4px; font-size: .82rem; font-family: var(--f-display); }
+.mk-b.on { background: var(--holo-cyan); color: #0B1117; border-color: var(--holo-cyan); }
+.mk-st, .mk-t { padding: .25em .6em; border: 1px solid var(--line2); border-radius: 4px; font-size: .78rem; }
+.mk-st.ok, .mk-t.ok { border-color: var(--neon-violet); color: var(--neon-violet); }
+.mk-st.on, .mk-t.on { border-color: var(--holo-cyan); color: var(--holo-cyan); box-shadow: 0 0 10px rgba(140, 235, 250, .3); }
+.mk-line { width: 12px; height: 2px; background: var(--line2); display: inline-block; }
+.mk-card { flex-direction: column; border: 1px solid rgba(140, 235, 250, .25); border-radius: 6px; padding: .5em; font-size: .82rem; }
+.mk-card span { color: var(--muted); }
+.mk-chip { padding: .2em .6em; border-radius: 99px; border: 1px solid var(--line2); font-size: .78rem; }
+.mk-chip.ok { border-color: var(--holo-cyan); color: var(--holo-cyan); } .mk-chip.am { border: 1px dashed var(--review-amber); color: var(--review-amber); }
+.mk-chip.gold { border-color: var(--node-gold); color: var(--node-gold); } .mk-chip.vi { border-color: var(--neon-violet); color: var(--neon-violet); }
+.mk-ib { display: inline-flex; flex-direction: column; align-items: center; gap: .1em; padding: .3em .4em; min-width: 70px; border: 1px solid var(--line2); border-radius: 4px; font-size: .7rem; }
+.mk-lv { font-family: var(--f-display); font-weight: 700; color: var(--holo-cyan); }
+.tut-tools { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: .6em; }
+.tut-tools > div { display: grid; gap: .2em; padding: .6em .7em; background: rgba(12, 19, 26, .7); border-left: 3px solid var(--neon-violet); }
+.tut-tools b { display: flex; align-items: center; gap: .35em; } .tut-tools span { font-size: .88rem; color: var(--muted); }
+.faq { border-bottom: 1px solid var(--line); padding: .5em 0; }
+.faq summary { cursor: pointer; font-weight: 700; } .faq p { margin: .4em 0 0; }
+@media (max-width: 900px) { .tut-map { grid-template-columns: repeat(2, minmax(0, 1fr)); } .ts-g { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .tut-hero { grid-template-columns: 1fr; text-align: center; } .tut-hero > div:first-child { justify-self: center; } }
+@media print {
+  body.print-tut * { visibility: hidden !important; }
+  body.print-tut .tutorial, body.print-tut .tutorial * { visibility: visible !important; color: #000 !important; }
+  body.print-tut .tutorial { position: absolute; top: 0; left: 0; right: 0; }
+  body.print-tut .tutorial .panel { clip-path: none; background: #fff !important; border: 1px solid #999; box-shadow: none; break-inside: avoid; }
+  body.print-tut .tutorial button, body.print-tut .tutorial svg.mercy { display: none !important; }
+}
+
 </style>
 </head>
 <body>
@@ -2913,6 +2981,7 @@ function doRender() {
   try { guiaAuto(); } catch (e) { }
   renderGuia();
   try { checkLogros(); } catch (e) { }
+  try { if (UI.tour) tourPos(); tourAuto(); } catch (e) { }
 }
 function go(r) {
   UI.route = r;
@@ -3653,7 +3722,7 @@ function guiaAuto() {
     });
   }
   UI.doneState = ds;
-  if (UI.route === 'equipo' && UI.lab !== 'progreso' && UI.lab !== 'mision' && UI.paso && !UI.gSeen[UI.paso]) { UI.gSeen[UI.paso] = 1; guia(introPaso(UI.paso, p), 'ayuda'); }
+  if (UI.route === 'equipo' && UI.lab !== 'progreso' && UI.lab !== 'mision' && UI.lab !== 'tutorial' && UI.paso && !UI.gSeen[UI.paso]) { UI.gSeen[UI.paso] = 1; guia(introPaso(UI.paso, p), 'ayuda'); }
 }
 
 /* ============================================================
@@ -4656,6 +4725,156 @@ ACT.libDel = function (b) { UI.confirm = ''; libBorrar(b.getAttribute('data-v'))
     if (UI.casoEsBase) { var salas = GRUPOS.filter(function (g) { var el = document.getElementById('cg-' + g.sala); return el ? el.checked : g.sala === ME.sala; }).map(function (g) { return g.sala; }); UI.confirm = ''; return casoEnGrupos(null, salas).then(function () { UI.casoVal = null; UI.casoEsBase = false; UI.casoDeLib = ''; UI.events = null; S.v = 0; poll(true).then(function () { toast('Edición nueva con el caso inicial en ' + salas.map(grupoName).join(', ') + '.', 'good'); doRender(); }); }); }
     UI.events = null; return ca.apply(this, arguments);
   };
+})();
+
+/* ============================================================
+   v7 · Tutorial para estudiantes
+   1) Recorridos guiados sobre la app real (laboratorio y audiencia): resaltan
+      cada parte, la explican en frases cortas y se pueden escuchar.
+   2) Centro de ayuda «Tutorial»: el viaje completo en 8 estaciones, con
+      ilustraciones de cada pantalla, consejos y preguntas frecuentes.
+   ============================================================ */
+ACT = ACT || {};
+var TOURS = {
+  lab: [
+    { t: '¡Hola! Te muestro la app', d: 'Son 10 paradas cortas. Puedes avanzar, volver o saltar el recorrido cuando quieras. Toca «Escuchar» si prefieres oírlo.' },
+    { sel: '.top .who', t: 'Este eres tú', d: 'Aquí están tu avatar, tu nombre, tu rol, tu mesa y tu grupo. Así te reconocen tus compañeros.' },
+    { sel: '.amini', t: 'Tu avance y tu nivel', d: 'El anillo muestra cuánto llevas. Al lado ves tu nivel y tu XP. Tócalo para ver tus logros.' },
+    { sel: '.mainnav', t: 'Las tres zonas', d: 'Laboratorio: preparas el trabajo. Audiencia: presentan y conversan. Mi avatar: cambias tu apariencia.' },
+    { sel: '.focobar', t: 'Herramientas para concentrarte', d: '«Bloque de 10 min» te ayuda a trabajar un rato sin distraerte. «Modo enfoque» deja una sola tarea en pantalla.' },
+    { sel: '.ruta', t: 'Tu ruta', d: 'Primero la Misión y luego 6 pasos en orden. Cada paso cumplido se marca con ✓. Puedes volver a un paso cuando quieras.' },
+    { sel: '.mis-tiles', alt: '.pasocard', t: 'Qué hacer en cada paso', d: 'Cada pantalla dice qué vas a hacer, cómo hacerlo y cuándo está listo. Lee «Está listo cuando…» para saber si terminaste.' },
+    { sel: '.rstep.prog', t: 'Logros y avance', d: 'Aquí ves tus insignias, tu nivel, los retos cortos y la misión de tu equipo. El XP nunca se pierde.' },
+    { sel: '#guia .guia-fab', t: 'M.E.R.C.Y. te ayuda', d: 'Si no sabes qué sigue, toca «¿Qué hago ahora?». M.E.R.C.Y. te dice el siguiente paso. No decide por ti.' },
+    { sel: '.top-r', t: 'Accesibilidad y ayuda', d: 'Puedes agrandar la letra, subir el contraste, leer en voz alta y ver subtítulos. El botón «Tutorial» abre esta guía cuando quieras.' },
+    { t: '¡Listo para empezar!', d: 'Empieza por la Misión: son 5 módulos cortos. Recuerda: toda afirmación lleva su prueba y aquí nadie es acusado.' }
+  ],
+  aud: [
+    { t: 'Así funciona la audiencia', d: 'Te muestro cómo seguir la audiencia y cómo participar. Son 6 paradas.' },
+    { sel: '.crono', t: 'La cronología', d: 'Muestra en qué momento estamos: apertura, alegatos, preguntas, réplicas y cierre. El punto ● es el momento actual.' },
+    { sel: '.reloj', alt: '.audmeta', t: 'El tiempo', d: 'Es tiempo simulado de la actividad, no un plazo legal. Si te pone nervioso, puedes ocultarlo en Accesibilidad.' },
+    { sel: '.ib-btns', alt: '.ibar', t: 'La barra de intervención', d: 'Con estos botones hablas, preguntas, respondes, citas una evidencia, pides una aclaración o pasas el turno.' },
+    { sel: '.ib-b[data-v="responder"]', t: 'Responder con respeto', d: 'Antes de responder, escribe lo que entendiste de la otra persona. Así la conversación es justa.' },
+    { sel: '.hilo', t: 'El hilo de voces', d: 'Aquí aparece lo que se ha dicho. La docente da la palabra en orden y M.E.R.C.Y. puede leer tu intervención.' },
+    { t: '¡A participar!', d: 'Escucha con atención, cita tus tarjetas y pregunta con respeto. Toda participación suma XP para ti y tu equipo.' }
+  ]
+};
+function tourEl() {
+  var el = document.getElementById('tour');
+  if (!el) {
+    el = document.createElement('div'); el.id = 'tour'; document.body.appendChild(el);
+    el.addEventListener('click', function (e) { var b = e.target.closest('[data-a]'); if (!b) return; var f = ACT[b.getAttribute('data-a')]; if (f) { e.preventDefault(); f(b, e); } });
+    window.addEventListener('resize', function () { tourPos(); });
+    window.addEventListener('scroll', function () { tourPos(); }, { passive: true });
+    document.addEventListener('keydown', function (e) { if (!UI.tour) return; if (e.key === 'Escape') ACT.tourSkip(); if (e.key === 'ArrowRight') ACT.tourNext(); if (e.key === 'ArrowLeft') ACT.tourPrev(); });
+  }
+  return el;
+}
+function tourTarget(s) { if (!s || !s.sel) return null; var t = document.querySelector(s.sel) || (s.alt ? document.querySelector(s.alt) : null); if (!t) return null; var r = t.getBoundingClientRect(); return r.width || r.height ? t : null; }
+function tourStart(id) {
+  if (!TOURS[id]) return;
+  if (UI.g) { UI.g.open = false; renderGuia(); }
+  var steps = TOURS[id].filter(function (s) { return !s.sel || tourTarget(s); });
+  UI.tour = { id: id, steps: steps, i: 0 }; tourRender(true);
+}
+function tourRender(scroll) {
+  var el = tourEl(); var tu = UI.tour;
+  if (!tu) { el.innerHTML = ''; el.className = ''; return; }
+  var s = tu.steps[tu.i]; var n = tu.steps.length;
+  el.className = 'on';
+  el.innerHTML = '<div class="tr-spot" aria-hidden="true"></div><div class="tr-card" role="dialog" aria-modal="false" aria-labelledby="tr-t"><div class="tr-h">' + mercySVG(54, tu.i === n - 1 ? 'sintesis' : 'escucha') + '<div><span class="tr-k">Tutorial · ' + (tu.id === 'aud' ? 'Audiencia' : 'Laboratorio') + ' · ' + (tu.i + 1) + ' de ' + n + '</span><b id="tr-t">' + esc(s.t) + '</b></div></div><p>' + esc(s.d) + '</p>' +
+    '<div class="tr-dots" aria-hidden="true">' + tu.steps.map(function (x, k) { return '<i class="' + (k === tu.i ? 'on' : k < tu.i ? 'done' : '') + '"></i>'; }).join('') + '</div>' +
+    '<div class="tr-acts"><button class="btn-ghost sm" data-a="speak" data-t="' + esc(s.t + '. ' + s.d) + '">Escuchar</button>' + (tu.i > 0 ? '<button class="btn-ghost sm" data-a="tourPrev">← Atrás</button>' : '') + '<button class="btn sm" data-a="tourNext">' + (tu.i === n - 1 ? 'Terminar ✓' : 'Siguiente →') + '</button><button class="tr-skip" data-a="tourSkip">Saltar el recorrido</button></div></div>';
+  var t = tourTarget(s);
+  if (t && scroll) { try { t.scrollIntoView({ block: 'center', behavior: UI.prefs.rm ? 'auto' : 'smooth' }); } catch (e) { t.scrollIntoView(); } }
+  tourPos(); setTimeout(tourPos, 380);
+  var b = el.querySelector('[data-a="tourNext"]'); if (b) try { b.focus({ preventScroll: true }); } catch (e) { }
+  if (UI.prefs.autoVoz) speak(s.t + '. ' + s.d);
+}
+function tourPos() {
+  var tu = UI.tour; if (!tu) return; var el = document.getElementById('tour'); if (!el) return;
+  var spot = el.querySelector('.tr-spot'), card = el.querySelector('.tr-card'); if (!spot || !card) return;
+  var t = tourTarget(tu.steps[tu.i]); var vw = window.innerWidth, vh = window.innerHeight;
+  if (!t) { spot.style.cssText = 'top:50%;left:50%;width:0;height:0'; card.style.cssText = 'top:50%;left:50%;transform:translate(-50%,-50%)'; return; }
+  var r = t.getBoundingClientRect(); var pad = 6;
+  var top = Math.max(4, r.top - pad), left = Math.max(4, r.left - pad), w = Math.min(vw - 8, r.width + pad * 2), h = Math.min(vh - 8, r.height + pad * 2);
+  spot.style.cssText = 'top:' + top + 'px;left:' + left + 'px;width:' + w + 'px;height:' + h + 'px';
+  var cw = Math.min(380, vw - 24); var ch = card.offsetHeight || 220;
+  var cy = r.bottom + 14 + ch < vh ? r.bottom + 14 : (r.top - 14 - ch > 0 ? r.top - 14 - ch : Math.max(12, vh - ch - 12));
+  var cx = Math.min(Math.max(12, r.left + r.width / 2 - cw / 2), vw - cw - 12);
+  card.style.cssText = 'top:' + Math.round(cy) + 'px;left:' + Math.round(cx) + 'px;width:' + cw + 'px';
+}
+ACT.tourNext = function () { var tu = UI.tour; if (!tu) return; if (tu.i >= tu.steps.length - 1) return tourFin(true); tu.i++; tourRender(true); };
+ACT.tourPrev = function () { var tu = UI.tour; if (!tu || tu.i === 0) return; tu.i--; tourRender(true); };
+ACT.tourSkip = function () { tourFin(false); };
+ACT.tourIniciar = function (b) { var id = b.getAttribute('data-v'); UI.overlay = ''; if (id === 'aud' && UI.route !== 'audiencia') { go('audiencia'); setTimeout(function () { tourStart('aud'); }, 400); return; } if (id === 'lab' && (UI.route !== 'equipo' || UI.lab === 'tutorial')) { UI.lab = ''; go('equipo'); setTimeout(function () { tourStart('lab'); }, 400); return; } tourStart(id); };
+function tourFin(completo) {
+  var tu = UI.tour; UI.tour = null; tourRender();
+  if (!tu || ME.role !== 'est') return; var p = prof(); if (!p) return;
+  if (!(p.tuto || {})[tu.id]) send([setP(['tuto', tu.id], now())], [ev('tutorial', tu.id, { completo: completo })]);
+  if (completo) guia('¡Recorrido terminado! Si lo necesitas otra vez, toca «Tutorial» arriba.', 'good');
+  else guia('Puedes ver el tutorial cuando quieras con el botón «Tutorial» de arriba.', '');
+}
+function tourAuto() {
+  if (ME.role !== 'est' || UI.tour || UI.overlay) return; var p = prof(); if (!p || !p.team || !NODO_BY_ID[p.nodo]) return;
+  try { if (navigator.webdriver && !window.__tourTest) return; } catch (e) { }
+  var tu = p.tuto || {};
+  if (UI.route === 'equipo' && !tu.lab && !UI.tourOfLab) { UI.tourOfLab = true; setTimeout(function () { if (!UI.tour && UI.route === 'equipo') tourStart('lab'); }, 900); }
+  var et = aud().etapa;
+  if (UI.route === 'audiencia' && (et === 'instalacion' || et === 'turnos') && !tu.aud && !UI.tourOfAud) { UI.tourOfAud = true; setTimeout(function () { if (!UI.tour && UI.route === 'audiencia') tourStart('aud'); }, 900); }
+}
+
+/* insignia y XP por completar el tutorial */
+INSIGNIAS.unshift({ id: 'tuto', n: 'Guía completada', dim: 'conocer', ic: 'mapa', como: 'Haz el recorrido guiado del laboratorio (botón «Tutorial»).', f: function (c, p) { return !!(p.tuto || {}).lab; } });
+(function () { var xd = xpDe; xpDe = function (p) { var r = xd(p); var t = p.tuto || {}; var add = (t.lab ? 10 : 0) + (t.aud ? 10 : 0); if (add) { r.items.unshift(['Recorridos del tutorial', add]); r.xp += add; var lv = 0; NIVELES.forEach(function (n, i) { if (r.xp >= n.min) lv = i; }); r.lv = lv; r.nivel = NIVELES[lv]; r.sig = NIVELES[lv + 1]; r.falta = r.sig ? r.sig.min - r.xp : 0; r.pct = r.sig ? Math.round((r.xp - NIVELES[lv].min) / (r.sig.min - NIVELES[lv].min) * 100) : 100; } return r; }; })();
+
+/* ---------- Centro de ayuda «Tutorial»: el viaje en 8 estaciones ---------- */
+function mock(kind) {
+  var b = function (t, on) { return '<span class="mk-b' + (on ? ' on' : '') + '">' + t + '</span>'; };
+  if (kind === 'entrar') return '<div class="mk"><span class="mk-l">Tu código personal</span><span class="mk-in">••••••</span>' + b('ENTRAR', true) + '</div>';
+  if (kind === 'perfil') return '<div class="mk mk-row">' + ['Identidad', 'Avatar', 'Rol', 'Equipo y nodo'].map(function (x, i) { return '<span class="mk-st' + (i === 1 ? ' on' : i < 1 ? ' ok' : '') + '">' + (i < 1 ? '✓' : i + 1) + ' ' + x + '</span>'; }).join('') + '</div>';
+  if (kind === 'mision') return '<div class="mk mk-grid">' + MISION_MODS.map(function (m, i) { return '<span class="mk-t' + (i === 0 ? ' on' : '') + '">0' + (i + 1) + ' ' + esc(m.n) + '</span>'; }).join('') + '</div>';
+  if (kind === 'ruta') return '<div class="mk mk-row">' + RUTA.map(function (r, i) { return '<span class="mk-st' + (i < 2 ? ' ok' : i === 2 ? ' on' : '') + '">' + (i < 2 ? '✓' : i + 1) + '</span>'; }).join('<i class="mk-line"></i>') + '</div><div class="mk mk-card"><b>Paso 3 · Clasifica evidencias</b><span>Qué vas a hacer · Cómo · <u>Está listo cuando…</u></span></div>';
+  if (kind === 'mercy') return '<div class="mk mk-row"><span class="mk-chip ok">✓ Conexión clara</span><span class="mk-chip am">△ Dato por revisar</span><span class="mk-chip">? Pregunta</span></div><div class="mk">' + b('¿Qué hago ahora?', true) + b('Escuchar') + '</div>';
+  if (kind === 'aud') return '<div class="mk mk-row">' + IBAR.map(function (x) { return '<span class="mk-ib">' + ic(x.ic, 16) + esc(x.n) + '</span>'; }).join('') + '</div>';
+  if (kind === 'cierre') return '<div class="mk mk-row"><span class="mk-chip ok">Saber conocer</span><span class="mk-chip gold">Saber hacer</span><span class="mk-chip vi">Saber ser</span></div>';
+  if (kind === 'logros') return '<div class="mk mk-row"><span class="mk-lv">Nv 2 · Lupa</span><span class="mk-chip gold">120 XP</span><span class="mk-chip ok">✓ Detective de fuentes</span><span class="mk-chip">○ Conexión clara</span></div>';
+  return '';
+}
+var ESTACIONES = [
+  { id: 'entrar', n: 'Entra con tu código', ic: 'perspectiva', que: 'Escribe el código que te dio tu docente. La app te lleva a tu grupo (11°1, 11°2, 11°3 u 11°4).', como: ['Escribe tu código personal.', 'Toca «Entrar».', 'Si sale un error, revisa el código con tu docente.'], listo: 'Ves tu nombre en la pantalla.', tip: 'Tu código es personal: no lo compartas.' },
+  { id: 'perfil', n: 'Arma tu avatar y elige tu rol', ic: 'equipo', que: 'Confirma tu nombre, arma tu avatar, elige tu rol y tu mesa con el nodo del equipo.', como: ['Revisa que el nombre sea el tuyo.', 'Elige presentación, piel, cabello y accesorio.', 'Elige tu rol y tu mesa; el nodo lo comparte todo el equipo.'], listo: 'Tocaste «Guardar y empezar».', tip: 'Todos los roles valen lo mismo. Puedes cambiar tu avatar en «Mi avatar».', ir: ['go', 'perfil'] },
+  { id: 'mision', n: 'Revisa tu misión', ic: 'mapa', que: 'Cinco módulos cortos: la finalidad, tu rol, el producto final, el material de referencia y un chequeo de 3 preguntas.', como: ['Lee cada módulo o toca «Escuchar».', 'Toca «Entendido. Siguiente».', 'Responde el chequeo final.'], listo: 'Ves «¡Misión activada!».', tip: 'Puedes volver a la misión cuando quieras desde la ruta.', ir: ['paso', 'mision'] },
+  { id: 'ruta', n: 'Haz los 6 pasos del laboratorio', ic: 'evidencia', que: 'Conoce tu nodo, ubica actores, clasifica evidencias, arma argumentos, prepara la herramienta y prepara la audiencia.', como: RUTA.map(function (r, i) { return (i + 1) + '. ' + r.n + ': ' + r.que; }), listo: 'Cada paso muestra ✓ cuando cumples «Está listo cuando…».', tip: 'Ve en orden. Si te equivocas, recibes una pista y no pierdes nada.', ir: ['paso', 'nodo'] },
+  { id: 'mercy', n: 'Pide ayuda a M.E.R.C.Y.', ic: 'pregunta', que: 'M.E.R.C.Y. es una guía virtual: te dice qué sigue y revisa si tu idea tiene prueba y fuente. No decide el caso.', como: ['Toca «¿Qué hago ahora?» si no sabes qué sigue.', 'Mira los avisos: ✓ conexión clara, △ dato por revisar.', 'Toca «Escuchar» para oír cualquier texto.'], listo: 'Sabes cuál es tu siguiente paso.', tip: 'Los colores siempre van con un ícono y un texto.' },
+  { id: 'aud', n: 'Participa en la audiencia', ic: 'turno', que: 'Cada equipo presenta 5 bloques, la Mesa Técnica pregunta y luego hay réplicas. Tú participas con la barra de intervención.', como: ['Mira la cronología para saber en qué momento van.', 'Usa la barra: hablar, preguntar, responder, citar evidencia, pedir aclaración o pasar.', 'Para responder, primero cuenta lo que entendiste.'], listo: 'La docente te dio la palabra o tu intervención está en el hilo.', tip: 'Si prefieres no hablar en público, escribe y M.E.R.C.Y. lee tu texto.', ir: ['go', 'audiencia'] },
+  { id: 'cierre', n: 'Reflexiona y valora a tu equipo', ic: 'propuesta', que: 'Al final escribes tu reflexión en tres partes y valoras cómo trabajó cada compañero.', como: ['Saber conocer: ¿qué aprendiste?', 'Saber hacer: ¿cómo usaste las pruebas?', 'Saber ser: ¿qué voz escuchaste y qué propones?'], listo: 'Ves «¡Guardada!» en tu reflexión.', tip: 'La coevaluación solo la ve tu docente.' },
+  { id: 'logros', n: 'Mira tus logros', ic: 'check', que: 'Tu trabajo suma XP, sube tu nivel y desbloquea insignias. Con tu equipo tienen una misión compartida.', como: ['Toca «Logros y avance» en la ruta.', 'Mira los retos cortos sugeridos.', 'Ayuda a tu equipo: el marco dorado es de todos.'], listo: 'Sabes qué reto hacer ahora.', tip: 'No hay tabla de posiciones: nadie compite contra nadie.', ir: ['paso', 'progreso'] }
+];
+LAB.tutorial = function (p) {
+  var t = p.tuto || {};
+  var head = '<section class="panel tut-hero"><div>' + mercySVG(140, 'escucha') + '</div><div><p class="kicker">Tutorial · paso a paso</p><h1 class="glow">Cómo funciona Hemiciclo Vivo</h1><p class="lead">Tu viaje tiene 8 estaciones. En cada una verás qué haces, cómo se hace y cuándo está listo.</p><div class="row"><button class="btn" data-a="tourIniciar" data-v="lab">' + ic('perspectiva', 18) + 'Recorrido guiado del laboratorio' + (t.lab ? ' ✓' : '') + '</button><button class="btn-ghost" data-a="tourIniciar" data-v="aud">' + ic('turno', 18) + 'Recorrido guiado de la audiencia' + (t.aud ? ' ✓' : '') + '</button><button class="btn-ghost" data-a="imprimirTut">Imprimir guía rápida</button></div></div></section>';
+  var map = '<ol class="tut-map" aria-label="Las 8 estaciones">' + ESTACIONES.map(function (e, i) { return '<li><a href="#est-' + e.id + '" data-a="tutIr" data-v="' + e.id + '"><span>' + (i + 1) + '</span>' + ic(e.ic, 18) + '<b>' + esc(e.n) + '</b></a></li>'; }).join('') + '</ol>';
+  var est = ESTACIONES.map(function (e, i) {
+    return '<article class="panel tut-st" id="est-' + e.id + '"><header><span class="ts-n">' + (i + 1) + '</span>' + ic(e.ic, 24) + '<h2>' + esc(e.n) + '</h2>' + speakBtn(e.n + '. ' + e.que + ' ' + e.como.join(' ') + ' Está listo cuando: ' + e.listo) + '</header><div class="ts-g"><div><p class="ts-que"><b>Qué haces:</b> ' + esc(e.que) + '</p><ol class="como">' + e.como.map(function (c) { return '<li>' + esc(c) + '</li>'; }).join('') + '</ol><p class="ts-ok"><b>✓ Está listo cuando:</b> ' + esc(e.listo) + '</p><p class="ts-tip">💡 ' + esc(e.tip) + '</p>' + (e.ir ? '<button class="btn-ghost sm" data-a="' + e.ir[0] + '" data-v="' + e.ir[1] + '">Ir allí →</button>' : '') + '</div><figure class="ts-fig" aria-label="Así se ve en la app">' + mock(e.id) + '<figcaption>Así se ve en la app</figcaption></figure></div></article>';
+  }).join('');
+  var tools = '<section class="panel">' + hud('Herramientas que te ayudan', 'aclarar') + '<div class="tut-tools"><div><b>' + ic('perspectiva', 18) + ' Modo enfoque</b><span>Deja una sola tarea en pantalla y un recuadro «Ahora haz esto».</span></div><div><b>' + ic('reloj', 18) + ' Bloque de 10 minutos</b><span>Trabaja 10 minutos y luego haz una pausa activa. Es opcional.</span></div><div><b>' + ic('sonido', 18) + ' Escuchar y subtítulos</b><span>Todos los textos importantes se pueden oír. Los subtítulos se activan en Accesibilidad.</span></div><div><b>' + ic('subt', 18) + ' Accesibilidad</b><span>Letra más grande, alto contraste, menos animaciones y ocultar el reloj.</span></div><div><b>' + ic('evidencia', 18) + ' Glosario</b><span>Explica las palabras difíciles del caso.</span></div></div></section>';
+  var faq = [['¿Qué pasa si me equivoco?', 'Nada grave: recibes una pista y lo intentas otra vez. El XP nunca se pierde.'], ['¿Se guarda mi trabajo?', 'Sí. Lo que guardas con los botones queda en la sala de tu grupo. Si cierras la app, entra con tu código y sigue donde ibas.'], ['¿Quién ve lo que hago?', 'Tu equipo ve el trabajo del equipo. Tu docente ve todo. En la audiencia, el grupo ve lo que se presenta.'], ['¿Y si no entiendo una palabra?', 'Abre el Glosario o toca «Escuchar». También puedes preguntarle a tu docente.'], ['¿Tengo que hablar en público?', 'No es obligatorio: puedes participar por escrito y M.E.R.C.Y. lee tu texto.'], ['¿M.E.R.C.Y. decide quién tiene la razón?', 'No. Orienta y pregunta. Las conclusiones son de las personas que deliberan con pruebas.']];
+  var faqs = '<section class="panel">' + hud('Preguntas frecuentes', 'pregunta') + faq.map(function (f) { return '<details class="faq"><summary>' + esc(f[0]) + '</summary><p>' + esc(f[1]) + '</p></details>'; }).join('') + '</section>';
+  return '<div class="tutorial">' + head + map + est + tools + faqs + '</div>';
+};
+ACT.tutorial = function () { if (ME.role !== 'est') return; UI.lab = 'tutorial'; go('equipo'); window.scrollTo(0, 0); };
+ACT.tutIr = function (b) { var el = document.getElementById('est-' + b.getAttribute('data-v')); if (el) el.scrollIntoView({ block: 'start', behavior: UI.prefs.rm ? 'auto' : 'smooth' }); };
+ACT.imprimirTut = function () { document.body.classList.add('print-tut'); try { window.print(); } catch (e) { } setTimeout(function () { document.body.classList.remove('print-tut'); }, 800); };
+(function () {
+  var ve = VIEWS.equipo;
+  VIEWS.equipo = function () {
+    var p = prof();
+    if (UI.lab === 'tutorial' && p && p.team && NODO_BY_ID[p.nodo]) return topbar() + '<main class="wrap lab tut"><button class="btn-ghost sm tut-back" data-a="paso" data-v="' + pasoActual(p) + '">← Volver al laboratorio</button>' + LAB.tutorial(p) + '</main>';
+    return ve.apply(this, arguments);
+  };
+  var tb = topbar;
+  topbar = function () { var h = tb.apply(this, arguments); if (ME.role !== 'est' || !prof()) return h; return h.replace('<div class="top-r">', '<div class="top-r"><button class="btn-ghost sm tutbtn' + (UI.lab === 'tutorial' ? ' on' : '') + '" data-a="tutorial">' + ic('pregunta', 16) + 'Tutorial</button>'); };
 })();
 
 var ACT = ACT || {};
