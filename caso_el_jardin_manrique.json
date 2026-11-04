@@ -1,0 +1,1654 @@
+{
+  "formato": "hemiciclo-vivo/caso",
+  "version": 1,
+  "id": "el-jardin-manrique-2026",
+  "meta": {
+    "titulo": "Desalojo en el barrio El Jardín, Manrique (Medellín)",
+    "corto": "El Jardín (Manrique)",
+    "lugar": "Medellín",
+    "anio": "2026",
+    "kicker": "Simulacro de Audiencia Pública · Caso El Jardín, Manrique, Medellín · Grado 11",
+    "heroTitulo": "Cada nodo tiene algo que decir sobre la ladera",
+    "resumen": "Desalojo de familias en el barrio El Jardín, comuna 3 Manrique, Medellín. En abril de 2026 una creciente dejó un niño fallecido; luego la Alcaldía evacuó viviendas y hubo un proceso judicial. El material docente habla de 68 familias y las fuentes públicas de 73 viviendas: es una cifra por verificar. Las versiones no coinciden.",
+    "autoria": "Plan de Fortalecimiento de Ciencias Sociales, grado 11 · fuentes consultadas el 28/10/2026"
+  },
+  "fuentes": {
+    "alc_abr": {
+      "t": "Alcaldía de Medellín, abril de 2026",
+      "u": "https://www.medellin.gov.co/es/sala-de-prensa/noticias/alcaldia-de-medellin-sigue-atendiendo-la-emergencia-por-lluvias-en-manrique-que-dejo-un-nino-fallecido-28-casas-afectadas-y-11-familias-evacuadas-2/"
+    },
+    "radiohoy": {
+      "t": "Radio Hoy, 16 de septiembre de 2026",
+      "u": "https://www.radiohoy.com/2026/09/16/juez-ordeno-frenar-desalojos-y-demoliciones-en-el-jardin-manrique/817729/"
+    },
+    "infobae": {
+      "t": "Infobae, 9 de septiembre de 2026",
+      "u": "https://www.infobae.com/colombia/2026/09/09/en-video-quedo-la-evacuacion-preventiva-de-73-viviendas-en-manrique-medellin-que-termino-en-disturbios-tras-intervencion-de-la-undmo/"
+    },
+    "col_fallo": {
+      "t": "El Colombiano, octubre de 2026",
+      "u": "https://www.elcolombiano.com/medellin/juez-avala-demolicion-21-casas-zona-riesgo-manrique-alcaldia-DF41773716"
+    },
+    "col_drama": {
+      "t": "El Colombiano (vía Yahoo Noticias), septiembre de 2026",
+      "u": "https://es-us.noticias.yahoo.com/drama-73-familias-desalojo-casas-015337205.html"
+    },
+    "col_20": {
+      "t": "El Colombiano (vía Yahoo Noticias), octubre de 2026",
+      "u": "https://es-us.noticias.yahoo.com/desalojo-manrique-medell%C3%ADn-tumbaron-20-005901865.html"
+    },
+    "eltiempo": {
+      "t": "El Tiempo, septiembre de 2026",
+      "u": "https://www.eltiempo.com/colombia/medellin/asi-avanza-el-polemico-desalojo-en-el-barrio-manrique-entre-el-drama-humanitario-y-la-carrera-por-evitar-que-se-repita-una-tragedia-3586152"
+    },
+    "ipc": {
+      "t": "Agencia de Prensa IPC, octubre de 2026",
+      "u": "https://ipc.org.co/agenciadeprensa/desalojos-en-medellin-derrumbar-el-presente-sin-garantizar-el-manana/"
+    },
+    "llave": {
+      "t": "Llave Informativa, abril de 2026",
+      "u": "https://www.llaveinformativa.com/concejal-pide-celeridad-en-obras-de-la-quebrada-la-maquina-en-manrique/"
+    },
+    "alc_obras": {
+      "t": "Alcaldía de Medellín, 2026",
+      "u": "https://www.medellin.gov.co/es/sala-de-prensa/noticias/en-tres-frentes-avanzan-las-obras-de-recuperacion-hidraulica-de-la-quebrada-la-mansion-o-la-maquina-en-el-nororiente-de-medellin/"
+    },
+    "voz": {
+      "t": "Semanario Voz, octubre de 2026",
+      "u": "https://semanariovoz.com/la-mano-de-la-alcaldia-fue-peor-que-el-terremoto/"
+    },
+    "inflacion": {
+      "t": "El Colombiano con datos del DANE, 2026",
+      "u": "https://www.elcolombiano.com/negocios/inflacion-medellin-anual-2026-alimentos-precios-OD42052158"
+    },
+    "moradores": {
+      "t": "Alcaldía de Medellín: Política de Protección a Moradores",
+      "u": "https://www.medellin.gov.co/es/departamento-administrativo-de-planeacion/politica-publica-de-proteccion-a-moradores/"
+    },
+    "ley1757": {
+      "t": "Ley Estatutaria 1757 de 2015",
+      "u": "https://normas.cra.gov.co/gestor/docs/ley_1757_2015.htm"
+    },
+    "ley472": {
+      "t": "Ley 472 de 1998",
+      "u": "https://normas.cra.gov.co/Gestor/Docs/ley_0472_1998.htm"
+    },
+    "ley1336": {
+      "t": "Ley 1336 de 2009",
+      "u": "https://normograma.icfes.gov.co/docs/pdf/ley_1336_2009.pdf"
+    },
+    "icbf": {
+      "t": "ICBF: campañas contra la ESCNNA",
+      "u": "https://www.icbf.gov.co/node/219905"
+    },
+    "t688": {
+      "t": "Corte Constitucional, Sentencia T-688 de 2015",
+      "u": "https://www.corteconstitucional.gov.co/relatoria/2015/T-688-15.htm"
+    },
+    "ley1561": {
+      "t": "Ley 1561 de 2012",
+      "u": "https://www.icbf.gov.co/cargues/avance/compilacion/docs/ley_1561_2012.htm"
+    },
+    "dec003": {
+      "t": "Noticias RCN, 2026 (reforma al Decreto 003 de 2021)",
+      "u": "https://www.noticiasrcn.com/colombia/presidente-de-la-espriella-modifica-protocolo-del-uso-de-la-fuerza-y-la-gestion-de-protestas-en-colombia-1071203"
+    },
+    "turismo": {
+      "t": "Alcaldía de Medellín: Plan Distrital de Seguridad Turística",
+      "u": "https://www.medellin.gov.co/es/?p=534133"
+    },
+    "t323": {
+      "t": "Corte Constitucional, Sentencia T-323 de 2024",
+      "u": "https://www.corteconstitucional.gov.co/relatoria/2024/t-323-24.htm"
+    },
+    "cp": {
+      "t": "Constitución Política de Colombia de 1991",
+      "u": "http://www.secretariasenado.gov.co/senado/basedoc/constitucion_politica_1991.html"
+    },
+    "plan": {
+      "t": "Plan de Fortalecimiento (docente), con base en Revista Raya",
+      "u": "https://revistaraya.com/"
+    },
+    "ley1755": {
+      "t": "Ley 1755 de 2015 (derecho de petición)",
+      "u": "https://normas.cra.gov.co/gestor/docs/ley_1755_2015.htm"
+    },
+    "dec2591": {
+      "t": "Decreto 2591 de 1991 (acción de tutela)",
+      "u": "https://normativa.colpensiones.gov.co/compilacion/docs/decreto_2591_1991.htm"
+    },
+    "ley1523": {
+      "t": "Ley 1523 de 2012 (gestión del riesgo de desastres)",
+      "u": "https://normativa.colpensiones.gov.co/compilacion/docs/ley_1523_2012.htm"
+    },
+    "ley850": {
+      "t": "Ley 850 de 2003 (veedurías ciudadanas)",
+      "u": "https://normas.cra.gov.co/gestor/docs/ley_0850_2003.htm"
+    },
+    "pot48": {
+      "t": "Alcaldía de Medellín: POT, Acuerdo 48 de 2014 (catálogo GeoMedellín)",
+      "u": "https://medellin.gov.co/giscatalogacion/srv/api/records/20e8dddd-992b-4226-b134-f1b88b5a6031"
+    }
+  },
+  "tarjetas": [
+    {
+      "id": "B01",
+      "nodos": "base",
+      "txt": "El 3 de abril de 2026 la creciente de las quebradas La Mansión y La Máquina, en Manrique, dejó un niño fallecido y viviendas afectadas.",
+      "tipos": [
+        "hecho"
+      ],
+      "cols": [
+        "oficial",
+        "territorial"
+      ],
+      "est": "verificada",
+      "src": "alc_abr",
+      "pista": "Lo reporta la Alcaldía y también la prensa. ¿Se puede comprobar?"
+    },
+    {
+      "id": "B02",
+      "nodos": "base",
+      "txt": "Tras la emergencia, la Alcaldía y el DAGRD identificaron 73 viviendas en zona de alto riesgo por avenida torrencial y ordenaron su evacuación.",
+      "tipos": [
+        "hecho",
+        "oficial"
+      ],
+      "cols": [
+        "oficial"
+      ],
+      "est": "verificada",
+      "src": "radiohoy",
+      "pista": "¿Quién tomó la decisión y quién la informa?"
+    },
+    {
+      "id": "B03",
+      "nodos": "base",
+      "txt": "La Alcaldía describió el operativo como una evacuación humanitaria y preventiva.",
+      "tipos": [
+        "oficial"
+      ],
+      "cols": [
+        "oficial"
+      ],
+      "est": "verificada",
+      "src": "infobae",
+      "pista": "Es la forma en que la entidad nombra lo que hace."
+    },
+    {
+      "id": "B04",
+      "nodos": "base",
+      "txt": "El 8 de septiembre de 2026 el inicio de la evacuación, con presencia policial, generó tensión y disturbios.",
+      "tipos": [
+        "hecho",
+        "periodistica"
+      ],
+      "cols": [
+        "territorial"
+      ],
+      "est": "verificada",
+      "src": "infobae",
+      "pista": "Varios medios lo registraron con video."
+    },
+    {
+      "id": "B05",
+      "nodos": "base",
+      "txt": "Según la prensa, la comunidad había propuesto alternativas al desalojo, como obras para intervenir el cauce de la quebrada.",
+      "tipos": [
+        "periodistica",
+        "testimonio"
+      ],
+      "cols": [
+        "territorial"
+      ],
+      "est": "verificada",
+      "src": "infobae",
+      "pista": "¿Quién lo dice y a través de qué medio?"
+    },
+    {
+      "id": "B06",
+      "nodos": "base",
+      "txt": "Familias del sector presentaron una tutela: dijeron que no tuvieron acceso completo al informe técnico, que no hubo caracterización previa y que no se garantizó una alternativa de vivienda.",
+      "tipos": [
+        "periodistica",
+        "testimonio"
+      ],
+      "cols": [
+        "territorial"
+      ],
+      "est": "verificada",
+      "src": "radiohoy",
+      "pista": "Son los argumentos de una de las partes."
+    },
+    {
+      "id": "B07",
+      "nodos": "base",
+      "txt": "Un juzgado de Medellín suspendió de forma provisional los desalojos y las demoliciones mientras estudiaba la tutela.",
+      "tipos": [
+        "norma"
+      ],
+      "cols": [
+        "marco"
+      ],
+      "est": "verificada",
+      "src": "radiohoy",
+      "pista": "Es una decisión de un juez."
+    },
+    {
+      "id": "B08",
+      "nodos": "base",
+      "txt": "El fallo de tutela concluyó que las entidades no tuvieron una conducta omisiva en la atención a las familias; la demolición de 21 inmuebles se reanudó desde el 30 de septiembre.",
+      "tipos": [
+        "norma",
+        "hecho"
+      ],
+      "cols": [
+        "marco"
+      ],
+      "est": "verificada",
+      "src": "col_fallo",
+      "pista": "Es la decisión de fondo de un juez de primera instancia."
+    },
+    {
+      "id": "B09",
+      "nodos": "base",
+      "txt": "Durante la presión mediática, el subsidio temporal de arriendo pasó de 620.000 a 900.000 pesos mensuales.",
+      "tipos": [
+        "hecho",
+        "periodistica"
+      ],
+      "cols": [
+        "territorial",
+        "oficial"
+      ],
+      "est": "verificada",
+      "src": "ipc",
+      "pista": "Es una cifra; ¿quién la reporta?"
+    },
+    {
+      "id": "B10",
+      "nodos": "base",
+      "txt": "En abril de 2026 un concejal afirmó que estaban previstos 16.900 millones de pesos para la quebrada La Máquina y que las obras no habían iniciado.",
+      "tipos": [
+        "periodistica",
+        "testimonio"
+      ],
+      "cols": [
+        "territorial"
+      ],
+      "est": "disputa",
+      "src": "llave",
+      "pista": "Es la afirmación de un político citada por un medio. Compárala con la versión de la Alcaldía."
+    },
+    {
+      "id": "B11",
+      "nodos": "base",
+      "txt": "La Alcaldía informa avances en tres frentes de obras hidráulicas en la quebrada La Mansión o La Máquina, dentro del programa Mi Río, Mis Quebradas.",
+      "tipos": [
+        "oficial"
+      ],
+      "cols": [
+        "oficial"
+      ],
+      "est": "disputa",
+      "src": "alc_obras",
+      "pista": "Contrasta con la afirmación del concejal."
+    },
+    {
+      "id": "B12",
+      "nodos": "base",
+      "txt": "Según un medio, el terreno del barrio tiene dos dueñas registrales; una de ellas, empresaria de la construcción, presentó una tutela para frenar los desalojos y las demoliciones.",
+      "tipos": [
+        "periodistica"
+      ],
+      "cols": [
+        "territorial"
+      ],
+      "est": "disputa",
+      "src": "voz",
+      "pista": "Lo reporta un solo medio. ¿Qué haría falta para confirmarlo?"
+    },
+    {
+      "id": "B13",
+      "nodos": "base",
+      "txt": "El material docente menciona un censo de 68 familias afectadas. Las fuentes públicas consultadas hablan de 73 viviendas evacuadas.",
+      "tipos": [
+        "hecho"
+      ],
+      "cols": [
+        "territorial"
+      ],
+      "est": "plan",
+      "src": "plan",
+      "pista": "Es un dato del material que no coincide con otras fuentes. ¿Ya está comprobado?"
+    },
+    {
+      "id": "N1a",
+      "nodos": [
+        1
+      ],
+      "txt": "Testimonio: una mujer desplazada hace 25 años por la violencia paramilitar en el sur de Bolívar levantó su casa en Manrique y volvió a perderla con la demolición.",
+      "tipos": [
+        "testimonio"
+      ],
+      "cols": [
+        "territorial"
+      ],
+      "est": "plan",
+      "src": "plan",
+      "pista": "Es el relato de una persona afectada."
+    },
+    {
+      "id": "N1b",
+      "nodos": [
+        1
+      ],
+      "txt": "Testimonio: una mujer gestante reportó haber perdido su embarazo después del uso de gases y perdigones de goma durante el operativo. El plan docente y la prensa no coinciden en su nombre.",
+      "tipos": [
+        "testimonio"
+      ],
+      "cols": [
+        "territorial"
+      ],
+      "est": "plan",
+      "src": "plan",
+      "pista": "Es un relato. Trátalo con cuidado y verifícalo.",
+      "sensible": true
+    },
+    {
+      "id": "N1c",
+      "nodos": [
+        1
+      ],
+      "txt": "El plan docente afirma que en el operativo participaron 100 uniformados armados.",
+      "tipos": [
+        "periodistica"
+      ],
+      "cols": [
+        "territorial"
+      ],
+      "est": "sinverificar",
+      "src": "plan",
+      "pista": "Es una cifra que no aparece en las fuentes revisadas."
+    },
+    {
+      "id": "N1d",
+      "nodos": [
+        1
+      ],
+      "txt": "El Decreto 003 de 2021 regula el uso de la fuerza frente a la protesta: presume el carácter pacífico de las manifestaciones y prohíbe armas de fuego al personal uniformado que intervenga. La reforma de 2026 conservó esas garantías.",
+      "tipos": [
+        "norma"
+      ],
+      "cols": [
+        "marco"
+      ],
+      "est": "verificada",
+      "src": "dec003",
+      "pista": "Es un decreto."
+    },
+    {
+      "id": "N1e",
+      "nodos": [
+        1
+      ],
+      "txt": "El DIH protege a la población civil en un conflicto armado. Un operativo policial urbano se analiza con los estándares de derechos humanos sobre el uso de la fuerza.",
+      "tipos": [
+        "norma"
+      ],
+      "cols": [
+        "marco"
+      ],
+      "est": "concepto",
+      "src": "cp",
+      "pista": "Es una distinción del derecho."
+    },
+    {
+      "id": "N1f",
+      "nodos": [
+        1
+      ],
+      "txt": "Hipótesis: la demolición revictimiza a personas que ya habían sido desplazadas por el conflicto armado.",
+      "tipos": [
+        "interpretacion"
+      ],
+      "cols": [
+        "territorial"
+      ],
+      "est": "hipotesis",
+      "src": "plan",
+      "pista": "Es una explicación para poner a prueba."
+    },
+    {
+      "id": "N2a",
+      "nodos": [
+        2
+      ],
+      "txt": "El plan docente señala titulares y mensajes en redes que llamaron «invasores» o «terroristas» a pobladores que protestaban con cacerolas.",
+      "tipos": [
+        "periodistica"
+      ],
+      "cols": [
+        "territorial"
+      ],
+      "est": "plan",
+      "src": "plan",
+      "pista": "¿Dónde están esos titulares? Hay que encontrarlos."
+    },
+    {
+      "id": "N2b",
+      "nodos": [
+        2
+      ],
+      "txt": "Una declaración oficial citada en prensa acusó a algunas personas de instrumentalizar la situación con fines políticos y criminales para impedir la evacuación.",
+      "tipos": [
+        "oficial"
+      ],
+      "cols": [
+        "oficial"
+      ],
+      "est": "verificada",
+      "src": "col_drama",
+      "pista": "Es lo que dice la administración."
+    },
+    {
+      "id": "N2c",
+      "nodos": [
+        2
+      ],
+      "txt": "Un mismo diario presentó el caso entre el drama humanitario de las familias y la urgencia de evitar otra tragedia.",
+      "tipos": [
+        "periodistica"
+      ],
+      "cols": [
+        "territorial"
+      ],
+      "est": "verificada",
+      "src": "eltiempo",
+      "pista": "Es el encuadre de un medio."
+    },
+    {
+      "id": "N2d",
+      "nodos": [
+        2
+      ],
+      "txt": "El derecho a la rectificación (art. 20 C.P.) exige pedirla primero al medio, con pruebas, antes de acudir a la tutela.",
+      "tipos": [
+        "norma"
+      ],
+      "cols": [
+        "marco"
+      ],
+      "est": "verificada",
+      "src": "t688",
+      "pista": "Es una regla de la Corte Constitucional."
+    },
+    {
+      "id": "N2e",
+      "nodos": [
+        2
+      ],
+      "txt": "Hipótesis: el lenguaje que estigmatiza a los pobladores hace más fácil justificar los desalojos ante la opinión pública.",
+      "tipos": [
+        "interpretacion"
+      ],
+      "cols": [
+        "territorial"
+      ],
+      "est": "hipotesis",
+      "src": "plan",
+      "pista": "Es una explicación para poner a prueba."
+    },
+    {
+      "id": "N3a",
+      "nodos": [
+        3
+      ],
+      "txt": "El plan docente afirma que el 63 % del suelo de Medellín está en posesión sin título formal.",
+      "tipos": [
+        "periodistica",
+        "interpretacion"
+      ],
+      "cols": [
+        "territorial"
+      ],
+      "est": "sinverificar",
+      "src": "plan",
+      "pista": "No se encontró la fuente de esta cifra."
+    },
+    {
+      "id": "N3b",
+      "nodos": [
+        3
+      ],
+      "txt": "Según el plan docente, a poseedores sin título se les cobra impuesto predial por las mejoras («doble tributación»).",
+      "tipos": [
+        "periodistica"
+      ],
+      "cols": [
+        "territorial"
+      ],
+      "est": "sinverificar",
+      "src": "plan",
+      "pista": "¿Qué documento lo demostraría?"
+    },
+    {
+      "id": "N3c",
+      "nodos": [
+        3
+      ],
+      "txt": "La Ley 1561 de 2012 permite titular la posesión por un proceso verbal especial ante el juez civil municipal, pero no procede en zonas declaradas de alto riesgo no mitigable.",
+      "tipos": [
+        "norma"
+      ],
+      "cols": [
+        "marco"
+      ],
+      "est": "verificada",
+      "src": "ley1561",
+      "pista": "Es una ley."
+    },
+    {
+      "id": "N3d",
+      "nodos": [
+        3
+      ],
+      "txt": "La Constitución reconoce el derecho a la vivienda digna (art. 51) y establece que la propiedad tiene una función social y ecológica (art. 58).",
+      "tipos": [
+        "norma"
+      ],
+      "cols": [
+        "marco"
+      ],
+      "est": "verificada",
+      "src": "cp",
+      "pista": "Son artículos de la Constitución."
+    },
+    {
+      "id": "N3e",
+      "nodos": [
+        3
+      ],
+      "txt": "Según el Isvimed, 42 de las familias desalojadas ya tenían una vivienda identificada para arriendo; las demás debían completar documentos.",
+      "tipos": [
+        "oficial"
+      ],
+      "cols": [
+        "oficial"
+      ],
+      "est": "verificada",
+      "src": "col_20",
+      "pista": "Lo informa una entidad pública."
+    },
+    {
+      "id": "N3f",
+      "nodos": [
+        3
+      ],
+      "txt": "Hipótesis: la especulación inmobiliaria presiona la salida de los pobladores de ladera.",
+      "tipos": [
+        "interpretacion"
+      ],
+      "cols": [
+        "territorial"
+      ],
+      "est": "hipotesis",
+      "src": "plan",
+      "pista": "Es una explicación para poner a prueba."
+    },
+    {
+      "id": "N4a",
+      "nodos": [
+        4
+      ],
+      "txt": "La Ley 472 de 1998 reconoce como derecho colectivo la seguridad y la prevención de desastres previsibles técnicamente; se protege con la acción popular.",
+      "tipos": [
+        "norma"
+      ],
+      "cols": [
+        "marco"
+      ],
+      "est": "verificada",
+      "src": "ley472",
+      "pista": "Es una ley."
+    },
+    {
+      "id": "N4b",
+      "nodos": [
+        4
+      ],
+      "txt": "La Constitución reconoce el derecho de todas las personas a gozar de un ambiente sano (art. 79).",
+      "tipos": [
+        "norma"
+      ],
+      "cols": [
+        "marco"
+      ],
+      "est": "verificada",
+      "src": "cp",
+      "pista": "Es un artículo de la Constitución."
+    },
+    {
+      "id": "N4c",
+      "nodos": [
+        4
+      ],
+      "txt": "La Secretaría de Medio Ambiente señaló los residuos voluminosos arrojados a los canales como un factor que detona el riesgo en la quebrada.",
+      "tipos": [
+        "oficial"
+      ],
+      "cols": [
+        "oficial"
+      ],
+      "est": "verificada",
+      "src": "alc_obras",
+      "pista": "Es la explicación de una entidad pública."
+    },
+    {
+      "id": "N4d",
+      "nodos": [
+        4
+      ],
+      "txt": "El alcalde encargado dijo que se planea una intervención integral para evitar que estructuras criminales vuelvan a ocupar la franja de riesgo.",
+      "tipos": [
+        "oficial"
+      ],
+      "cols": [
+        "oficial"
+      ],
+      "est": "verificada",
+      "src": "col_20",
+      "pista": "Es lo que dice la administración sobre el futuro del terreno."
+    },
+    {
+      "id": "N4e",
+      "nodos": [
+        4
+      ],
+      "txt": "El plan docente afirma que en los terrenos desalojados se proyectan ecoparques turísticos.",
+      "tipos": [
+        "periodistica"
+      ],
+      "cols": [
+        "territorial"
+      ],
+      "est": "sinverificar",
+      "src": "plan",
+      "pista": "No se encontró un documento que lo confirme."
+    },
+    {
+      "id": "N4f",
+      "nodos": [
+        4
+      ],
+      "txt": "Hipótesis: el argumento del riesgo se usa para despejar el terreno en lugar de mitigar el riesgo con obras.",
+      "tipos": [
+        "interpretacion"
+      ],
+      "cols": [
+        "territorial"
+      ],
+      "est": "hipotesis",
+      "src": "plan",
+      "pista": "Es una explicación para poner a prueba con B10 y B11."
+    },
+    {
+      "id": "N5a",
+      "nodos": [
+        5
+      ],
+      "txt": "Según el plan docente, moradores expresaron que sienten que la ciudad ya no les pertenece.",
+      "tipos": [
+        "testimonio"
+      ],
+      "cols": [
+        "territorial"
+      ],
+      "est": "plan",
+      "src": "plan",
+      "pista": "Es lo que dicen personas afectadas."
+    },
+    {
+      "id": "N5b",
+      "nodos": [
+        5
+      ],
+      "txt": "La Política Pública de Protección a Moradores (Acuerdo 145 de 2019) actúa en mejoramiento de barrios, obra pública, obras de gestión del riesgo y renovación urbana.",
+      "tipos": [
+        "norma"
+      ],
+      "cols": [
+        "marco"
+      ],
+      "est": "verificada",
+      "src": "moradores",
+      "pista": "Es un acuerdo del Concejo de Medellín."
+    },
+    {
+      "id": "N5c",
+      "nodos": [
+        5
+      ],
+      "txt": "Para presentar una iniciativa popular normativa ante una entidad territorial se necesita el apoyo de al menos el 10 % del censo electoral (Ley 1757 de 2015).",
+      "tipos": [
+        "norma"
+      ],
+      "cols": [
+        "marco"
+      ],
+      "est": "verificada",
+      "src": "ley1757",
+      "pista": "Es una ley estatutaria."
+    },
+    {
+      "id": "N5d",
+      "nodos": [
+        5
+      ],
+      "txt": "El plan docente menciona la expulsión de venteros tradicionales del Parque Berrío para construir centros comerciales.",
+      "tipos": [
+        "periodistica"
+      ],
+      "cols": [
+        "territorial"
+      ],
+      "est": "sinverificar",
+      "src": "plan",
+      "pista": "¿Qué fuente lo confirmaría?"
+    },
+    {
+      "id": "N5e",
+      "nodos": [
+        5
+      ],
+      "txt": "Hipótesis: el desalojo rompe lazos comunitarios y economías populares construidos durante décadas.",
+      "tipos": [
+        "interpretacion"
+      ],
+      "cols": [
+        "territorial"
+      ],
+      "est": "hipotesis",
+      "src": "plan",
+      "pista": "Es una explicación para poner a prueba."
+    },
+    {
+      "id": "N6a",
+      "nodos": [
+        6
+      ],
+      "txt": "En agosto de 2026 la inflación anual del Valle de Aburrá fue de 7,07 %, por encima del 6,24 % nacional. Es inflación general, no de la canasta básica.",
+      "tipos": [
+        "hecho"
+      ],
+      "cols": [
+        "territorial",
+        "oficial"
+      ],
+      "est": "verificada",
+      "src": "inflacion",
+      "pista": "Es un dato estadístico del DANE."
+    },
+    {
+      "id": "N6b",
+      "nodos": [
+        6
+      ],
+      "txt": "El plan docente relaciona el turismo transnacional desregulado con la subida de arriendos y con redes de explotación sexual de niñas, niños y adolescentes.",
+      "tipos": [
+        "interpretacion"
+      ],
+      "cols": [
+        "territorial"
+      ],
+      "est": "hipotesis",
+      "src": "plan",
+      "pista": "Es una relación causal que hay que sustentar."
+    },
+    {
+      "id": "N6c",
+      "nodos": [
+        6
+      ],
+      "txt": "La Ley 1336 de 2009 refuerza la lucha contra la explotación sexual comercial y el turismo sexual con niñas, niños y adolescentes, y exige códigos de conducta a prestadores turísticos.",
+      "tipos": [
+        "norma"
+      ],
+      "cols": [
+        "marco"
+      ],
+      "est": "verificada",
+      "src": "ley1336",
+      "pista": "Es una ley."
+    },
+    {
+      "id": "N6d",
+      "nodos": [
+        6
+      ],
+      "txt": "La Alcaldía presentó el Plan Distrital de Seguridad Turística 2026-2030, que incluye la prevención de la ESCNNA.",
+      "tipos": [
+        "oficial"
+      ],
+      "cols": [
+        "oficial"
+      ],
+      "est": "verificada",
+      "src": "turismo",
+      "pista": "Es una política de la administración."
+    },
+    {
+      "id": "N6e",
+      "nodos": [
+        6
+      ],
+      "txt": "Rutas de atención: Línea 141 del ICBF (24 horas), 122 de la Fiscalía y 123 de la Policía.",
+      "tipos": [
+        "hecho",
+        "norma"
+      ],
+      "cols": [
+        "marco",
+        "oficial"
+      ],
+      "est": "verificada",
+      "src": "icbf",
+      "pista": "Son canales institucionales."
+    },
+    {
+      "id": "N7a",
+      "nodos": [
+        7
+      ],
+      "txt": "Según el plan docente, la comunidad respondió con cacerolazos, denuncias en medios independientes y la búsqueda de amparo judicial.",
+      "tipos": [
+        "testimonio",
+        "periodistica"
+      ],
+      "cols": [
+        "territorial"
+      ],
+      "est": "plan",
+      "src": "plan",
+      "pista": "Describe acciones de la comunidad."
+    },
+    {
+      "id": "N7b",
+      "nodos": [
+        7
+      ],
+      "txt": "Una lideresa relató que, después de una tutela presentada por la dueña del lote, les reconectaron servicios públicos que les habían retirado.",
+      "tipos": [
+        "testimonio"
+      ],
+      "cols": [
+        "territorial"
+      ],
+      "est": "disputa",
+      "src": "voz",
+      "pista": "Es un relato publicado por un solo medio."
+    },
+    {
+      "id": "N7c",
+      "nodos": [
+        7
+      ],
+      "txt": "La acción de tutela (art. 86 C.P.) protege de forma inmediata los derechos fundamentales; el derecho de petición está en el art. 23 C.P.",
+      "tipos": [
+        "norma"
+      ],
+      "cols": [
+        "marco"
+      ],
+      "est": "verificada",
+      "src": "cp",
+      "pista": "Son artículos de la Constitución."
+    },
+    {
+      "id": "N7d",
+      "nodos": [
+        7
+      ],
+      "txt": "Hipótesis: la memoria de las luchas comunitarias se convierte en herramienta jurídica cuando se documenta y se organiza.",
+      "tipos": [
+        "interpretacion"
+      ],
+      "cols": [
+        "territorial"
+      ],
+      "est": "hipotesis",
+      "src": "plan",
+      "pista": "Es una explicación para poner a prueba."
+    }
+  ],
+  "nodos": [
+    {
+      "id": 1,
+      "n": "El Conflicto Armado, Memoria Histórica y DIH",
+      "c": "n1",
+      "pregunta": "¿Cómo proteger a la población civil no combatiente y garantizar la no repetición en las laderas vulnerables de Medellín?",
+      "conceptos": [
+        "Población civil",
+        "Desplazamiento forzado",
+        "Revictimización",
+        "No repetición",
+        "Uso de la fuerza",
+        "DIH y derechos humanos"
+      ],
+      "actores": [
+        "Familias desplazadas que llegaron a Manrique",
+        "Fuerza pública",
+        "Alcaldía de Medellín",
+        "Personería de Medellín",
+        "Víctimas del conflicto"
+      ],
+      "relacion": "Algunas familias de El Jardín llegaron desplazadas por el conflicto armado. El nodo analiza si el desalojo repite el daño y cómo se usó la fuerza en el operativo.",
+      "causas": [
+        "Desplazamiento forzado previo",
+        "Operativo con presencia policial",
+        "Uso de gases y perdigones",
+        "Falta de garantías previas",
+        "Pérdida de la vivienda"
+      ],
+      "sensible": true,
+      "herr": {
+        "n": "Queja y solicitud de acompañamiento ante la Personería de Medellín",
+        "alt": [
+          "Propuesta de protocolo comunitario de verificación de operativos",
+          "Solicitud de atención a víctimas del conflicto revictimizadas"
+        ],
+        "busca": {
+          "ops": [
+            "Pedir que el Ministerio Público vigile el respeto a los derechos durante los operativos y acompañe a las familias",
+            "Conseguir una indemnización inmediata",
+            "Castigar a los policías"
+          ],
+          "ok": 0
+        },
+        "ante": {
+          "ops": [
+            "Personería de Medellín",
+            "ICBF",
+            "Un medio de comunicación",
+            "Concejo de Medellín"
+          ],
+          "ok": 0
+        },
+        "req": [
+          "Hechos con fecha y lugar",
+          "Derechos posiblemente afectados",
+          "Pruebas o testimonios",
+          "Solicitud concreta",
+          "Datos de contacto del peticionario (en la simulación: ficticios)"
+        ],
+        "nota": "El plan docente propone «medidas cautelares ante Personería e ICBF», pero esas entidades no las dictan. Las medidas provisionales las decide un juez dentro de una tutela. El DIH se aplica a la historia de desplazamiento; el operativo se analiza con el Decreto 003 de 2021.",
+        "src": "dec003"
+      },
+      "criterios": [
+        "Distingue DIH de las normas sobre uso de la fuerza",
+        "Usa los testimonios con cuidado y sin detalles innecesarios",
+        "Propone una salida no violenta"
+      ],
+      "mesa": [
+        "¿Por qué el DIH explica la historia de desplazamiento pero no el operativo policial?",
+        "¿Qué prueba sostiene el testimonio que usan y cómo la verificarían?",
+        "¿Qué puede hacer realmente la Personería y qué no?"
+      ]
+    },
+    {
+      "id": 2,
+      "n": "Medios de Comunicación, censura y ciberactivismo",
+      "c": "n2",
+      "pregunta": "¿Cómo romper el cerco informativo, contrarrestar la estigmatización mediática y construir soberanía comunicativa escolar?",
+      "conceptos": [
+        "Encuadre noticioso",
+        "Estigmatización",
+        "Derecho a la rectificación",
+        "Información veraz e imparcial",
+        "Verificación de datos"
+      ],
+      "actores": [
+        "Medios masivos",
+        "Medios independientes",
+        "Alcaldía y sus voceros",
+        "Pobladores",
+        "Usuarios de redes sociales"
+      ],
+      "relacion": "El caso se contó de formas distintas según el medio. El nodo analiza cómo las palabras usadas para nombrar a los pobladores influyen en lo que la ciudad piensa del desalojo.",
+      "causas": [
+        "Titulares que estigmatizan",
+        "Declaraciones oficiales",
+        "Pocas voces de la comunidad en medios",
+        "Desinformación en redes",
+        "Periodismo independiente"
+      ],
+      "herr": {
+        "n": "Solicitud de rectificación a un medio de comunicación",
+        "alt": [
+          "Observatorio escolar de verificación de datos",
+          "Fanzine contrainformativo comunitario"
+        ],
+        "busca": {
+          "ops": [
+            "Que el medio corrija una información inexacta en condiciones de equidad",
+            "Que el medio cierre",
+            "Que el periodista pida perdón en redes"
+          ],
+          "ok": 0
+        },
+        "ante": {
+          "ops": [
+            "El medio de comunicación (su director)",
+            "Un juez, como primer paso",
+            "La Alcaldía",
+            "La Registraduría"
+          ],
+          "ok": 0
+        },
+        "req": [
+          "Identificar la publicación (medio, fecha, enlace)",
+          "Explicar por qué es inexacta",
+          "Aportar pruebas",
+          "Pedir la rectificación en condiciones de equidad"
+        ],
+        "nota": "Pedir la rectificación al medio es requisito previo para poder acudir después a la tutela, y quien la pide debe aportar pruebas.",
+        "src": "t688"
+      },
+      "criterios": [
+        "Diferencia opinión, información y estigmatización",
+        "Identifica la publicación concreta",
+        "Cumple el requisito previo de la rectificación"
+      ],
+      "mesa": [
+        "¿Qué publicación concreta quieren que se rectifique y con qué prueba?",
+        "¿Por qué hay que pedirla primero al medio?",
+        "¿Cómo evitan que su propio fanzine también desinforme?"
+      ]
+    },
+    {
+      "id": 3,
+      "n": "La Ciudad y el Capitalismo (segregación, gentrificación y posesión)",
+      "c": "n3",
+      "pregunta": "¿Cómo defender el derecho a la vivienda digna y el arraigo popular frente a la especulación inmobiliaria y el turismo excluyente?",
+      "conceptos": [
+        "Posesión y propiedad",
+        "Función social de la propiedad",
+        "Vivienda digna",
+        "Gentrificación",
+        "Segregación socioespacial"
+      ],
+      "actores": [
+        "Poseedores sin título",
+        "Propietarias registrales",
+        "Isvimed",
+        "Alcaldía",
+        "Mercado inmobiliario"
+      ],
+      "relacion": "En El Jardín conviven poseedores sin título y propietarias registrales. El nodo analiza qué derechos tienen quienes llevan años habitando un terreno ajeno o en riesgo.",
+      "causas": [
+        "Informalidad en la tenencia",
+        "Precio del suelo",
+        "Zona de alto riesgo",
+        "Subsidio de arriendo insuficiente",
+        "Turismo y renta corta"
+      ],
+      "herr": {
+        "n": "Modelo pedagógico de tutela por debido proceso y vivienda digna",
+        "alt": [
+          "Ruta informativa sobre titulación de la posesión (Ley 1561 de 2012)"
+        ],
+        "busca": {
+          "ops": [
+            "Proteger derechos fundamentales cuando no hay otro medio eficaz o hay un perjuicio irremediable",
+            "Obtener un título de propiedad",
+            "Cobrar una indemnización"
+          ],
+          "ok": 0
+        },
+        "ante": {
+          "ops": [
+            "Un juez de la República",
+            "La Alcaldía",
+            "La Personería",
+            "El Concejo"
+          ],
+          "ok": 0
+        },
+        "req": [
+          "Derecho fundamental afectado",
+          "Hechos claros",
+          "Subsidiariedad: no hay otro medio eficaz",
+          "Pruebas",
+          "Solicitud concreta al juez"
+        ],
+        "nota": "En el caso real, la tutela logró una suspensión provisional y luego un fallo desfavorable para las familias. La titulación por la Ley 1561 de 2012 es un proceso judicial y no procede en zonas de alto riesgo no mitigable.",
+        "src": "ley1561"
+      },
+      "criterios": [
+        "Distingue posesión de propiedad",
+        "Reconoce el límite de la zona de riesgo",
+        "Usa el fallo real para ajustar su propuesta"
+      ],
+      "mesa": [
+        "¿Qué cambia para su propuesta que el juez haya fallado a favor de la Alcaldía?",
+        "¿Por qué la titulación no procede en zona de alto riesgo no mitigable?",
+        "¿Qué dato sostiene su afirmación sobre la especulación inmobiliaria?"
+      ]
+    },
+    {
+      "id": 4,
+      "n": "Justicia Ambiental, riesgo geológico inducido y ecología política urbana",
+      "c": "n4",
+      "pregunta": "¿De qué manera el argumento del «riesgo ambiental» puede ser instrumentalizado para despojar a las comunidades de ladera, y qué mecanismos constitucionales permiten exigir obras de mitigación en lugar de la expulsión?",
+      "conceptos": [
+        "Avenida torrencial",
+        "Riesgo mitigable y no mitigable",
+        "Gestión del riesgo",
+        "Ambiente sano",
+        "Derechos colectivos"
+      ],
+      "actores": [
+        "DAGRD",
+        "Secretaría de Medio Ambiente",
+        "Concejo de Medellín",
+        "Familias de la quebrada",
+        "Universidades públicas"
+      ],
+      "relacion": "La Alcaldía justificó el desalojo por el riesgo de avenida torrencial tras la muerte de un niño. Hay versiones en disputa sobre las obras de mitigación. El nodo pone a prueba ambas versiones.",
+      "causas": [
+        "Lluvias intensas",
+        "Viviendas junto al cauce",
+        "Residuos en los canales",
+        "Obras de mitigación demoradas",
+        "Decisión de evacuar"
+      ],
+      "herr": {
+        "n": "Derecho de petición de interés general sobre las obras de mitigación",
+        "alt": [
+          "Acción popular por el derecho colectivo a la prevención de desastres (Ley 472 de 1998)",
+          "Solicitud de peritaje técnico independiente con universidades públicas"
+        ],
+        "busca": {
+          "ops": [
+            "Obtener información y respuesta de fondo sobre la ejecución de las obras y su presupuesto",
+            "Frenar de inmediato todas las demoliciones",
+            "Destituir al alcalde"
+          ],
+          "ok": 0
+        },
+        "ante": {
+          "ops": [
+            "Alcaldía de Medellín (Secretaría de Medio Ambiente o DAGRD)",
+            "ICBF",
+            "Un medio de comunicación",
+            "La Registraduría"
+          ],
+          "ok": 0
+        },
+        "req": [
+          "Identificación del peticionario",
+          "Objeto claro de la petición",
+          "Razones",
+          "Documentos que se solicitan",
+          "Dirección para recibir respuesta"
+        ],
+        "nota": "La ley fija plazos para responder un derecho de petición: verifícalos en la Ley 1755 de 2015. La tesis del «pretexto ambiental» es una hipótesis: hay que sostenerla con evidencias y escuchar la versión oficial.",
+        "src": "ley472"
+      },
+      "criterios": [
+        "Contrasta la versión del concejal con la de la Alcaldía",
+        "Trata la instrumentalización como hipótesis",
+        "Elige la herramienta adecuada para un derecho colectivo"
+      ],
+      "mesa": [
+        "¿Qué evidencia tienen a favor y en contra de que las obras no se ejecutaron?",
+        "¿Por qué una acción popular y no una tutela para este derecho?",
+        "¿Cómo responden al argumento de que se evacuó para evitar otra muerte?"
+      ]
+    },
+    {
+      "id": 5,
+      "n": "Estado, Sociedad, Territorio y Arraigo Comunitario",
+      "c": "n5",
+      "pregunta": "¿Cómo hacer prevalecer la función social y ecológica de la propiedad urbana sobre los megaproyectos de desterritorialización?",
+      "conceptos": [
+        "Arraigo",
+        "Desterritorialización",
+        "Morador",
+        "Participación ciudadana",
+        "Estado social de derecho"
+      ],
+      "actores": [
+        "Moradores",
+        "Concejo de Medellín",
+        "Departamento Administrativo de Planeación",
+        "Isvimed",
+        "Juntas de acción comunal"
+      ],
+      "relacion": "Medellín ya tiene una Política Pública de Protección a Moradores que incluye obras de gestión del riesgo. El nodo analiza si se aplicó en El Jardín y qué mecanismos de participación existen.",
+      "causas": [
+        "Pérdida de la vivienda",
+        "Ruptura de lazos vecinales",
+        "Pérdida de economías populares",
+        "Débil aplicación de la política de moradores",
+        "Poca participación en las decisiones"
+      ],
+      "herr": {
+        "n": "Solicitud de aplicación de la Política de Protección a Moradores y de un cabildo abierto",
+        "alt": [
+          "Proyecto de acuerdo de iniciativa popular (exige 10 % del censo electoral)"
+        ],
+        "busca": {
+          "ops": [
+            "Que se aplique la política vigente y que el Concejo escuche a la comunidad en un cabildo abierto",
+            "Crear una ley nacional nueva",
+            "Suspender el Concejo"
+          ],
+          "ok": 0
+        },
+        "ante": {
+          "ops": [
+            "Concejo de Medellín y Departamento Administrativo de Planeación",
+            "ICBF",
+            "Un juez penal",
+            "La Fiscalía"
+          ],
+          "ok": 0
+        },
+        "req": [
+          "Política o norma que se pide aplicar",
+          "Hechos del caso",
+          "Temario para el cabildo",
+          "Apoyos ciudadanos que exige la Ley 1757 de 2015",
+          "Propuesta concreta"
+        ],
+        "nota": "La «consulta popular barrial obligatoria» del plan docente no existe con ese nombre. La política de moradores ya existe (Acuerdo 145 de 2019). Verifica en la Ley 1757 de 2015 cuántos apoyos pide el cabildo abierto.",
+        "src": "moradores"
+      },
+      "criterios": [
+        "Conoce la política de moradores vigente",
+        "Elige un mecanismo de participación real",
+        "Calcula si su propuesta es viable"
+      ],
+      "mesa": [
+        "¿Por qué pedir una política nueva si ya existe el Acuerdo 145 de 2019?",
+        "¿Qué tan viable es reunir el 10 % del censo electoral?",
+        "¿Qué haría distinto un cabildo abierto?"
+      ]
+    },
+    {
+      "id": 6,
+      "n": "El Sistema Mundo Actual, Turismo Transnacional y ESCNNA",
+      "c": "n6",
+      "pregunta": "¿Cómo blindar el territorio escolar y comunitario frente a los riesgos de explotación e instrumentalización transnacional de la juventud?",
+      "conceptos": [
+        "Sistema mundo",
+        "Turismo transnacional",
+        "Costo de vida",
+        "ESCNNA",
+        "Protección integral de la niñez"
+      ],
+      "actores": [
+        "Niñas, niños y adolescentes",
+        "Colegios",
+        "ICBF",
+        "Fiscalía y Policía",
+        "Prestadores turísticos",
+        "Alcaldía"
+      ],
+      "relacion": "El nodo relaciona el auge turístico de Medellín con el costo de vida y con riesgos para la niñez. La relación causal con El Jardín es una hipótesis que hay que sustentar.",
+      "causas": [
+        "Turismo extranjero creciente",
+        "Alquileres de renta corta",
+        "Inflación local",
+        "Redes de explotación",
+        "Débil control institucional"
+      ],
+      "sensible": true,
+      "herr": {
+        "n": "Protocolo escolar de prevención de la ESCNNA y ruta de atención",
+        "alt": [
+          "Campaña escolar informativa sobre las rutas 141, 122 y 123"
+        ],
+        "busca": {
+          "ops": [
+            "Prevenir riesgos y saber a quién acudir, sin investigar casos por cuenta propia",
+            "Investigar casos en el barrio",
+            "Publicar nombres de sospechosos"
+          ],
+          "ok": 0
+        },
+        "ante": {
+          "ops": [
+            "Comité Escolar de Convivencia del colegio",
+            "Un medio de comunicación",
+            "La Registraduría",
+            "El Concejo"
+          ],
+          "ok": 0
+        },
+        "req": [
+          "Señales de riesgo explicadas sin detalles explícitos",
+          "Rutas: 141 ICBF, 122 Fiscalía, 123 Policía",
+          "Personas responsables en el colegio",
+          "Confidencialidad",
+          "Nunca investigar por cuenta propia"
+        ],
+        "nota": "Esta app no recibe denuncias. Ante un caso real, acude a un adulto de confianza, a orientación escolar o a las líneas oficiales.",
+        "src": "ley1336"
+      },
+      "criterios": [
+        "Sustenta la relación causal o la presenta como hipótesis",
+        "Usa lenguaje cuidadoso y sin detalles explícitos",
+        "Propone rutas institucionales reales"
+      ],
+      "mesa": [
+        "¿Qué evidencia conecta el turismo con el caso de El Jardín y qué es hipótesis?",
+        "¿Por qué el protocolo prohíbe investigar por cuenta propia?",
+        "¿Qué hace la Alcaldía según su propio plan?"
+      ]
+    },
+    {
+      "id": 7,
+      "n": "Movimientos Sociales de Ladera y Clínica Jurídica Constitucional",
+      "c": "n7",
+      "pregunta": "¿Cómo la memoria de las luchas comunitarias de ladera y el método de la IAP se transforman en herramientas de litigio constitucional para exigir que el Estado garantice la igualdad real y la protección a los moradores?",
+      "conceptos": [
+        "Movimiento social",
+        "Investigación Acción Participativa (IAP)",
+        "Litigio estratégico",
+        "Derecho de petición",
+        "Acción de tutela"
+      ],
+      "actores": [
+        "Lideresas comunitarias",
+        "Consultorio jurídico",
+        "Jueces",
+        "Isvimed y Alcaldía",
+        "Propietarias registrales"
+      ],
+      "relacion": "La comunidad usó tutelas, protesta pacífica y denuncia en medios. El nodo analiza qué funcionó, qué no y cómo organizar la exigibilidad de forma colectiva.",
+      "causas": [
+        "Organización comunitaria",
+        "Liderazgo de mujeres",
+        "Tutelas presentadas",
+        "Protesta pacífica",
+        "Alianzas con propietarias"
+      ],
+      "herr": {
+        "n": "Derechos de petición coordinados para reubicación digna y restitución de derechos",
+        "alt": [
+          "Documento técnico de amparo ciudadano elaborado con el consultorio jurídico"
+        ],
+        "busca": {
+          "ops": [
+            "Obtener respuestas de fondo sobre reubicación y atención a cada familia",
+            "Que el juez cambie su fallo",
+            "Obligar a la propietaria a donar el terreno"
+          ],
+          "ok": 0
+        },
+        "ante": {
+          "ops": [
+            "Isvimed y Alcaldía de Medellín",
+            "Un medio de comunicación",
+            "La Registraduría",
+            "El ICBF"
+          ],
+          "ok": 0
+        },
+        "req": [
+          "Identificación de cada peticionario",
+          "Objeto de la petición",
+          "Situación de la familia",
+          "Documentos que se solicitan",
+          "Dirección para recibir respuesta"
+        ],
+        "nota": "Cada derecho de petición debe recibir respuesta de fondo. En el caso real, una tutela fue negada en primera instancia: el equipo puede revisar si cabía impugnar el fallo.",
+        "src": "cp"
+      },
+      "criterios": [
+        "Reconoce la memoria y la organización como vías legítimas",
+        "Aprende del resultado real de las tutelas",
+        "Coordina peticiones sin violencia"
+      ],
+      "mesa": [
+        "¿Qué aprendieron del fallo que negó la tutela?",
+        "¿Cómo se organiza una petición colectiva sin que pierda fuerza?",
+        "¿Qué papel tuvieron las mujeres lideresas según las fuentes?"
+      ]
+    }
+  ],
+  "linea": [
+    {
+      "f": "3 abr. 2026",
+      "t": "Creciente de las quebradas La Mansión y La Máquina. Muere un niño.",
+      "src": "alc_abr"
+    },
+    {
+      "f": "Abr. 2026",
+      "t": "Un concejal afirma que las obras previstas para La Máquina no han iniciado.",
+      "src": "llave"
+    },
+    {
+      "f": "8-9 sept. 2026",
+      "t": "Inicia la evacuación de 73 viviendas en El Jardín. Hay disturbios.",
+      "src": "infobae"
+    },
+    {
+      "f": "Sept. 2026",
+      "t": "Un juzgado suspende de forma provisional las demoliciones.",
+      "src": "radiohoy"
+    },
+    {
+      "f": "Fin de sept. 2026",
+      "t": "El fallo de tutela favorece a la Alcaldía. Se reanuda la demolición de 21 inmuebles.",
+      "src": "col_fallo"
+    },
+    {
+      "f": "Oct. 2026",
+      "t": "Revista Raya publica la investigación citada por el plan docente.",
+      "src": "plan"
+    }
+  ],
+  "consulta": "28/10/2026",
+  "fechas": {
+    "alc_abr": "abril de 2026",
+    "radiohoy": "16 de septiembre de 2026",
+    "infobae": "9 de septiembre de 2026",
+    "col_fallo": "octubre de 2026",
+    "col_drama": "septiembre de 2026",
+    "col_20": "octubre de 2026",
+    "eltiempo": "septiembre de 2026",
+    "ipc": "octubre de 2026",
+    "llave": "abril de 2026",
+    "alc_obras": "2026 (sin día visible)",
+    "voz": "octubre de 2026",
+    "inflacion": "agosto de 2026",
+    "moradores": "Acuerdo 145 de 2019",
+    "ley1757": "2015",
+    "ley472": "1998",
+    "ley1336": "2009",
+    "icbf": "sin fecha visible",
+    "t688": "2015",
+    "ley1561": "2012",
+    "dec003": "2026",
+    "turismo": "2026",
+    "t323": "2024",
+    "cp": "1991",
+    "plan": "octubre de 2026 (material docente)"
+  },
+  "actorZona": {
+    "Familias desplazadas que llegaron a Manrique": "comunidad",
+    "Fuerza pública": "institucion",
+    "Alcaldía de Medellín": "institucion",
+    "Personería de Medellín": "institucion",
+    "Víctimas del conflicto": "comunidad",
+    "Medios masivos": "otros",
+    "Medios independientes": "otros",
+    "Alcaldía y sus voceros": "institucion",
+    "Pobladores": "comunidad",
+    "Usuarios de redes sociales": "otros",
+    "Poseedores sin título": "comunidad",
+    "Propietarias registrales": "otros",
+    "Isvimed": "institucion",
+    "Alcaldía": "institucion",
+    "Mercado inmobiliario": "otros",
+    "DAGRD": "institucion",
+    "Secretaría de Medio Ambiente": "institucion",
+    "Concejo de Medellín": "institucion",
+    "Familias de la quebrada": "comunidad",
+    "Universidades públicas": "otros",
+    "Moradores": "comunidad",
+    "Departamento Administrativo de Planeación": "institucion",
+    "Juntas de acción comunal": "comunidad",
+    "Niñas, niños y adolescentes": "comunidad",
+    "Colegios": "otros",
+    "ICBF": "institucion",
+    "Fiscalía y Policía": "institucion",
+    "Prestadores turísticos": "otros",
+    "Lideresas comunitarias": "comunidad",
+    "Consultorio jurídico": "otros",
+    "Jueces": "institucion",
+    "Isvimed y Alcaldía": "institucion"
+  },
+  "limiteNodo": {
+    "1": "Los testimonios vienen del material docente y faltan por contrastar. Cuida a las víctimas: no se piden relatos personales.",
+    "2": "Parte de la evidencia sobre estigmatización viene del material docente y está pendiente de verificar.",
+    "3": "No hay una cifra verificada de predios sin título, y la propiedad del suelo está en disputa entre fuentes.",
+    "4": "Las versiones sobre las obras de mitigación se contradicen. La idea del «pretexto ambiental» es una hipótesis.",
+    "5": "La política de moradores existe, pero las tarjetas no muestran cómo se aplicó en este caso.",
+    "6": "Las tarjetas no documentan casos concretos en El Jardín: el nodo analiza riesgos y rutas de protección, sin señalar a nadie.",
+    "7": "El fallo de tutela no les dio la razón a las familias, y los testimonios de las lideresas están pendientes de verificar."
+  },
+  "plazos": {
+    "1": {
+      "t": "Plazo pendiente de validación docente",
+      "d": "La queja ante la Personería no tiene un término de respuesta verificado aquí.",
+      "src": ""
+    },
+    "2": {
+      "t": "Plazo pendiente de validación docente",
+      "d": "La rectificación se pide primero al medio; el término no está verificado en este material.",
+      "src": "t688"
+    },
+    "3": {
+      "t": "Tutela: fallo en máximo 10 días",
+      "d": "El juez dicta fallo dentro de los 10 días siguientes a la solicitud (Decreto 2591 de 1991, art. 29). Puede ordenar medidas provisionales desde la presentación (art. 7).",
+      "src": "dec2591"
+    },
+    "4": {
+      "t": "Petición: respuesta en 15 días",
+      "d": "Toda petición debe resolverse dentro de los 15 días siguientes a su recepción; 10 si pide documentos o información (Ley 1755 de 2015, art. 14).",
+      "src": "ley1755"
+    },
+    "5": {
+      "t": "Petición: respuesta en 15 días",
+      "d": "La solicitud a la Alcaldía es una petición: 15 días para responder (Ley 1755 de 2015, art. 14).",
+      "src": "ley1755"
+    },
+    "6": {
+      "t": "Sin plazo procesal (pendiente de validación docente)",
+      "d": "Las rutas de protección se activan de inmediato por las líneas oficiales; no hay un término procesal aquí.",
+      "src": "icbf"
+    },
+    "7": {
+      "t": "Petición: respuesta en 15 días",
+      "d": "Cada petición coordinada tiene 15 días para ser respondida (Ley 1755 de 2015, art. 14).",
+      "src": "ley1755"
+    }
+  },
+  "jurisprudencia": [
+    {
+      "n": "Art. 86 C.P.",
+      "d": "Acción de tutela para la protección inmediata de derechos fundamentales.",
+      "src": "cp"
+    },
+    {
+      "n": "Art. 29 C.P.",
+      "d": "Debido proceso en actuaciones judiciales y administrativas.",
+      "src": "cp"
+    },
+    {
+      "n": "Sentencia T-323 de 2024",
+      "d": "Uso de inteligencia artificial en decisiones judiciales y garantías del debido proceso.",
+      "src": "t323"
+    },
+    {
+      "n": "Sentencia T-688 de 2015",
+      "d": "Rectificación previa ante el medio de comunicación.",
+      "src": "t688"
+    }
+  ],
+  "recursosInstitucion": [
+    {
+      "n": "Plan de Ordenamiento Territorial",
+      "d": "Acuerdo 48 de 2014. Verifica si la revisión en curso ya fue adoptada.",
+      "src": "pot48"
+    },
+    {
+      "n": "Gestión del riesgo de desastres",
+      "d": "El alcalde es responsable directo de la gestión del riesgo en su municipio (Ley 1523 de 2012, art. 14).",
+      "src": "ley1523"
+    },
+    {
+      "n": "Reubicación de población en alto riesgo",
+      "d": "Los planes de ordenamiento deben incluir mecanismos de reubicación (Ley 1523 de 2012, art. 40).",
+      "src": "ley1523"
+    },
+    {
+      "n": "Utilidad pública e interés social",
+      "d": "La Constitución permite la expropiación por motivos de utilidad pública o interés social definidos por la ley (art. 58 C.P.).",
+      "src": "cp"
+    },
+    {
+      "n": "Protección a moradores",
+      "d": "Política pública que la Alcaldía debe aplicar en intervenciones del territorio (Acuerdo 145 de 2019).",
+      "src": "moradores"
+    },
+    {
+      "n": "Informe técnico y acta de evacuación del caso",
+      "d": "No están en el expediente de la app: dato pendiente de verificación.",
+      "src": ""
+    }
+  ],
+  "recursosComunidad": [
+    {
+      "n": "Derecho de petición colectivo",
+      "d": "Varias familias firman una misma petición a la Alcaldía.",
+      "src": "ley1755"
+    },
+    {
+      "n": "Iniciativa popular normativa",
+      "d": "Necesita el respaldo del 10 % del censo electoral del territorio.",
+      "src": "ley1757"
+    },
+    {
+      "n": "Cabildo abierto",
+      "d": "Reunión pública del Concejo para discutir asuntos de la comunidad.",
+      "src": "ley1757"
+    },
+    {
+      "n": "Veeduría ciudadana",
+      "d": "Vigilancia ciudadana de la gestión pública, por ejemplo de las obras de mitigación.",
+      "src": "ley850"
+    },
+    {
+      "n": "Mesa de concertación con moradores",
+      "d": "La Política de Protección a Moradores busca que las familias participen en las decisiones.",
+      "src": "moradores"
+    }
+  ],
+  "fichaIA": {
+    "n": "IA y justicia (ficha transversal)",
+    "texto": "En la película de ciencia ficción Sin piedad (2026), una inteligencia artificial juzga en 90 minutos y presume la culpa del acusado. En Colombia, la Corte Constitucional estableció en la sentencia T-323 de 2024 que la inteligencia artificial no puede sustituir al juez, y revisó el caso desde el juez natural, la decisión motivada y el debido proceso probatorio.",
+    "claves": [
+      "Art. 29 C.P.: debido proceso, presunción de inocencia, derecho de defensa y contradicción de la prueba",
+      "Una decisión debe explicar sus razones (motivación)",
+      "Los datos incompletos producen decisiones sesgadas",
+      "Las personas afectadas deben ser escuchadas",
+      "Un sistema opaco no se puede controvertir"
+    ],
+    "src": "t323"
+  }
+}
