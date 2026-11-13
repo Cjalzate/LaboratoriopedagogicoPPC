@@ -1658,6 +1658,167 @@ html.rm .tr-spot, html.rm .tr-card { transition: none; }
   body.print-tut .tutorial button, body.print-tut .tutorial svg.mercy { display: none !important; }
 }
 
+/* ============================================================
+   v8 · menú en tres opciones, bloqueos de etapa, matriz de triangulación,
+   referencias APA, turnos de mesa y edición de nombres
+   ============================================================ */
+:root { --col-oficial: #9DB8E0; --col-territorial: #E9A6AC; --col-marco: #E6D18A; }
+.mcol-oficial { --colc: var(--col-oficial); } .mcol-territorial { --colc: var(--col-territorial); } .mcol-marco { --colc: var(--col-marco); }
+/* menú */
+.mainnav .mn-n { font-style: normal; font-family: var(--f-mono); font-size: .72rem; width: 1.6em; height: 1.6em; display: inline-grid; place-items: center; border: 1px solid currentColor; border-radius: 50%; opacity: .8; }
+.mainnav button.on .mn-n { background: var(--holo-cyan); color: #061016; border-color: var(--holo-cyan); opacity: 1; }
+.mainnav button.lock { color: var(--muted); opacity: .62; }
+.mainnav .mn-lock { font-size: .8em; margin-left: .2em; filter: grayscale(1); }
+/* pasos bloqueados */
+.rstep.lock { opacity: .5; border-style: dashed; cursor: not-allowed; }
+.rstep.lock i { color: var(--muted); border-color: var(--line2); background: transparent; }
+.rstep.lock::after { content: "🔒"; font-size: .72em; margin-left: auto; filter: grayscale(1); }
+.hdot[disabled], .btn[disabled], .btn-ghost[disabled] { opacity: .45; cursor: not-allowed; }
+.lockpanel { text-align: left; display: grid; gap: .6em; max-width: 760px; margin: 1em auto; }
+.lockpanel svg.mercy { justify-self: center; }
+.lockpanel .checklist .small { color: var(--muted); }
+/* idea extensa */
+textarea.idea-txt { min-height: 11em; resize: vertical; line-height: 1.5; }
+.count.near { color: var(--amber); }
+/* matriz de triangulación */
+.mtri-wrap { display: grid; gap: 1.1em; margin: .8em 0; }
+.mtri-h { justify-self: center; width: min(560px, 100%); background: color-mix(in srgb, var(--col-oficial) 22%, var(--surface-1)); border: 1px solid color-mix(in srgb, var(--col-oficial) 60%, transparent); color: var(--ink); text-align: center; font-family: var(--f-display); font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: .8em 1em 1.6em; clip-path: polygon(0 0, 100% 0, 100% 68%, 50% 100%, 0 68%); }
+.mtri-cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .8em; }
+.mtri-col { --c: var(--col-oficial); border: 1px solid color-mix(in srgb, var(--c) 70%, transparent); background: color-mix(in srgb, var(--c) 14%, var(--surface-1)); border-radius: 14px; padding: .9em 1em; display: grid; gap: .35em; align-content: start; }
+.mtri-col.col-territorial { --c: var(--col-territorial); } .mtri-col.col-marco { --c: var(--col-marco); }
+.mtri-col b { color: var(--c); font-family: var(--f-display); font-size: 1.02rem; line-height: 1.25; }
+.mtri-col .mtri-q { font-size: .82rem; color: var(--ink); }
+.mtri-col p { margin: 0; font-size: .86rem; color: var(--muted); }
+.mtri-col em { font-style: normal; font-family: var(--f-mono); font-size: .76rem; color: var(--c); }
+details .mtri-h { margin: .6em auto 1em; }
+@media (max-width: 720px) { .mtri-cols { grid-template-columns: 1fr; } }
+/* referencias APA */
+.refs .apalist { list-style: none; padding: 0; margin: .4em 0 1em; display: grid; gap: .5em; counter-reset: apa; }
+.refs .apalist li { counter-increment: apa; background: var(--sunk, rgba(0,0,0,.2)); border: 1px solid var(--line2); border-radius: var(--r); padding: .6em .8em; }
+.refs .apa { margin: 0; padding-left: 2em; text-indent: -2em; line-height: 1.5; overflow-wrap: anywhere; }
+.refs .apa i { font-style: italic; }
+.refs .apa-m { display: flex; flex-wrap: wrap; gap: .5em; align-items: center; margin-top: .35em; font-size: .82rem; color: var(--muted); }
+.apaform .cfg { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.apaform .cfg .wide { grid-column: 1 / -1; }
+.apaform input, .apaform select { width: 100%; }
+.apaprev { border: 1px dashed var(--line2); border-radius: var(--r); padding: .6em .8em; margin: .6em 0; }
+.apaprev .apa { color: var(--ink); }
+.m-ambar { color: var(--amber); } .m-cian { color: var(--holo-cyan); }
+@media (max-width: 640px) { .apaform .cfg { grid-template-columns: 1fr; } }
+/* turnos de mesa */
+.tstrip .tmsg { display: grid; gap: .15em; border-left: 3px solid var(--holo-cyan); background: rgba(140, 235, 250, .07); padding: .55em .8em; margin-bottom: .7em; }
+.tstrip .tmsg b { font-family: var(--f-display); font-size: 1.05rem; }
+.tstrip .tmsg.k-estrado, .tstrip .tmsg.k-voz { border-color: var(--sim-coral); background: rgba(231, 121, 100, .1); }
+.tstrip .tmsg.k-sigue { border-color: var(--amber); background: rgba(228, 172, 88, .1); }
+.tord { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: .45em; }
+.tord li { display: flex; align-items: center; gap: .5em; border: 1px solid var(--line2); border-radius: var(--r); padding: .4em .7em; background: var(--surface-1); min-width: 9.5em; }
+.tord li i { font-style: normal; font-family: var(--f-mono); font-weight: 700; color: var(--holo-cyan); }
+.tord li div { display: grid; } .tord li span { font-size: .76rem; color: var(--muted); }
+.tord li.now { border-color: var(--sim-coral); box-shadow: inset 0 0 0 1px var(--sim-coral); }
+.tord li.voz { border-color: var(--sim-coral); background: rgba(231, 121, 100, .08); }
+.tord li.sig { border-color: var(--amber); }
+.tord li.done { opacity: .6; } .tord li.done i { color: var(--muted); }
+.tord li.mine b { color: var(--holo-cyan); }
+.tadmin { list-style: none; padding: 0; margin: .5em 0 1em; display: grid; gap: .4em; }
+.tadmin li { display: grid; grid-template-columns: auto minmax(0, 1fr) auto auto; align-items: center; gap: .6em; border: 1px solid var(--line2); border-radius: var(--r); padding: .45em .7em; background: var(--surface-1); }
+.tadmin li > i { font-style: normal; font-family: var(--f-mono); font-weight: 700; color: var(--holo-cyan); }
+.tadmin li div { display: grid; } .tadmin li div span { font-size: .78rem; color: var(--muted); }
+.tadmin li.now { border-color: var(--sim-coral); box-shadow: inset 0 0 0 1px var(--sim-coral); }
+.tadmin li.done { opacity: .6; }
+.tadmin .tmove { display: flex; gap: .25em; }
+.tg { font-family: var(--f-mono); font-size: .72rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+.tg.on { color: var(--sim-coral); } .tg.sig { color: var(--amber); } .tg.done { color: var(--holo-cyan); }
+.tfases { display: flex; flex-wrap: wrap; gap: .35em; margin: .4em 0 .6em; }
+.tfases .tf { font-family: var(--f-mono); font-size: .76rem; border: 1px solid var(--line2); border-radius: 999px; padding: .2em .7em; color: var(--muted); }
+.tfases .tf.on { border-color: var(--sim-coral); color: var(--sim-coral); }
+.tfases .tf.ok { color: var(--holo-cyan); border-color: rgba(140, 235, 250, .4); }
+.tvoz { list-style: none; padding: 0; margin: .3em 0 .6em; display: flex; flex-wrap: wrap; gap: .4em; }
+.tvoz li { border: 1px solid var(--line2); border-radius: var(--r); padding: .35em .6em; display: grid; font-size: .9rem; }
+.tvoz li span { font-size: .74rem; color: var(--muted); }
+.tvoz li.on { border-color: var(--sim-coral); background: rgba(231, 121, 100, .1); }
+.tvoz li.done { opacity: .6; }
+.citem.fuera { opacity: .7; }
+.tag.warn { color: var(--amber); border-color: var(--amber); }
+.ib-b.lock { opacity: .4; cursor: not-allowed; }
+.ib-st.wait { color: var(--amber); }
+.ib-wait { max-width: 1100px; margin: 0 auto .3em; box-sizing: border-box; background: rgba(40, 32, 18, .97) !important; font-size: .85rem; color: var(--ink); background: rgba(228, 172, 88, .12); border: 1px solid rgba(228, 172, 88, .4); border-radius: var(--r); padding: .35em .7em; }
+@media (max-width: 640px) { .tadmin li { grid-template-columns: auto minmax(0, 1fr); } .tadmin li .tg, .tadmin li .tmove { grid-column: 2; } .tord li { min-width: 0; flex: 1 1 45%; } }
+/* edición de nombres */
+.mesagrp table td .nvis { font-weight: 700; }
+.nedit { flex-wrap: nowrap; } .nedit input { min-width: 10em; }
+@media (max-width: 640px) {
+  .mainnav { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); overflow: visible; padding-left: 8px; padding-right: 8px; }
+  .mainnav button { justify-content: center; flex-wrap: wrap; white-space: normal; text-align: center; font-size: .7rem; letter-spacing: .03em; padding: .45em .2em; gap: .25em; line-height: 1.15; }
+  .mainnav button svg { display: none; }
+}
+
+/* ============================================================
+   v9 · aporte por integrante, competencias, mesa y nodo, reinicio
+   ============================================================ */
+.mesagrp .nmesa { align-items: center; gap: .5em; margin: .2em 0 .7em; }
+.mesagrp .nmesa label { margin: 0; font-size: .85rem; }
+.mesagrp .nmesa select { width: auto; max-width: 100%; }
+.asigcell { min-width: 9em; }
+.asig { display: grid; gap: .3em; min-width: 15em; }
+.asig label { margin: 0; font-size: .78rem; color: var(--muted); }
+.asig .callout { margin: .2em 0; font-size: .85rem; }
+.aportes { margin-top: 1em; border-top: 1px solid var(--line2); padding-top: .8em; }
+.aportes > summary { cursor: pointer; font-family: var(--f-display); font-weight: 700; color: var(--holo-cyan); }
+.apbar { display: flex; height: 16px; border-radius: 999px; overflow: hidden; background: var(--surface-2); margin: .6em 0 .4em; }
+.apbar span { display: block; height: 100%; }
+.apbar .apnone { width: 100%; font-size: .72rem; color: var(--muted); text-align: center; line-height: 16px; }
+.apleg { list-style: none; padding: 0; margin: 0 0 .8em; display: flex; flex-wrap: wrap; gap: .4em 1em; font-size: .85rem; }
+.apleg i { display: inline-block; width: .8em; height: .8em; border-radius: 2px; margin-right: .35em; vertical-align: -1px; }
+.apgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: .8em; }
+.apcard { border: 1px solid var(--line2); border-radius: var(--r); background: var(--surface-1); padding: .8em .9em; display: grid; gap: .45em; align-content: start; }
+.apcard header { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: .6em; align-items: center; }
+.apcard header div { display: grid; } .apcard header span { font-size: .78rem; color: var(--muted); }
+.apcard header em { font-style: normal; font-family: var(--f-mono); font-size: .78rem; color: var(--holo-cyan); white-space: nowrap; }
+.apcard h4 { margin: .3em 0 0; font-size: .82rem; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
+.apchips { display: flex; flex-wrap: wrap; gap: .3em; }
+.apchip { font-size: .76rem; border: 1px solid var(--line2); border-radius: 999px; padding: .1em .55em; }
+.compm summary { display: grid; grid-template-columns: minmax(0, 1fr); gap: .2em; cursor: pointer; list-style: none; padding: .3em 0; }
+.compm summary::-webkit-details-marker { display: none; }
+.compm .cn { font-size: .86rem; font-weight: 700; }
+.compm .cbar { height: 6px; border-radius: 999px; background: var(--surface-2); overflow: hidden; }
+.compm .cbar i { display: block; height: 100%; background: var(--holo-cyan); }
+.compm .cbar i.mid { background: var(--node-gold); } .compm .cbar i.low { background: var(--review-amber); }
+.compm .clv { font-size: .74rem; font-family: var(--f-mono); color: var(--muted); }
+.compm .clv.good { color: var(--holo-cyan); } .compm .clv.mid { color: var(--node-gold); } .compm .clv.low { color: var(--review-amber); }
+.compm ul { list-style: none; padding: 0 0 .3em .2em; margin: 0; font-size: .8rem; color: var(--muted); display: grid; gap: .15em; }
+.compm li.ok { color: var(--ink); }
+
+/* ============================================================
+   v10 · retratos holográficos dinámicos (avatares y M.E.R.C.Y.)
+   Respetan «Reducir movimiento» y prefers-reduced-motion (reglas globales).
+   ============================================================ */
+svg.av .av-lid { transform-box: fill-box; transform-origin: 50% 0; transform: scaleY(0); animation: avblink 6.4s ease-in-out infinite; animation-delay: var(--d, 0s); }
+@keyframes avblink { 0%, 92%, 100% { transform: scaleY(0); } 94.5% { transform: scaleY(1); } 97% { transform: scaleY(0); } }
+svg.av .av-fig { transform-box: view-box; transform-origin: 50px 100px; animation: avbreath 5.8s ease-in-out infinite; animation-delay: var(--d, 0s); }
+@keyframes avbreath { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-.6px) scale(1.006); } }
+svg.av .av-head { transform-box: view-box; transform-origin: 50px 64px; animation: avtilt 12s ease-in-out infinite; animation-delay: var(--d, 0s); }
+@keyframes avtilt { 0%, 100% { transform: rotate(0deg); } 28% { transform: rotate(1.6deg); } 62% { transform: rotate(-1.2deg); } }
+svg.av .av-pup { animation: avlook 9s ease-in-out infinite; animation-delay: var(--d, 0s); }
+@keyframes avlook { 0%, 38%, 100% { transform: translateX(0); } 44%, 58% { transform: translateX(.7px); } 64%, 78% { transform: translateX(-.6px); } }
+svg.av .av-sweep { transform: translateY(0); animation: avsweep 6s linear infinite; animation-delay: var(--d, 0s); }
+@keyframes avsweep { 0% { transform: translateY(0); } 70%, 100% { transform: translateY(128px); } }
+svg.av .av-glow { animation: avglow 4.5s ease-in-out infinite; animation-delay: var(--d, 0s); }
+@keyframes avglow { 0%, 100% { opacity: .1; } 50% { opacity: .2; } }
+svg.av .av-mouth.talk { transform-box: fill-box; transform-origin: 50% 20%; animation: avtalk .34s ease-in-out infinite alternate; }
+@keyframes avtalk { from { transform: scaleY(.45); } to { transform: scaleY(1.05); } }
+svg.av:hover .av-glow { opacity: .32; }
+svg.mercy .mbeam { opacity: .55; animation: mbeam 5s ease-in-out infinite; }
+@keyframes mbeam { 0%, 100% { opacity: .45; } 50% { opacity: .75; } }
+svg.mercy .msweep { animation: msweep 5.2s linear infinite; }
+@keyframes msweep { 0% { transform: translateY(0); } 75%, 100% { transform: translateY(290px); } }
+svg.mercy .mbody { animation: mbreath 7s ease-in-out infinite, mflick 11s steps(1) infinite; }
+@keyframes mflick { 0%, 96.4%, 97.6%, 100% { opacity: .9; } 96.8% { opacity: .72; } 97.2% { opacity: .84; } }
+svg.mercy .memit ellipse:last-child { transform-box: fill-box; transform-origin: center; animation: memit 3.2s ease-out infinite; }
+@keyframes memit { 0% { transform: scale(.7); opacity: .5; } 100% { transform: scale(1.15); opacity: 0; } }
+svg.av.av-l .av-head { filter: drop-shadow(0 0 1.1px rgba(140, 235, 250, .55)) drop-shadow(0 1.5px 2px rgba(0, 0, 0, .45)); }
+svg.av.av-l .av-fig > path:first-of-type { filter: drop-shadow(0 0 .8px rgba(140, 235, 250, .35)); }
+.pf-prev svg.av { max-width: 100%; height: auto; }
+
 </style>
 </head>
 <body>
@@ -1721,11 +1882,14 @@ function tiposOk(c) {
 }
 function tipoPrincipal(c) { return tiposOk(c)[0]; }
 
+/* columnas de la matriz de triangulación (los nombres los puede fijar cada paquete de caso en «matriz») */
 var COLS = [
-  { id: 'oficial', n: 'Discurso oficial', q: 'La Alcaldía u otra entidad pública', d: 'Lo que dicen las entidades' },
-  { id: 'territorial', n: 'Evidencia territorial', q: 'La comunidad, una persona afectada o un medio', d: 'Lo que dicen la comunidad y la prensa' },
-  { id: 'marco', n: 'Marco legal', q: 'Una norma o un juez', d: 'Constitución, leyes y fallos' }
+  { id: 'oficial', n: 'Discurso oficial', corto: 'Discurso oficial', q: 'La Alcaldía u otra entidad pública', d: 'Lo que dicen las entidades' },
+  { id: 'territorial', n: 'Evidencia territorial', corto: 'Evidencia territorial', q: 'La comunidad, una persona afectada o un medio', d: 'Lo que dicen la comunidad y la prensa' },
+  { id: 'marco', n: 'Marco legal', corto: 'Marco legal', q: 'Una norma o un juez', d: 'Constitución, leyes y fallos' }
 ];
+var COLS0 = JSON.parse(JSON.stringify(COLS));
+var MATRIZ_TITULO = 'Matriz de triangulación de evidencias';
 
 var ESTADOS = {
   verificada: { n: 'Verificada', d: 'Confirmada en fuentes públicas.' },
@@ -2036,7 +2200,7 @@ var OBJECIONES = [
 
 var REGLAMENTO = [
   'TIEMPOS',
-  'Pide la palabra desde tu celular. Tu docente organiza los turnos.',
+  'Pide la palabra desde tu celular cuando tu mesa tenga el turno. La asesora técnica de la jueza organiza los turnos de las mesas.',
   'Antes de responder, di con tus palabras lo que entendiste de la otra persona.',
   'Se discuten ideas y pruebas, nunca a las personas.',
   'Escribir tu intervención vale lo mismo que decirla en voz alta.',
@@ -2103,7 +2267,7 @@ var RUTA = [
   { id: 'nodo', n: 'Conoce tu nodo', que: 'Leer la ficha de tu nodo y la línea de tiempo del caso.', porque: 'Para proponer algo, primero hay que entender qué pasó y desde qué mirada lo estudias.', como: ['Lee la pregunta de tu nodo.', 'Mira quiénes participan y qué límites tiene la evidencia.', 'Lee la línea de tiempo.', 'Pulsa «Ya lo leí».'], listo: 'Pulsaste «Ya lo leí».', ej: 'La pregunta del nodo 4 es sobre el riesgo ambiental. Mientras lees, piensa: ¿quién gana y quién pierde con el desalojo?' },
   { id: 'actores', n: 'Ubica a los actores', que: 'Poner a cada actor en el mapa: comunidad, instituciones u otros.', porque: 'En un conflicto hay varias miradas. Ubicarlas ayuda a escucharlas todas.', como: ['Lee el nombre del actor.', 'Toca dónde va: comunidad, instituciones u otros.', 'Repite con los demás actores.'], listo: 'Tu equipo ubicó a todos los actores y tú ubicaste al menos 2.', ej: 'El DAGRD es una entidad de la Alcaldía, así que va en «Instituciones públicas».' },
   { id: 'evidencias', n: 'Clasifica evidencias', que: 'Revisar tus tarjetas una por una: quién lo dice y qué clase de información es.', porque: 'En una audiencia no basta con opinar: hay que mostrar pruebas y saber de dónde salen.', como: ['Lee la tarjeta o pulsa «Escuchar».', 'Responde: ¿quién lo dice?', 'Responde: ¿qué clase de información es?', 'Pulsa «Comprobar».'], listo: 'Ubicaste al menos 4 tarjetas en el tablero de tu equipo.', ej: '«La Alcaldía dice que las obras avanzan»: lo dice una entidad pública y es una versión.' },
-  { id: 'argumentos', n: 'Arma tus argumentos', que: 'Escribir tu parte del Dictamen Territorial: una afirmación unida a sus evidencias.', porque: 'Un argumento fuerte dice qué afirmas, con qué prueba y de qué fuente sale.', como: ['Elige una frase de ayuda.', 'Cambia cada ___ por tus palabras.', 'Toca las tarjetas que lo prueban.', 'Mira la luz de M.E.R.C.Y. y guarda.'], listo: 'Guardaste al menos 1 argumento con evidencia y escribiste tu reflexión de cuidado.', ej: 'Afirmamos que las familias necesitan información sobre las obras porque hay versiones que no coinciden (tarjetas B10 y B11).' },
+  { id: 'argumentos', n: 'Arma tus argumentos', que: 'Escribir tu parte del Dictamen Territorial: una afirmación unida a sus evidencias.', porque: 'Un argumento fuerte dice qué afirmas, con qué prueba y de qué fuente sale.', como: ['Elige una frase de ayuda.', 'Desarrolla tu idea: cambia cada ___ por tus palabras (hasta 2.500 caracteres).', 'Toca las tarjetas que lo prueban.', 'Mira la luz de M.E.R.C.Y. y guarda.', 'Registra en APA las referencias y evidencias que consultaste.'], listo: 'Guardaste al menos 1 argumento con evidencia, registraste al menos 1 referencia en APA y escribiste tu reflexión de cuidado.', ej: 'Afirmamos que las familias necesitan información sobre las obras porque hay versiones que no coinciden (tarjetas B10 y B11).' },
   { id: 'herramienta', n: 'Prepara la herramienta', que: 'Responder 4 preguntas sobre la herramienta de tu nodo y escribir la solicitud.', porque: 'Para exigir un derecho hay que saber qué pedir, a quién y con qué requisitos.', como: ['Responde una pregunta a la vez.', 'Si te equivocas, lee la tarjeta de verificación.', 'Escribe la solicitud con la plantilla.', 'Toca las tarjetas que la respaldan.'], listo: 'Respondiste las 4 preguntas y tu equipo guardó la solicitud.', ej: 'Solicitamos a la Secretaría de Medio Ambiente que informe cómo van las obras, porque las versiones no coinciden.' },
   { id: 'audiencia', n: 'Prepara la audiencia', que: 'Elegir lo que vas a mostrar en tu bloque, escribir tu guion y ensayar.', porque: 'En la audiencia cada nodo tiene poco tiempo: hay que llegar con todo listo.', como: ['Mira qué bloque te toca y cuánto dura.', 'Elige lo que se verá en pantalla.', 'Escribe tu guion con la plantilla.', 'Ensayen juntos con el reloj.'], listo: 'Elegiste tu material y escribiste tu guion.', ej: 'Si te toca «Evidencias y fuentes», elige 2 tarjetas fuertes y di de dónde salen.' }
 ];
@@ -2227,7 +2391,7 @@ var ROL_GUIA = {
   relatoria: { mision: 'Ordenas las evidencias y el mapa del equipo. Cuidas que se escuchen las tres miradas: oficial, territorial y legal.', haces: ['Clasificas tarjetas de las tres procedencias.', 'Eliges 2 o 3 evidencias para la pantalla.', 'Puedes participar por escrito: M.E.R.C.Y. lee tu texto.'], frases: ['Tenemos ___ evidencias oficiales, ___ del territorio y ___ legales.', 'Falta verificar ___.'], cuidas: ['Marca lo pendiente de verificar.', 'No escondas la versión contraria.'] }
 };
 var PRODUCTO = [
-  { id: 'dict', n: 'Dictamen Territorial', d: 'El documento del equipo: título, argumentos de cada rol unidos a sus tarjetas.', paso: 'argumentos', ic: 'evidencia' },
+  { id: 'dict', n: 'Dictamen Territorial', d: 'El documento del equipo: título, argumentos de cada rol unidos a sus tarjetas y las referencias consultadas en formato APA.', paso: 'argumentos', ic: 'evidencia' },
   { id: 'herr', n: 'Herramienta y solicitud', d: 'Qué mecanismo usarían, ante quién y qué piden exactamente. Ninguna herramienta procede sola.', paso: 'herramienta', ic: 'propuesta' },
   { id: 'aleg', n: 'Alegato de 5 bloques', d: 'Lo que presentan en la audiencia: evidencias, análisis, normas, herramienta y solicitud.', paso: 'audiencia', ic: 'turno' },
   { id: 'refl', n: 'Reflexión final', d: 'Lo que aprendiste y qué voz de otro nodo te hizo pensar distinto.', paso: '', ic: 'perspectiva' }
@@ -2263,11 +2427,20 @@ var CASO_BASE = (function () {
       autoria: 'Plan de Fortalecimiento de Ciencias Sociales, grado 11 · fuentes consultadas el ' + CONSULTA
     }
   };
+  c.matriz = {
+    titulo: MATRIZ_TITULO,
+    cols: {
+      oficial: { n: 'Discurso oficial constitucional y normativo (Alcaldía de Medellín)', corto: 'Discurso oficial' },
+      territorial: { n: 'Evidencias probatorias territoriales (Rev. Raya)', corto: 'Evidencias territoriales' },
+      marco: { n: 'Marco violado / aplicable', corto: 'Marco violado / aplicable' }
+    }
+  };
   var g = { SRC: SRC, CARDS: CARDS, NODOS: NODOS, LINEA: LINEA, CONSULTA: CONSULTA, SRC_FECHA: SRC_FECHA, ACTOR_ZONA: ACTOR_ZONA, LIMITE_NODO: LIMITE_NODO, PLAZOS: PLAZOS, JURIS: JURIS, HUD_INSTITUCION: HUD_INSTITUCION, HUD_COMUNIDAD: HUD_COMUNIDAD, IA_FICHA: IA_FICHA };
   CASO_MAP.forEach(function (m) { c[m[0]] = clonar(g[m[1]]); });
   return c;
 })();
 var CASO = CASO_BASE; var CASO_HASH = 'base';
+aplicarMatriz(CASO_BASE.matriz);
 function casoMeta() { return (CASO && CASO.meta) || CASO_BASE.meta; }
 
 /* validación: los errores impiden aplicar; los avisos solo informan */
@@ -2315,6 +2488,8 @@ function validarCaso(c) {
   (N || []).forEach(function (n) { if (!n || !n.id) return; var k = (T || []).filter(function (t) { return t && (t.nodos === 'base' || (Array.isArray(t.nodos) && t.nodos.indexOf(n.id) >= 0)); }).length; if (k < 4) A.push('nodo ' + n.id + ': solo tiene ' + k + ' tarjetas (se recomiendan 6 o más).'); var col = {}; (T || []).forEach(function (t) { if (t && (t.nodos === 'base' || (Array.isArray(t.nodos) && t.nodos.indexOf(n.id) >= 0))) (t.cols || []).forEach(function (x) { col[x] = 1; }); }); if (Object.keys(col).length < 3) A.push('nodo ' + n.id + ': sus tarjetas no cubren las tres procedencias (oficial, territorial y marco).'); });
   (c.linea || []).forEach(function (l, i) { if (!l.f || !l.t) E.push('linea[' + i + ']: necesita fecha (f) y texto (t).'); });
   if (!(c.linea || []).length) A.push('linea: sin línea de tiempo.');
+  if (c.matriz) { var mc = (c.matriz || {}).cols || {}; COLS.forEach(function (x) { if (!mc[x.id] || !mc[x.id].n) A.push('matriz.cols.' + x.id + ': sin nombre; se usará «' + COLS0[COLS.indexOf(x)].n + '».'); }); }
+  else A.push('matriz: sin categorías propias; la matriz de triangulación usará los nombres genéricos (discurso oficial, evidencia territorial, marco legal).');
   return { ok: !E.length, errores: E, avisos: A };
 }
 /* aplica el paquete: reemplaza solo los datos del caso, nunca la secuencia */
@@ -2328,11 +2503,18 @@ function aplicarCaso(c, hash) {
   NODOS.forEach(function (n, i) { if (!n.c) n.c = 'n' + ((i % 7) + 1); if (!PLAZOS[n.id]) PLAZOS[n.id] = { t: 'Plazo pendiente de validación docente', d: 'Este paquete de caso no trae un plazo verificado para esta herramienta.', src: '' }; if (!LIMITE_NODO[n.id]) LIMITE_NODO[n.id] = 'Revisa con tu docente los límites de estas evidencias.'; });
   Object.keys(CARD_BY_ID).forEach(function (k) { delete CARD_BY_ID[k]; }); CARDS.forEach(function (x) { CARD_BY_ID[x.id] = x; });
   Object.keys(NODO_BY_ID).forEach(function (k) { delete NODO_BY_ID[k]; }); NODOS.forEach(function (x) { NODO_BY_ID[x.id] = x; });
+  aplicarMatriz(c.matriz);
   MISION_FIN[0].t = (c.meta || {}).resumen || MISION_FIN[0].t;
   PROCEDE.q = '¿Esta herramienta procede automáticamente en el caso ' + ((c.meta || {}).corto || '') + '?';
   CASO = c; CASO_HASH = hash || 'base';
 }
 var MISION_FIN0 = MISION_FIN[0].t;
+/* matriz de triangulación: nombres de las tres categorías según el paquete; si no trae, los genéricos */
+function aplicarMatriz(m) {
+  m = m || {}; var cols = m.cols || {};
+  COLS.forEach(function (co, i) { var d = COLS0[i]; var x = cols[co.id] || {}; co.n = x.n || d.n; co.corto = x.corto || x.n || d.corto; co.d = x.d || d.d; co.q = x.q || d.q; });
+  MATRIZ_TITULO = m.titulo || 'Matriz de triangulación de evidencias';
+}
 /* almacenamiento por grupo: «caso:meta» + trozos «caso:0…n» (cada uno bajo el límite del servidor) */
 var CASO_TROZO = 24000;
 function casoHashDe(s) { var h = 5381; for (var i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) | 0; return 'c' + (h >>> 0).toString(36) + s.length.toString(36); }
@@ -2359,7 +2541,7 @@ function syncCaso() {
 var CONFIG = {
   /* Pega aquí la URL de la app web de Apps Script si publicas este archivo en otro hosting.
      Déjala vacía para usar el modo demostración o si el archivo lo sirve Apps Script. */
-  API_URL: 'https://script.google.com/macros/s/AKfycbw1BHnvF_Uy8gnkd1jr9-lwmWgsKn8lqxDUfeuW3FizJIEajnHk_0n-WGSc2lKW82oTpA/exec'
+  API_URL: ''
 };
 
 function safeLS(fn, dflt) { try { return fn(); } catch (e) { return dflt; } }
@@ -2681,13 +2863,33 @@ function avDefault(seed, rol) {
   return { rol: rol || '', pres: ['f', 'm', 'nb'][n % 3], piel: PIELES[n % PIELES.length], pelo: PELOS[n % PELOS.length].id, acc: '' };
 }
 
-function hairSVG(pelo, col) {
+/* ---------- retrato holográfico (v10): proporciones realistas, luz de borde, parpadeo y respiración ---------- */
+function tono(hex, amt) {
+  var h = String(hex || '#B98058').replace('#', ''); if (h.length === 3) h = h.split('').map(function (c) { return c + c; }).join('');
+  var n = parseInt(h, 16); var r = n >> 16, g = (n >> 8) & 255, b = n & 255;
+  var f = function (c) { return Math.max(0, Math.min(255, Math.round(amt < 0 ? c * (1 + amt) : c + (255 - c) * amt))); };
+  return '#' + [f(r), f(g), f(b)].map(function (c) { return ('0' + c.toString(16)).slice(-2); }).join('');
+}
+function hairSVG(pelo, col, id, pres) {
+  var g = 'url(#' + id + 'h)', hi = tono(col, .32), lo = tono(col, -.35);
+  var mech = function (d) { return '<path d="' + d + '" fill="none" stroke="' + hi + '" stroke-width=".55" stroke-linecap="round" opacity=".55"/>'; };
   switch (pelo) {
-    case 'largo': return { back: '<path d="M27 46c0-17 10-27 23-27s23 10 23 27v26c0 4-3 6-6 6-2-8-2-15-2-21V44c-5-6-10-9-15-9s-10 3-15 9v13c0 6 0 13-2 21-3 0-6-2-6-6z" fill="' + col + '"/>', front: '<path d="M29 42c1-14 10-22 21-22s20 8 21 22c-6-7-13-10-21-10-6 0-13 3-21 10z" fill="' + col + '"/>' };
-    case 'rizado': return { back: '', front: '<g fill="' + col + '"><circle cx="34" cy="34" r="7"/><circle cx="42" cy="26" r="8"/><circle cx="52" cy="23" r="8"/><circle cx="62" cy="27" r="8"/><circle cx="68" cy="35" r="7"/><circle cx="31" cy="43" r="5"/><circle cx="70" cy="43" r="5"/></g>' };
-    case 'trenzas': return { back: '<g fill="' + col + '"><ellipse cx="29" cy="60" rx="4" ry="5"/><ellipse cx="29" cy="69" rx="3.6" ry="4.5"/><ellipse cx="71" cy="60" rx="4" ry="5"/><ellipse cx="71" cy="69" rx="3.6" ry="4.5"/></g>', front: '<path d="M29 44c0-15 9-23 21-23s21 8 21 23c-4-6-9-9-13-10l-8 4-8-4c-5 1-10 4-13 10z" fill="' + col + '"/><path d="M50 22v12" stroke="#0B1018" stroke-width="1" opacity=".35"/>' };
-    case 'rapado': return { back: '', front: '<path d="M31 40c1-13 9-19 19-19s18 6 19 19c-5-5-12-7-19-7s-14 2-19 7z" fill="' + col + '" opacity=".55"/>' };
-    default: return { back: '', front: '<path d="M29 40c0-14 9-21 21-21s21 7 21 21c-3-4-6-6-8-6l-4-4c-4 3-12 4-20 3-4 1-7 3-10 7z" fill="' + col + '"/>' };
+    case 'largo': return {
+      back: '<path d="M31.5 42C30.5 27 39.5 19 50 19S69.5 27 68.5 42L69.5 63C70 72 67.5 78 62.5 80C60.5 72 60.6 64 61.2 56C58 51.5 54 49.5 50 49.5S42 51.5 38.8 56C39.4 64 39.5 72 37.5 80C32.5 78 30 72 30.5 63Z" fill="' + g + '"/>' + mech('M33 50q-1 12 2 24M67 50q1 12-2 24'),
+      front: '<path d="M34.2 44C33.4 29 41 20.6 50.4 20.6C60.2 20.6 66.8 28.8 65.8 44C63.6 36.4 59 31 52.4 29.2C47.2 33.6 40.4 38.2 34.2 44Z" fill="' + g + '"/>' + mech('M52 22q-6 6-15 18M56 23q6 4 9 14M48 22q-2 3-4 5') };
+    case 'rizado': {
+      var cl = ''; var pts = [[36, 30, 6.6], [43, 23.5, 7.4], [51.5, 21, 7.6], [60, 23.8, 7.2], [66, 31, 6.4], [33, 38.5, 5.2], [68, 39, 5.2], [39.5, 27.5, 5], [56, 20.8, 5.4], [47, 21.4, 5.2]];
+      pts.forEach(function (c) { cl += '<circle cx="' + c[0] + '" cy="' + c[1] + '" r="' + c[2] + '"/>'; });
+      var tex = ''; pts.forEach(function (c, n) { tex += '<path d="M' + (c[0] - c[2] * .5) + ' ' + (c[1] - c[2] * .1) + 'q' + c[2] * .5 + ' -' + c[2] * .55 + ' ' + c[2] + ' 0" fill="none" stroke="' + hi + '" stroke-width=".5" opacity=".6"/>'; });
+      return { back: '<g fill="' + lo + '"><circle cx="31.5" cy="46" r="5.4"/><circle cx="68.5" cy="46" r="5.4"/><circle cx="33" cy="53" r="4"/><circle cx="67" cy="53" r="4"/></g>', front: '<g fill="' + g + '">' + cl + '</g>' + tex };
+    }
+    case 'trenzas': {
+      var tr = function (x) { var o = ''; for (var t = 0; t < 5; t++) o += '<ellipse cx="' + x + '" cy="' + (55 + t * 6.2) + '" rx="' + (3.6 - t * .25) + '" ry="3.6" fill="' + g + '" stroke="' + lo + '" stroke-width=".5"/>'; return o; };
+      return { back: tr(31.5) + tr(68.5), front: '<path d="M34 44C33.6 29.6 41 21 50 21S66.4 29.6 66 44C64 37 60.4 32.6 55.6 30.6L50 33.4L44.4 30.6C39.6 32.6 36 37 34 44Z" fill="' + g + '"/><path d="M50 21.4V33" stroke="' + lo + '" stroke-width=".7"/>' + mech('M46 23q-6 4-9 14M54 23q6 4 9 14') };
+    }
+    case 'rapado': return { back: '', front: '<path d="M35.2 40.5C35.6 28.6 42 22.4 50 22.4S64.4 28.6 64.8 40.5C62 35.8 56.6 33 50 33S38 35.8 35.2 40.5Z" fill="' + g + '" opacity=".72"/><path d="M38 33q12-7 24 0" fill="none" stroke="' + hi + '" stroke-width=".4" stroke-dasharray=".5 1.4" opacity=".7"/>' };
+    default: return { back: pres === 'f' ? '<path d="M33.5 44C33 30 40.6 21.4 50 21.4S67 30 66.5 44L66 54C64 58 61.5 60 61.5 60L62 47C59 46 41 46 38 47L38.5 60S36 58 34 54Z" fill="' + g + '"/>' : '',
+      front: '<path d="M34.4 41.6C33.8 28.6 41.2 21 50.6 21C60.2 21 66.6 28.4 65.8 41C64.6 36.2 62 33 58.6 31.4C54 33.6 46 34.2 40.2 32.6C37.6 34.6 35.6 37.6 34.4 41.6Z" fill="' + g + '"/>' + mech('M41 25q5-3 13-2M44 29q7-3 15 0M37 33q2-4 6-6') };
   }
 }
 
@@ -2697,33 +2899,90 @@ function iniBadge(opt, color, s) {
   if (!ini) return '<circle cx="66" cy="86" r="5" fill="' + color + '"/>';
   return '<g class="av-ini"><circle cx="78" cy="80" r="15" fill="#0B1117" stroke="' + color + '" stroke-width="2.5"/><text x="78" y="85.5" text-anchor="middle" font-family="Chakra Petch, Barlow Semi Condensed, sans-serif" font-weight="700" font-size="' + (ini.length > 1 ? 14 : 16) + '" fill="#E2EDF2">' + esc(ini) + '</text></g>';
 }
+var AV_N = 0;
+var IRIS = ['#3B2416', '#4A2E1A', '#2E1D12', '#5A3A1E', '#3F3A2A'];
 function avatarSVG(av, size, opt) {
   opt = opt || {}; av = av || avDefault('x');
-  var s = size || 48, ink = '#0B1018';
+  var s = size || 48, id = 'av' + (++AV_N);
   var color = ROLE_COLOR[av.rol] || '#7FA8B8';
-  var n = 0; String(av.piel || '').split('').forEach(function (ch) { n += ch.charCodeAt(0); });
+  var piel = av.piel || '#B98058';
+  var n = 0; String(av.piel || '').split('').forEach(function (ch) { n += ch.charCodeAt(0); }); String(av.pelo || '').split('').forEach(function (ch) { n += ch.charCodeAt(0); }); String(opt.label || '').split('').forEach(function (ch) { n += ch.charCodeAt(0); });
   var hc = HAIR_COLORS[(n + (av.pelo || '').length) % HAIR_COLORS.length];
-  var hair = av.acc === 'panoleta' ? { back: '', front: '' } : hairSVG(av.pelo, hc);
-  var mouth = opt.talk ? '<ellipse cx="50" cy="56" rx="4.5" ry="3.6" fill="' + ink + '"/>' : '<path d="M44 55c3.5 3 8.5 3 12 0" stroke="' + ink + '" stroke-width="2.2" fill="none" stroke-linecap="round"/>';
-  var ring = opt.ring ? '<circle cx="50" cy="50" r="47" fill="none" stroke="' + opt.ring + '" stroke-width="4"/>' : '';
-  var mk = Number(opt.marco) || 0; if (mk > 0 && !opt.ring) { var mc = ['', '#AAB9C3', '#8CEBFA', '#8CEBFA', '#A98BFF', '#D7C17A', '#D7C17A'][Math.min(6, mk)]; ring = '<circle cx="50" cy="50" r="49" fill="none" stroke="' + mc + '" stroke-width="' + (mk >= 3 ? 3 : 2) + '"' + (mk < 2 ? ' stroke-dasharray="4 4"' : '') + '/>' + (mk >= 5 ? '<circle cx="50" cy="50" r="45.5" fill="none" stroke="#A98BFF" stroke-width="1.2" stroke-opacity=".8"/>' : '') + (mk >= 3 ? [0, 90, 180, 270].map(function (d) { return '<rect x="48" y="-1" width="4" height="5" fill="' + mc + '" transform="rotate(' + d + ' 50 50)"/>'; }).join('') : ''); }
-  var lashes = av.pres === 'f' ? '<path d="M38.5 43.5l-2-1.5M61.5 43.5l2-1.5" stroke="' + ink + '" stroke-width="1.4" stroke-linecap="round"/>' : '';
+  var iris = IRIS[n % IRIS.length];
+  var pres = av.pres || 'nb';
+  var full = s >= 40, mid = s >= 26;
+  var sh = tono(piel, -.24), sh2 = tono(piel, -.4), lt = tono(piel, .2), lip = tono(piel, -.3), lipC = pres === 'm' ? tono(lip, .05) : '#9A4E4A';
+  var hair = av.acc === 'panoleta' ? { back: '', front: '' } : hairSVG(av.pelo, hc, id, pres);
+  var face = pres === 'm' ? 'M34.4 42C34.4 29.4 41.4 22.6 50 22.6S65.6 29.4 65.6 42C65.6 50.2 64.4 55.6 61.4 60C58.4 64 54.4 66.2 50 66.2S41.6 64 38.6 60C35.6 55.6 34.4 50.2 34.4 42Z'
+    : pres === 'f' ? 'M35.4 42C35.4 29.8 42 23.2 50 23.2S64.6 29.8 64.6 42C64.6 50 62.6 56 59.2 60.4C56.6 63.6 53.4 65.4 50 65.4S43.4 63.6 40.8 60.4C37.4 56 35.4 50 35.4 42Z'
+    : 'M34.9 42C34.9 29.6 41.7 22.9 50 22.9S65.1 29.6 65.1 42C65.1 50.1 63.5 55.8 60.3 60.2C57.5 63.8 53.9 65.8 50 65.8S42.5 63.8 39.7 60.2C36.5 55.8 34.9 50.1 34.9 42Z';
+  var brows = pres === 'm' ? '<path d="M38.4 39.6Q43 37.6 47 38.9M53 38.9Q57 37.6 61.6 39.6" stroke="' + tono(hc, .05) + '" stroke-width="1.9" fill="none" stroke-linecap="round"/>'
+    : pres === 'f' ? '<path d="M38.6 39.8Q42.6 36.9 47 38.5M53 38.5Q57.4 36.9 61.4 39.8" stroke="' + tono(hc, .1) + '" stroke-width="1.15" fill="none" stroke-linecap="round"/>'
+    : '<path d="M38.5 39.7Q42.8 37.3 47 38.7M53 38.7Q57.2 37.3 61.5 39.7" stroke="' + tono(hc, .08) + '" stroke-width="1.5" fill="none" stroke-linecap="round"/>';
+  var eye = function (cx) {
+    return '<path d="M' + (cx - 4.4) + ' 44.4Q' + cx + ' 41.2 ' + (cx + 4.4) + ' 44.4Q' + cx + ' 46.7 ' + (cx - 4.4) + ' 44.4Z" fill="#F2ECE6"/>' +
+      '<g class="av-pup"><circle cx="' + cx + '" cy="44.2" r="1.95" fill="' + iris + '"/><circle cx="' + cx + '" cy="44.2" r=".95" fill="#0B0705"/><circle cx="' + (cx + .75) + '" cy="43.5" r=".5" fill="#DDFBFF"/></g>' +
+      '<path d="M' + (cx - 4.6) + ' 44.4Q' + cx + ' 40.9 ' + (cx + 4.6) + ' 44.4" fill="none" stroke="#1A120D" stroke-width="' + (pres === 'f' ? 1.05 : .8) + '" stroke-linecap="round"/>' +
+      (full ? '<path d="M' + (cx - 3.6) + ' 45.4Q' + cx + ' 46.9 ' + (cx + 3.6) + ' 45.4" fill="none" stroke="' + sh2 + '" stroke-width=".45" opacity=".6"/>' : '') +
+      (pres === 'f' ? '<path d="M' + (cx + (cx < 50 ? -4.5 : 4.5)) + ' 44.2l' + (cx < 50 ? -1.3 : 1.3) + ' -.9" stroke="#1A120D" stroke-width=".7" stroke-linecap="round"/>' : '') +
+      '<path class="av-lid" d="M' + (cx - 4.7) + ' 44.4Q' + cx + ' 40.7 ' + (cx + 4.7) + ' 44.4Q' + cx + ' 46.9 ' + (cx - 4.7) + ' 44.4Z" fill="' + sh + '"/>';
+  };
+  var mouth = opt.talk ? '<g class="av-mouth talk"><path d="M45.6 57.6Q50 56.4 54.4 57.6Q53.6 61.6 50 61.8Q46.4 61.6 45.6 57.6Z" fill="#3A1715"/><path d="M46.6 58.2Q50 57.6 53.4 58.2" stroke="#F2ECE6" stroke-width=".8" fill="none"/></g>'
+    : '<g class="av-mouth"><path d="M45.4 57.7Q47.7 56.4 50 57.2Q52.3 56.4 54.6 57.7Q50 58.6 45.4 57.7Z" fill="' + lipC + '"/><path d="M45.4 57.7Q50 61.2 54.6 57.7Q50 58.7 45.4 57.7Z" fill="' + tono(lipC, .14) + '"/><path d="M45.6 57.8Q50 58.9 54.4 57.8" stroke="' + tono(lip, -.35) + '" stroke-width=".55" fill="none"/>' + (full ? '<path d="M48.2 59.6q1.8.6 3.6 0" stroke="#fff" stroke-opacity=".25" stroke-width=".5" fill="none"/>' : '') + '</g>';
+  var nose = full ? '<path d="M48.2 52.6Q50 54 51.8 52.6" fill="none" stroke="' + sh2 + '" stroke-width=".7" stroke-linecap="round" opacity=".75"/><ellipse cx="48.5" cy="53.1" rx=".75" ry=".42" fill="' + tono(sh2, -.3) + '" opacity=".6"/><ellipse cx="51.5" cy="53.1" rx=".75" ry=".42" fill="' + tono(sh2, -.3) + '" opacity=".6"/>'
+    : '<path d="M50.4 46Q49.8 50.8 48.4 52.6Q50 53.8 51.8 52.7" fill="none" stroke="' + sh2 + '" stroke-width=".8" stroke-linecap="round" opacity=".7"/>';
+  /* modelado suave: cuencas de los ojos, sombra lateral de la nariz, pómulos, mandíbula y nacimiento del cabello */
+  var model = full ? '<g filter="url(#' + id + 'f)">' +
+      '<ellipse cx="43" cy="42.4" rx="5.2" ry="2.4" fill="' + sh2 + '" opacity=".32"/><ellipse cx="57" cy="42.4" rx="5.2" ry="2.4" fill="' + sh2 + '" opacity=".32"/>' +
+      '<ellipse cx="52.1" cy="49" rx="1.15" ry="4.4" fill="' + sh2 + '" opacity=".42"/><ellipse cx="49.6" cy="48.4" rx=".7" ry="3.6" fill="' + lt + '" opacity=".5"/><ellipse cx="50" cy="51.6" rx="1.7" ry="1.1" fill="' + lt + '" opacity=".45"/>' +
+      '<ellipse cx="39.6" cy="48.6" rx="3.6" ry="1.5" fill="' + lt + '" opacity=".3"/><ellipse cx="60.4" cy="48.6" rx="3.6" ry="1.5" fill="' + lt + '" opacity=".22"/>' +
+      '<ellipse cx="62.2" cy="51" rx="2.6" ry="8" fill="' + sh2 + '" opacity=".28"/><ellipse cx="50" cy="64" rx="9" ry="2.4" fill="' + sh2 + '" opacity=".3"/>' +
+      '<ellipse cx="50" cy="60.6" rx="2.6" ry=".8" fill="' + sh2 + '" opacity=".35"/><ellipse cx="50" cy="31.6" rx="13" ry="3" fill="' + sh2 + '" opacity=".22"/>' +
+    '</g>' : '';
   var acc = '';
-  if (av.acc === 'gafas') acc = '<g fill="none" stroke="' + ink + '" stroke-width="2"><rect x="35.5" y="41.5" width="12" height="9" rx="3.5"/><rect x="52.5" y="41.5" width="12" height="9" rx="3.5"/><path d="M47.5 45.5h5"/></g>';
-  if (av.acc === 'audifono') acc = '<path d="M30 44c-3 0-4 3-4 5s1 5 4 5" fill="none" stroke="#C9D3DC" stroke-width="3" stroke-linecap="round"/><circle cx="30.5" cy="49" r="2" fill="#8CEBFA"/>';
-  if (av.acc === 'gorra') acc = '<path d="M29 38c0-11 9-18 21-18s21 7 21 18z" fill="' + color + '"/><path d="M50 38h26c0 3-3 4-8 4H50z" fill="' + color + '" opacity=".85"/>';
-  var scarfBack = av.acc === 'panoleta' ? '<path d="M24 50c0-20 11-31 26-31s26 11 26 31c0 12-4 22-8 28H32c-4-6-8-16-8-28z" fill="' + color + '"/>' : '';
-  var scarfFront = av.acc === 'panoleta' ? '<path d="M30 40c2-12 10-18 20-18s18 6 20 18c-6-5-13-7-20-7s-14 2-20 7z" fill="' + color + '"/><path d="M33 62c5 9 12 12 17 12s12-3 17-12" fill="none" stroke="' + color + '" stroke-width="5"/>' : '';
-  return '<svg class="av" viewBox="0 0 100 100" width="' + s + '" height="' + s + '" role="img" aria-label="' + esc(opt.label || 'Avatar') + '">' +
-    '<circle cx="50" cy="50" r="48" fill="#141E28" stroke="' + color + '" stroke-width="2"/>' +
-    scarfBack + hair.back +
-    '<path d="M18 97c3-17 15-25 32-25s29 8 32 25z" fill="#25323D" stroke="' + color + '" stroke-width="1.6"/>' +
-    '<path d="M40 73l10 9 10-9" fill="none" stroke="' + color + '" stroke-width="3"/>' +
-    '<rect x="44" y="60" width="12" height="13" fill="' + (av.piel || '#B98058') + '"/>' +
-    '<ellipse cx="50" cy="45" rx="19" ry="21" fill="' + (av.piel || '#B98058') + '"/>' + hair.front + scarfFront +
-    '<ellipse cx="42" cy="46" rx="2.4" ry="3" fill="' + ink + '"/><ellipse cx="58" cy="46" rx="2.4" ry="3" fill="' + ink + '"/>' + lashes +
-    '<path d="M38 40l7-1M55 39l7 1" stroke="' + ink + '" stroke-width="1.8" stroke-linecap="round"/>' +
-    mouth + acc + iniBadge(opt, color, s) + ring + '</svg>';
+  if (av.acc === 'gafas') acc = '<g fill="rgba(140,235,250,.08)" stroke="#0E151C" stroke-width="1.25"><rect x="37.3" y="40.6" width="11.4" height="8.2" rx="3.2"/><rect x="51.3" y="40.6" width="11.4" height="8.2" rx="3.2"/><path d="M48.7 44Q50 43 51.3 44M37.3 43.4l-2.6-.8M62.7 43.4l2.6-.8" fill="none"/></g><path d="M39 42.2l3.6-.6M53 42.2l3.6-.6" stroke="#DDFBFF" stroke-width=".6" opacity=".7"/>';
+  if (av.acc === 'audifono') acc = '<path d="M33.6 41c-2.6 0-3.6 2.8-3.6 5.2s1.4 5 3.6 5" fill="none" stroke="#C9D3DC" stroke-width="2.4" stroke-linecap="round"/><path d="M31.6 51.8q3 6.4 10.4 6.6" fill="none" stroke="#9AA8B3" stroke-width=".9" stroke-linecap="round"/><circle cx="42.4" cy="58.4" r="1.1" fill="' + color + '"/><circle cx="31.4" cy="46" r="1.4" fill="#8CEBFA"/>';
+  if (av.acc === 'gorra') acc = '<path d="M33.4 39.6C33.4 27.4 41 20.4 50.4 20.4S67.4 27.4 67.4 39.6C62 36.4 56.4 35.2 50.4 35.2S38.8 36.4 33.4 39.6Z" fill="url(#' + id + 'c)"/><path d="M50 39C58 36.6 70 37 78 40.2C75.6 42.8 70 43 50 41.6Z" fill="' + tono(color, -.45) + '"/><path d="M36 35.6Q50 30.4 64.8 35.6" fill="none" stroke="' + tono(color, .3) + '" stroke-width=".6" opacity=".7"/><circle cx="50.4" cy="21.2" r="1.1" fill="' + tono(color, -.3) + '"/>';
+  var scarfBack = av.acc === 'panoleta' ? '<path d="M28.6 46C28.6 27.6 38.4 18.6 50 18.6S71.4 27.6 71.4 46C71.4 58 68 68 63.6 74H36.4C32 68 28.6 58 28.6 46Z" fill="url(#' + id + 'c)"/>' : '';
+  var scarfFront = av.acc === 'panoleta' ? '<path d="M33.6 42.6C35 29.6 41.8 23.4 50 23.4S65 29.6 66.4 42.6C61 37.8 55.6 35.8 50 35.8S39 37.8 33.6 42.6Z" fill="url(#' + id + 'c)"/><path d="M37.6 31q12.4-6.2 24.8 0M35.6 38q14.4-7 28.8 0" fill="none" stroke="' + tono(color, .35) + '" stroke-width=".5" opacity=".6"/><path d="M38.2 62.4C42 69 46.6 71.6 50 71.6S58 69 61.8 62.4" fill="none" stroke="' + tono(color, -.2) + '" stroke-width="4" stroke-linecap="round"/>' : '';
+  var ring = opt.ring ? '<circle cx="50" cy="50" r="47" fill="none" stroke="' + opt.ring + '" stroke-width="4"/>' : '';
+  var mk = Number(opt.marco) || 0; if (mk > 0 && !opt.ring) { var mc = ['', '#AAB9C3', '#8CEBFA', '#8CEBFA', '#A98BFF', '#D7C17A', '#D7C17A'][Math.min(6, mk)]; ring = '<circle cx="50" cy="50" r="49" fill="none" stroke="' + mc + '" stroke-width="' + (mk >= 3 ? 3.4 : 2.4) + '"' + (mk >= 5 ? ' stroke-dasharray="6 2.5"' : '') + '/>' + (mk >= 6 ? '<circle cx="50" cy="50" r="45.5" fill="none" stroke="' + mc + '" stroke-width="1" opacity=".7"/>' : ''); }
+  var delay = '-' + ((n * 37) % 70 / 10).toFixed(1) + 's';
+  var scan = full ? '<rect class="av-sweep" x="0" y="-14" width="100" height="12" fill="url(#' + id + 'w)"/><rect width="100" height="100" fill="url(#' + id + 'l)"/>' : '';
+  var mesh = full ? '<g fill="#8CEBFA" opacity=".35"><circle cx="40" cy="33.5" r=".45"/><circle cx="60" cy="33.5" r=".45"/><circle cx="37.6" cy="51" r=".45"/><circle cx="62.4" cy="51" r=".45"/><circle cx="50" cy="63.6" r=".45"/></g><circle cx="61.8" cy="36.8" r=".75" fill="#D7C17A" opacity=".75"/>' : '';
+  return '<svg class="av' + (full ? ' av-l' : '') + '" viewBox="0 0 100 100" width="' + s + '" height="' + s + '" role="img" aria-label="' + esc(opt.label || 'Avatar') + '" style="--d:' + delay + '">' +
+    '<defs>' +
+      '<radialGradient id="' + id + 'b" cx="50%" cy="38%" r="62%"><stop offset="0" stop-color="#21384A"/><stop offset=".62" stop-color="#121C26"/><stop offset="1" stop-color="#0A1118"/></radialGradient>' +
+      '<radialGradient id="' + id + 'k" cx="40%" cy="34%" r="72%"><stop offset="0" stop-color="' + lt + '"/><stop offset=".55" stop-color="' + piel + '"/><stop offset="1" stop-color="' + sh + '"/></radialGradient>' +
+      '<linearGradient id="' + id + 'n" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="' + sh2 + '"/><stop offset=".45" stop-color="' + sh + '"/><stop offset="1" stop-color="' + piel + '"/></linearGradient>' +
+      '<linearGradient id="' + id + 'h" x1=".2" y1="0" x2=".8" y2="1"><stop offset="0" stop-color="' + tono(hc, .34) + '"/><stop offset=".5" stop-color="' + hc + '"/><stop offset="1" stop-color="' + tono(hc, -.3) + '"/></linearGradient>' +
+      '<linearGradient id="' + id + 'j" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#34414D"/><stop offset="1" stop-color="#141C24"/></linearGradient>' +
+      '<linearGradient id="' + id + 'c" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="' + tono(color, .1) + '"/><stop offset="1" stop-color="' + tono(color, -.38) + '"/></linearGradient>' +
+      '<linearGradient id="' + id + 'w" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8CEBFA" stop-opacity="0"/><stop offset=".5" stop-color="#8CEBFA" stop-opacity=".2"/><stop offset="1" stop-color="#8CEBFA" stop-opacity="0"/></linearGradient>' +
+      '<pattern id="' + id + 'l" width="100" height="1.8" patternUnits="userSpaceOnUse"><rect width="100" height=".55" fill="#8CEBFA" opacity=".07"/></pattern>' +
+      '<clipPath id="' + id + 'x"><circle cx="50" cy="50" r="47.6"/></clipPath>' +
+      (full ? '<filter id="' + id + 'f" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="1.1"/></filter>' : '') +
+    '</defs>' +
+    '<circle cx="50" cy="50" r="48" fill="url(#' + id + 'b)" stroke="' + color + '" stroke-width="2"/>' +
+    '<g clip-path="url(#' + id + 'x)">' +
+      '<ellipse class="av-glow" cx="50" cy="44" rx="27" ry="30" fill="#8CEBFA" opacity=".12"/>' +
+      (full ? '<path d="M8 82Q50 66 92 82M14 92Q50 78 86 92" fill="none" stroke="#8CEBFA" stroke-width=".4" opacity=".25"/>' : '') +
+      '<g transform="translate(50 54) scale(1.3) translate(-50 -50)"><g class="av-fig">' +
+        scarfBack + hair.back +
+        '<path d="M8 104C10 86 23 77.4 38 74.6L44 71.6Q50 77.4 56 71.6L62 74.6C77 77.4 90 86 92 104Z" fill="url(#' + id + 'j)"/>' +
+        '<path d="M44 71.6L50 82.4L56 71.6Q50 76.2 44 71.6Z" fill="' + tono(color, -.55) + '"/>' +
+        '<path d="M38 74.6L45 86L50 82.4M62 74.6L55 86L50 82.4" fill="none" stroke="' + color + '" stroke-width="1.1" opacity=".85"/>' +
+        '<path d="M20 86q4 6 5 16M80 86q-4 6-5 16" fill="none" stroke="' + color + '" stroke-width=".6" opacity=".45"/>' +
+        '<path d="M43.4 58L43.6 72Q50 76.4 56.4 72L56.6 58Z" fill="url(#' + id + 'n)"/>' +
+        '<g class="av-head">' +
+          '<ellipse cx="34.6" cy="46.6" rx="2.5" ry="4.1" fill="' + sh + '"/><ellipse cx="65.4" cy="46.6" rx="2.5" ry="4.1" fill="' + sh + '"/>' +
+          '<path d="' + face + '" fill="url(#' + id + 'k)"/>' +
+          '<path d="' + face + '" fill="none" stroke="#8CEBFA" stroke-width=".7" opacity=".55" stroke-dasharray="0 40 44 200"/>' +
+          (mid ? '<ellipse cx="41" cy="51.6" rx="3.6" ry="2.2" fill="#D3796A" opacity=".1"/><ellipse cx="59" cy="51.6" rx="3.6" ry="2.2" fill="#D3796A" opacity=".1"/><path d="M41 61.4Q50 67.6 59 61.4" fill="none" stroke="' + sh2 + '" stroke-width=".7" opacity=".35"/>' : '') +
+          model + hair.front + scarfFront + brows + eye(43) + eye(57) + nose + mouth + mesh + acc +
+        '</g>' +
+      '</g></g>' + scan +
+    '</g>' + iniBadge(opt, color, s) + ring + '</svg>';
 }
 
 /* M.E.R.C.Y. – Nodo Medellín · diseño original (v5)
@@ -2803,7 +3062,10 @@ function mercySVG(size, state, opt) {
     '<radialGradient id="' + id + 'f" cx="45%" cy="40%" r="65%"><stop offset="0" stop-color="#B8936C"/><stop offset=".7" stop-color="#9E7953"/><stop offset="1" stop-color="#7E5E42"/></radialGradient>' +
     '<linearGradient id="' + id + 'j" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#36414C"/><stop offset="1" stop-color="#1E262E"/></linearGradient>' +
     '<linearGradient id="' + id + 'g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="1"/><stop offset=".72" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient><mask id="' + id + 'k"><rect width="200" height="240" fill="url(#' + id + 'g)"/></mask>' +
-    '<radialGradient id="' + id + 'h" cx="50%" cy="42%" r="55%"><stop offset="0" stop-color="' + cy + '" stop-opacity="' + (st === 'sintesis' ? .26 : .18) + '"/><stop offset="1" stop-color="' + cy + '" stop-opacity="0"/></radialGradient></defs>' +
+    '<radialGradient id="' + id + 'h" cx="50%" cy="42%" r="55%"><stop offset="0" stop-color="' + cy + '" stop-opacity="' + (st === 'sintesis' ? .26 : .18) + '"/><stop offset="1" stop-color="' + cy + '" stop-opacity="0"/></radialGradient>' +
+    '<linearGradient id="' + id + 'w" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="' + cy + '" stop-opacity="0"/><stop offset=".55" stop-color="' + cy + '" stop-opacity=".32"/><stop offset="1" stop-color="' + cy + '" stop-opacity="0"/></linearGradient>' +
+    '<linearGradient id="' + id + 'v" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="' + cy + '" stop-opacity=".34"/><stop offset=".7" stop-color="' + cy + '" stop-opacity=".05"/><stop offset="1" stop-color="' + cy + '" stop-opacity="0"/></linearGradient></defs>' +
+    '<path class="mbeam" d="M40 240L72 40L128 40L160 240Z" fill="url(#' + id + 'v)"/>' +
     '<ellipse cx="100" cy="122" rx="94" ry="114" fill="url(#' + id + 'h)"/>' + net + '<g class="mpart">' + parts + '</g>' +
     '<g class="mbody" mask="url(#' + id + 'k)" opacity=".9">' +
       '<path d="' + jacket + '" fill="url(#' + id + 'j)" fill-opacity=".9"/><path d="M84 160L100 178L116 160Q100 168 84 160Z" fill="#141C24"/>' + lapels +
@@ -2819,9 +3081,9 @@ function mercySVG(size, state, opt) {
         '<path d="M100 93Q98.4 103 96.2 107.6Q100 110.2 103.8 107.6" fill="none" stroke="#6E4E36" stroke-width=".9" opacity=".75"/>' + mouth +
         mercyMesh(100, 95, 27, 36, meshOp) + data +
       '</g>' +
-      '<g clip-path="url(#' + id + 'c)"><rect width="200" height="240" fill="' + cy + '" opacity=".1" style="mix-blend-mode:screen"/>' + lines + '</g>' +
+      '<g clip-path="url(#' + id + 'c)"><rect width="200" height="240" fill="' + cy + '" opacity=".1" style="mix-blend-mode:screen"/>' + lines + '<rect class="msweep" x="0" y="-30" width="200" height="26" fill="url(#' + id + 'w)"/></g>' +
       '<path d="' + jacket + '" fill="none" stroke="' + cy + '" stroke-width=".9" opacity=".55"/>' +
-    '</g>' + pulse + point + '<ellipse cx="100" cy="238" rx="62" ry="1.8" fill="' + cy + '" opacity=".45"/></svg>';
+    '</g>' + pulse + point + '<g class="memit"><ellipse cx="100" cy="238" rx="62" ry="1.8" fill="' + cy + '" opacity=".45"/><ellipse cx="100" cy="238" rx="74" ry="3.4" fill="none" stroke="' + cy + '" stroke-width=".6" opacity=".35"/></g></svg>';
 }
 
 /* íconos de expediente (trazo, currentColor) */
@@ -2886,7 +3148,7 @@ function nodoChip(id, small) { var n = NODO_BY_ID[id]; if (!n) return ''; return
 function srcLink(k) { var s = SRC[k]; if (!s) return ''; return '<a class="src" href="' + s.u + '" target="_blank" rel="noopener">' + esc(s.t) + '</a>'; }
 function estBadge(e) { var x = ESTADOS[e]; return x ? '<span class="est est-' + e + '" title="' + esc(x.d) + '">' + esc(x.n) + '</span>' : ''; }
 function tipoName(id) { var t = TIPOS.find(function (x) { return x.id === id; }); return t ? t.n : id; }
-function colName(id) { var t = COLS.find(function (x) { return x.id === id; }); return t ? t.n : id; }
+function colName(id) { var t = COLS.find(function (x) { return x.id === id; }); return t ? (t.corto || t.n) : id; }
 function fmt1(x) { return (Math.round(x * 10) / 10).toFixed(1).replace('.', ','); }
 function hhmm(t) { return t ? new Date(Number(t) || t).toLocaleTimeString('es-CO', { hour: '2-digit', minute: '2-digit', hour12: false }) : '—'; }
 function order(n, seed) { var idx = []; for (var i = 0; i < n; i++) idx.push(i); var h = 0; seed = String(seed); for (var j = 0; j < seed.length; j++) h = (h * 31 + seed.charCodeAt(j)) | 0; for (var k = n - 1; k > 0; k--) { h = (h * 1103515245 + 12345) | 0; var r = Math.abs(h) % (k + 1); var tmp = idx[k]; idx[k] = idx[r]; idx[r] = tmp; } return idx; }
@@ -3051,7 +3313,7 @@ function boot() {
   setInterval(function () { poll(false); }, T.mode === 'demo' ? 1500 : 3500);
   if (ME.sala) poll(true);
 }
-function liveCount(t) { var c = document.querySelector('[data-count="' + t.id + '"]'); if (c) { var min = parseInt(c.getAttribute('data-min') || '0'); c.textContent = t.value.length + (min ? ' / ' + min + ' caracteres' : ' caracteres'); c.classList.toggle('ok', t.value.length >= min); } }
+function liveCount(t) { var c = document.querySelector('[data-count="' + t.id + '"]'); if (c) { var min = parseInt(c.getAttribute('data-min') || '0'); var max = parseInt(c.getAttribute('data-max') || '0'); var L = t.value.length; c.textContent = max ? L.toLocaleString('es-CO') + ' de ' + max.toLocaleString('es-CO') + ' caracteres' + (min && L < min ? ' (mínimo ' + min + ')' : '') : L + (min ? ' / ' + min + ' caracteres' : ' caracteres'); c.classList.toggle('ok', L >= min); c.classList.toggle('near', !!max && L >= max * 0.9); } }
 function saveSess() { ssSet('hv_sess', ME); if (ME.role === 'est') lsSet('hv_sess_est', ME); }
 function applyPrefs() {
   var r = document.documentElement; var p = UI.prefs;
@@ -3141,9 +3403,13 @@ function topbar() {
   else if (ME.role === 'doc') who = '<div class="who"><b>Docente</b><span>Grupo ' + esc(grupoName(ME.sala)) + '</span></div>';
   else if (ME.role === 'mesa') who = '<div class="who"><b>Mesa Técnica</b><span>Grupo ' + esc(grupoName(ME.sala)) + '</span></div>';
   var nav = '';
-  if (ME.role === 'est' && p) {
+  if (ME.role === 'est') {
     var live = a.etapa !== 'espera';
-    nav = '<nav class="mainnav"><button class="' + (UI.route === 'equipo' ? 'on' : '') + '" data-a="go" data-v="equipo">' + ic('evidencia') + 'Laboratorio</button><button class="' + (UI.route === 'audiencia' ? 'on' : '') + (live ? ' pulse' : '') + '" data-a="go" data-v="audiencia">' + ic('turno') + 'Audiencia' + (live ? ' · en vivo' : '') + '</button><button class="' + (UI.route === 'perfil' ? 'on' : '') + '" data-a="go" data-v="perfil">' + ic('perspectiva') + 'Mi avatar</button></nav>';
+    var labOk = !!(p && p.team && NODO_BY_ID[p.nodo]); var audOk = labOk && audienciaAbierta(p);
+    nav = '<nav class="mainnav" aria-label="Menú principal">' +
+      '<button class="' + (UI.route === 'perfil' ? 'on' : '') + '" data-a="go" data-v="perfil"' + (UI.route === 'perfil' ? ' aria-current="page"' : '') + '><i class="mn-n">1</i>' + ic('perspectiva') + 'Mi avatar</button>' +
+      '<button class="' + (UI.route === 'equipo' ? 'on' : '') + (labOk ? '' : ' lock') + '" data-a="go" data-v="equipo"' + (UI.route === 'equipo' ? ' aria-current="page"' : '') + (labOk ? '' : ' aria-disabled="true"') + '><i class="mn-n">2</i>' + ic('evidencia') + 'Laboratorio' + (labOk ? '' : '<span class="mn-lock" aria-label="bloqueado">🔒</span>') + '</button>' +
+      '<button class="' + (UI.route === 'audiencia' ? 'on' : '') + (audOk ? (live ? ' pulse' : '') : ' lock') + '" data-a="go" data-v="audiencia"' + (UI.route === 'audiencia' ? ' aria-current="page"' : '') + (audOk ? '' : ' aria-disabled="true"') + '><i class="mn-n">3</i>' + ic('turno') + 'Audiencia' + (live && audOk ? ' · en vivo' : '') + (audOk ? '' : '<span class="mn-lock" aria-label="bloqueado">🔒</span>') + '</button></nav>';
   }
   return '<header class="top"><div class="top-in">' + brand('Grupo ' + grupoName(ME.sala)) + who + '<div class="top-r">' + right + '</div></div>' + nav + '</header>';
 }
@@ -3182,7 +3448,7 @@ VIEWS.perfil = function () {
     '<div class="panel">' + hud('Paso 1 de 4') + '<h2>¿Cómo te llamas?</h2><label for="f-seud">Tu nombre y primer apellido</label><input id="f-seud" class="big" maxlength="30" value="' + esc(draft('f-seud', pf.seud)) + '"></div>';
   if (st === 1) {
     var opt = function (k, arr) { return '<div class="opts">' + arr.map(function (x) { return '<button class="opt' + (pf.av[k] === x.id ? ' on' : '') + '" data-a="pf" data-k="' + k + '" data-v="' + x.id + '" aria-pressed="' + (pf.av[k] === x.id) + '">' + x.n + '</button>'; }).join('') + '</div>'; };
-    body = '<div class="pf-grid"><div class="panel pf-prev">' + hud('Vista previa') + avatarSVG(pf.av, 170, { label: ME.nombre || pf.seud || 'Avatar' }) + '<b class="pf-role">' + esc(pf.seud || 'Tu avatar') + '</b></div><div class="panel">' + hud('Paso 2 de 4') + '<h2>Arma tu avatar</h2>' +
+    body = '<div class="pf-grid"><div class="panel pf-prev">' + hud('Vista previa') + avatarSVG(pf.av, 220, { label: ME.nombre || pf.seud || 'Avatar' }) + '<b class="pf-role">' + esc(pf.seud || 'Tu avatar') + '</b></div><div class="panel">' + hud('Paso 2 de 4') + '<h2>Arma tu avatar</h2>' +
       '<h3>Presentación</h3>' + opt('pres', PRES) + '<h3>Tono de piel</h3><div class="sw">' + PIELES.map(function (v, i) { return '<button class="swatch' + (pf.av.piel === v ? ' on' : '') + '" style="background:' + v + '" data-a="pf" data-k="piel" data-v="' + v + '" aria-label="Tono de piel ' + (i + 1) + '" aria-pressed="' + (pf.av.piel === v) + '"></button>'; }).join('') + '</div>' +
       '<h3>Cabello</h3>' + opt('pelo', PELOS) + '<h3>Accesorio</h3>' + opt('acc', ACCS) + '</div></div>';
   }
@@ -3218,7 +3484,7 @@ function pasoHecho(id, p) {
   if (id === 'nodo') return !!done.nodo;
   if (id === 'actores') { var ac = t.actores || {}; var all = n.actores.every(function (a) { return ac[a]; }); return all || cntBy(ac, p.sid) >= 2; }
   if (id === 'evidencias') { var left = myCards(p).filter(function (c) { return !(t.matriz || {})[c.id]; }).length; return cntBy(t.matriz, p.sid) >= Math.min(4, myCards(p).length) || left === 0; }
-  if (id === 'argumentos') { var mine = argsDe(t, mySection(p).id).filter(function (a) { return a.by === p.sid && (a.cards || []).length; }); return mine.length >= 1 && !!done.reflexion; }
+  if (id === 'argumentos') { var mine = argsDe(t, mySection(p).id).filter(function (a) { return a.by === p.sid && (a.cards || []).length; }); return mine.length >= 1 && !!done.reflexion && refsDe(t, p.sid).length >= 1; }
   if (id === 'herramienta') { var hq = ((p.hq || {})[p.nodo]) || {}; var sol = (((t.herr || {})[p.nodo] || {}).sol || {}).txt; return !!(hq.busca && hq.busca.ok && hq.ante && hq.ante.ok && hq.procede && hq.procede.ok && herrOkTeam(p.team) && sol); }
   if (id === 'audiencia') { var bs = misBloques(p); if (!bs.length) return !!(p.preg && p.preg.length >= 15); return bs.every(function (b) { return kitListo(t, b.id) && (((t.guion || {})[b.id] || {}).txt || '').length >= 30; }); }
   return false;
@@ -3323,7 +3589,7 @@ LAB.evidencias = function (p) {
       '<div><h4 class="qh"><span class="qn">2</span> ¿Qué clase de información es?</h4><div class="bigopts two-col">' + TIPOS.map(function (ti) { return '<button class="bigopt' + (sel.tipo === ti.id ? ' on' : '') + '" data-a="pick" data-id="' + c.id + '" data-k="tipo" data-v="' + ti.id + '" aria-pressed="' + (sel.tipo === ti.id) + '"><b>' + esc(ti.n) + '</b><span>' + esc(ti.d) + '</span><span class="ej">Ej.: ' + esc(ti.ej) + '</span></button>'; }).join('') + '</div></div></div>' +
       '<div class="row end">' + (list.length > 1 ? '<button class="btn-ghost" data-a="cardNext">Ver otra tarjeta</button>' : '') + '<button class="btn" data-a="ubicar" data-id="' + c.id + '"' + (sel.tipo && sel.col ? '' : ' disabled') + '>Comprobar</button></div></article>';
   } else focus = '<div class="callout ok">¡Listo! Tu equipo ubicó todas tus tarjetas. Revisa el tablero y, en las tarjetas pendientes, propón cómo confirmarlas.</div>';
-  return focus + '<details class="panel more"' + (list.length ? '' : ' open') + '><summary>Ver el tablero de evidencias de tu equipo (' + Object.keys(matriz).length + ' tarjetas)</summary>' + tablero(t, true) + '</details>';
+  return focus + '<details class="panel more"' + (list.length ? '' : ' open') + '><summary>Ver la ' + esc(MATRIZ_TITULO.charAt(0).toLowerCase() + MATRIZ_TITULO.slice(1)) + ' de tu equipo (' + Object.keys(matriz).length + ' tarjetas)</summary>' + matrizCabecera() + tablero(t, true) + '</details>';
 };
 function tablero(t, conConf) {
   var matriz = t.matriz || {}; var me = prof();
@@ -3348,7 +3614,7 @@ function argEditor(sec, t, p) {
   var chk = mercyCheck(draft(fid), sel);
   var mz = Object.keys(t.matriz || {});
   return '<div class="argedit"><p class="lbl">1. Elige una frase de ayuda</p><div class="ideas">' + FRAMES.map(function (f) { return '<button class="chipbtn" data-a="frame" data-t="' + fid + '" data-v="' + f.id + '">' + esc(f.n) + '</button>'; }).join('') + '</div>' +
-    '<label for="' + fid + '">2. Escribe tu afirmación (cambia cada ___)</label><textarea id="' + fid + '" rows="3" data-live data-mercy="' + sec.id + '" placeholder="Afirmamos que… porque…">' + esc(draft(fid)) + '</textarea><span class="count" data-count="' + fid + '" data-min="30"></span>' +
+    '<label for="' + fid + '">2. Desarrolla tu idea (cambia cada ___). Tienes hasta ' + ARG_MAX.toLocaleString('es-CO') + ' caracteres</label><textarea id="' + fid + '" class="idea-txt" rows="7" maxlength="' + ARG_MAX + '" data-live data-mercy="' + sec.id + '" placeholder="Afirmamos que… porque… Según la tarjeta… Por eso…">' + esc(draft(fid)) + '</textarea><span class="count" data-count="' + fid + '" data-min="30" data-max="' + ARG_MAX + '"></span>' +
     '<p class="lbl">3. Toca las tarjetas que la prueban</p>' + (mz.length ? '<div class="cardpick">' + mz.map(function (id) { var c = CARD_BY_ID[id]; var on = sel.indexOf(id) >= 0; return '<button class="cpick' + (on ? ' on' : '') + (pendiente(c) ? ' pend' : '') + '" data-a="argCard" data-s="' + sec.id + '" data-v="' + id + '" aria-pressed="' + on + '" title="' + esc(c.txt) + '"><span class="cid">' + id + '</span><span>' + esc(c.txt.slice(0, 70)) + (c.txt.length > 70 ? '…' : '') + '</span></button>'; }).join('') + '</div>' : '<p class="empty">Primero clasifiquen tarjetas en el paso 3.</p>') +
     '<p class="lbl">4. Mira lo que dice M.E.R.C.Y.</p><div id="mercy-' + sec.id + '">' + mercyChip(chk) + '</div>' +
     '<div class="row end"><button class="btn" data-a="saveArg" data-s="' + sec.id + '">Guardar argumento</button></div></div>';
@@ -3555,7 +3821,7 @@ function instalacionStudent(p, a) {
 }
 function turnoStudent(p, a) {
   var tu = a.turno || {};
-  if (!tu.team) return '<div class="panel center"><p>En un momento tu docente llama al siguiente nodo.</p></div>' + ordenTurnos(p) + hiloHtml(a, 6);
+  if (!tu.team) return '<div class="panel center"><p>En un momento la asesora técnica de la jueza llama a la siguiente mesa, según el orden de turnos.</p></div>' + ordenTurnos(p) + hiloHtml(a, 6);
   var mates = members(tu.team); var isMine = tu.team === p.team; var act = bloqueActivo(tu);
   var sub = tu.sub === 'alegato' ? 'Alegato' : tu.sub === 'preguntas' ? 'Preguntas y respuestas' : tu.sub === 'replicas' ? 'Réplicas' : 'Se preparan';
   var pal = a.palabra && a.palabra.sid ? '<div class="palabra">' + avatarSVG((prof(a.palabra.sid) || {}).av, 44, { talk: true }) + '<div><span>Tiene la palabra</span><b>' + esc(a.palabra.seud || seud(a.palabra.sid)) + '</b></div></div>' : '';
@@ -3571,7 +3837,7 @@ function turnoStudent(p, a) {
       (tu.sub === 'preguntas' && q ? '<div class="qbox">' + hud('Pregunta de la Mesa Técnica', 'pregunta') + '<p>' + esc(q.txt) + '</p><p class="small">Para responder: «Gracias por la pregunta. Según la tarjeta ___, ___».</p></div>' : '') +
       (others.length ? '<label for="cede">Invitar a hablar a alguien de tu equipo</label><div class="row"><select id="cede">' + others.map(function (m) { return '<option value="' + m.sid + '">' + esc(m.seud) + '</option>'; }).join('') + '</select><button class="btn-ghost" data-a="ceder">Invitar</button></div>' : '') + '</div>' +
       '<div>' + kitHtml(tu.team, act, false) + '</div></div>';
-  } else body = '<div class="two"><div>' + kitHtml(tu.team, act, true) + '</div><div>' + mesaEvidencias(tu.team, act, false) + '</div></div><p class="callout">Para participar usa la barra de intervención de abajo: hablar, preguntar, responder, citar evidencia, pedir aclaración o pasar el turno.</p>';
+  } else body = '<div class="two"><div>' + kitHtml(tu.team, act, true) + '</div><div>' + mesaEvidencias(tu.team, act, false) + '</div></div><p class="callout">Para participar usa la barra de intervención de abajo cuando la asesora técnica le dé el turno de palabra a tu mesa: preguntar, responder, citar evidencia, pedir aclaración o pasar el turno.</p>';
   return head + body + hiloHtml(a, 6);
 }
 function pedirPalabraHtml(p, a, tu, mine) {
@@ -3772,7 +4038,7 @@ function rolHud(p) {
 VIEWS.mesa = function () {
   var a = aud(); var tu = a.turno || {};
   var body;
-  if (a.etapa !== 'turnos' || !tu.team) body = '<div class="panel center">' + mercySVG(120, 'cian') + '<p>' + (a.etapa === 'turnos' ? 'Esperando que la docente llame a un nodo.' : 'La Mesa Técnica actúa durante los alegatos. Etapa actual: ' + etapaLabel(a.etapa) + '.') + '</p></div>';
+  if (a.etapa !== 'turnos' || !tu.team) body = '<div class="panel center">' + mercySVG(120, 'cian') + '<p>' + (a.etapa === 'turnos' ? 'Llame al estrado a la siguiente mesa desde el panel de turnos.' : 'La Mesa Técnica actúa durante los alegatos. Etapa actual: ' + etapaLabel(a.etapa) + '. Mientras tanto, puede ordenar los turnos de las mesas.') + '</p></div>';
   else {
     var ms = members(tu.team); var marcas = (a.marcas || {})[tu.team] || {}; var n = nodoDe(tu.team); var act = bloqueActivo(tu);
     var bl = BLOQUES.map(function (b, i) {
@@ -3788,7 +4054,8 @@ VIEWS.mesa = function () {
       '<div class="panel">' + hud('Banco de preguntas', 'pregunta') + banco + '<label for="mq-libre">Pregunta propia</label><textarea id="mq-libre" rows="2">' + esc(draft('mq-libre')) + '</textarea><div class="row end"><button class="btn-ghost" data-a="formularLibre">Formular</button></div></div></div>' +
       mesaSimPanel(tu.team, false) + relojHtml(tu.team) + kitHtml(tu.team, act, true) + mesaEvidencias(tu.team, act, true) + hiloHtml(a, 6);
   }
-  return topbar() + '<main class="wrap mesa">' + '<p class="kicker">Simulación pedagógica</p><h1>Mesa Técnica</h1><p class="intro">Integran la Mesa M.E.R.C.Y. (jueza IA facilitadora), personajes simulados y la docente. Todos los cargos son ficticios: la Mesa recomienda, la docente valida.</p>' + body + '</main>';
+  var volver = ME.role === 'doc' ? '<button class="btn-ghost sm" data-a="volverDoc">← Volver al panel docente</button>' : '';
+  return topbar() + '<main class="wrap mesa">' + volver + '<p class="kicker">Simulación pedagógica · Asesoría técnica de la jueza</p><h1>Mesa Técnica</h1><p class="intro">Integran la Mesa M.E.R.C.Y. (jueza IA facilitadora), personajes simulados y la docente. La asesora técnica de la jueza asigna los turnos de las mesas y da la palabra. Todos los cargos son ficticios: la Mesa recomienda, la docente valida.</p>' + turnosPanel() + colaPanel(true) + body + '</main>';
 };
 var PREG_MESA = ['¿De qué fuente sale esa afirmación y qué límite tiene?', '¿Qué diría la otra versión sobre este punto?', '¿Qué entidad es competente para responder su solicitud?', '¿Qué dato les falta verificar y cómo lo harían?', '¿Cómo protege su propuesta a las familias sin poner en riesgo su vida?'];
 
@@ -3820,22 +4087,12 @@ DOC.audiencia = function () {
   var valid = {}; (a.objeciones || []).forEach(function (o) { if (o.ok) valid[o.tipo] = 1; });
   var stages = '<div class="stages">' +
     '<button class="stage' + (a.etapa === 'instalacion' ? ' on' : '') + '" data-a="etapa" data-v="instalacion"><b>1. Apertura e instalación</b><span>Inicia el reloj, muestra las reglas y la pregunta de apertura</span></button>' +
-    '<button class="stage' + (a.etapa === 'turnos' ? ' on' : '') + '" data-a="etapa" data-v="turnos"><b>2. Alegatos y preguntas</b><span>Un turno por nodo: 5 bloques y preguntas</span></button>' +
+    '<button class="stage' + (a.etapa === 'turnos' ? ' on' : '') + '" data-a="etapa" data-v="turnos"><b>2. Alegatos y preguntas</b><span>Un turno por mesa, asignado por la asesora técnica: 5 bloques, preguntas y réplicas</span></button>' +
     '<button class="stage' + (a.etapa === 'cierre' ? ' on' : '') + '" data-a="etapa" data-v="cierre"><b>3. Síntesis final</b><span>Propuestas de los nodos, reflexión y coevaluación</span></button>' +
     '<button class="stage ghost" data-a="etapa" data-v="espera"><b>Volver a preparación</b><span>Oculta la sala</span></button></div>';
   var inst = a.etapa === 'instalacion' ? '<div class="panel">' + hud('Pregunta de apertura') + '<p>Respuestas a «¿Por qué M.E.R.C.Y. no debe decidir sola?»: <b>' + (a.objeciones || []).length + '</b> · razones válidas distintas: <b>' + Object.keys(valid).length + ' de 5</b>. Compromisos de escucha: <b>' + allStudents().filter(function (s) { return s.compromiso; }).length + ' de ' + allStudents().length + '</b>.</p></div>' : '';
-  var turnos = '';
-  if (a.etapa === 'turnos') {
-    var teams = teamsWithMembers();
-    turnos = '<div class="panel">' + hud('Turnos por nodo', 'turno') + '<div class="tlist">' + teams.map(function (t) { var done = (a.hecho || []).indexOf(t) >= 0; return '<button class="tchip' + (tu.team === t ? ' on' : '') + (done ? ' done' : '') + '" data-a="llamar" data-v="' + t + '">' + mesaName(t) + ' · nodo ' + nodoDe(t) + '<span>' + members(t).length + ' integrantes · listo ' + teamReady(t).filter(function (x) { return x.ok; }).length + '/6' + (done ? ' · ya sustentó' : '') + '</span></button>'; }).join('') + '</div>' +
-      (tu.team ? '<div class="tctl"><b>' + mesaName(tu.team) + '</b><span class="bigtimer" data-timer="turno">' + mmss(tu.dur || 0) + '</span><button class="btn" data-a="sub" data-v="alegato">Iniciar alegato</button><button class="btn" data-a="sub" data-v="preguntas">Pasar a preguntas</button><button class="btn" data-a="sub" data-v="replicas">Abrir réplicas</button><button class="btn-ghost" data-a="pausa">' + (tu.pausa ? 'Reanudar' : 'Pausar') + '</button><button class="btn-ghost" data-a="masTiempo">+30 s</button><button class="btn-ghost" data-a="finTurno">Terminar turno</button></div>' +
-        '<div class="row"><label for="pal">Dar la palabra a</label><select id="pal">' + allStudents().filter(function (s) { return s.team === tu.team; }).map(function (s) { return '<option value="' + s.sid + '">' + esc(s.seud) + '</option>'; }).join('') + '</select><button class="btn-ghost" data-a="darPalabra">Dar la palabra</button><button class="btn-ghost" data-a="quitarPalabra">Retirar</button></div>' : '<p class="small">Elija el nodo que pasa al estrado.</p>') + '</div>';
-  }
-  var cola = (a.cola || []).map(function (c, i) { c._i = i; return c; }).filter(function (c) { return c.estado === 'pendiente'; });
-  var colaHtml = '<div class="panel">' + hud('Cola de intervenciones (' + cola.length + ')', 'pregunta') + (cola.length ? cola.map(function (c) {
-    var lbl = { pregunta: 'Pregunta', replica: 'Réplica', aclaracion: 'Aclaración', escrita: 'Intervención escrita', mocion: 'Moción de orden', cede: 'Invita a hablar' }[c.tipo] || c.tipo;
-    return '<div class="citem"><div class="hh">' + avatarSVG((prof(c.sid) || {}).av, 28) + '<b>' + esc(c.seud) + '</b><span class="tag">' + lbl + '</span><span>' + mesaName(c.team) + (c.para ? ' → ' + (c.para === 'mesa' ? 'Mesa Técnica' : mesaName(c.para)) : '') + '</span></div>' + (c.paraf ? '<p class="paraf">Resume: «' + esc(c.paraf) + '»</p>' : '') + '<p>' + esc(c.txt) + '</p><div class="row"><button class="btn sm" data-a="aprobar" data-i="' + c._i + '">Aprobar y dar la palabra</button><button class="btn-ghost sm" data-a="descartar" data-i="' + c._i + '">Descartar</button></div></div>';
-  }).join('') : '<p class="empty">No hay solicitudes pendientes.</p>') + '</div>';
+  var turnos = '<div class="panel">' + hud('Turnos de las mesas', 'turno') + '<p>Los turnos los asigna la <b>asesora técnica de la jueza</b> desde la vista «Mesa Técnica» (entrada con el PIN de la Mesa del grupo). Si usted cumple ese papel, ábrala aquí.</p><div class="row"><button class="btn" data-a="verAsesora">Abrir la vista de la asesora técnica</button></div>' + (a.etapa === 'turnos' || a.etapa === 'instalacion' ? turnosStrip(null) : '') + (tu.team ? '<p class="small">En el estrado: <b>' + mesaName(tu.team) + '</b>' + (tu.sub ? ' · ' + (tu.sub === 'alegato' ? 'alegato' : tu.sub === 'preguntas' ? 'preguntas' : 'réplicas') : '') + (a.voz ? ' · turno de palabra: <b>' + mesaName(a.voz) + '</b>' : '') + '</p>' : '') + '</div>';
+  var colaHtml = colaPanel(false);
   var reco = a.etapa === 'cierre' ? '<div class="panel">' + hud('Síntesis final') + '<p class="small">Descargue el acta de la audiencia o proyecte reconocimientos por criterio, sin puntajes ni posiciones.</p><div class="row"><button class="btn" data-a="acta">Descargar acta de síntesis</button><button class="btn-ghost" data-a="reconoc">Proyectar reconocimientos</button>' + ((a.reconoc || []).length ? '<button class="btn-ghost" data-a="quitarReconoc">Quitar</button>' : '') + '</div></div>' : '';
   return '<div class="panel"><h2>Etapa actual: ' + etapaLabel(a.etapa) + '</h2>' + clockHtml() + stages + '<p class="small">Abra el Proyector en otro dispositivo o pestaña conectada al video beam. Todos los relojes muestran el tiempo simulado de la actividad: organizan la sesión y no representan plazos legales.</p></div>' + inst + turnos + (a.etapa === 'turnos' && tu.team ? mesaSimPanel(tu.team, true) : '') + colaHtml + reco + hiloHtml(a, 6);
 };
@@ -4059,7 +4316,7 @@ function mesaEvidencias(tm, act, full) {
   var ids = evidenciasActivas(tm, act);
   var t = team(tm); var bal = balanceFuentes(S.kv, tm);
   var cards = ids.length ? ids.slice(0, full ? 6 : 3).map(function (id) { return evCard(id, true); }).join('') : '<p class="empty">En este momento el equipo no está citando una tarjeta. Cuando lo haga, aparecerá aquí.</p>';
-  var proc = '<p class="procs">' + COLS.map(function (co) { return '<span class="proc col-' + co.id + '">' + esc(co.n) + ': <b>' + bal.cols[co.id].length + '</b></span>'; }).join('') + '<span class="proc">Pendientes de verificar: <b>' + bal.pend + '</b></span></p><p class="small">Muestra qué miradas tiene el expediente. No mide quién tiene la razón.</p>';
+  var proc = '<p class="procs">' + COLS.map(function (co) { return '<span class="proc col-' + co.id + '">' + esc(co.corto || co.n) + ': <b>' + bal.cols[co.id].length + '</b></span>'; }).join('') + '<span class="proc">Pendientes de verificar: <b>' + bal.pend + '</b></span></p><p class="small">Muestra qué miradas tiene el expediente. No mide quién tiene la razón.</p>';
   return '<section class="z-evid panel">' + hud('Mesa de evidencias · ' + mesaName(tm), 'evidencia') + '<div class="evcs">' + cards + '</div>' + proc + '<details class="relbox"' + (full ? ' open' : '') + '><summary>Tablero de relaciones: afirmación → evidencia → fuente</summary>' + tableroRelaciones(tm, act) + '</details></section>';
 }
 
@@ -4101,7 +4358,7 @@ function ibarProyector(a) {
   var pend = (a.cola || []).filter(function (c) { return c.estado === 'pendiente'; });
   var lbl = { hablar: 'Hablar', pregunta: 'Preguntar', replica: 'Responder', cita: 'Citar evidencia', aclaracion: 'Pedir aclaración', pasa: 'Pasar el turno', escrita: 'Por escrito', mocion: 'Pide orden', cede: 'Invita a hablar' };
   return '<div class="z-ibar panel">' + hud('Barra de intervención · cola de la sala', 'turno') + '<div class="zib">' + IBAR.map(function (x) { var n = pend.filter(function (c) { return c.tipo === x.tipo; }).length; return '<span class="zib-a">' + ic(x.ic, 18) + esc(x.n) + (n ? ' <b>' + n + '</b>' : '') + '</span>'; }).join('') + '</div>' +
-    (pend.length ? '<ol class="zcola">' + pend.slice(0, 5).map(function (c) { return '<li>' + avatarSVG((prof(c.sid) || {}).av, 24) + '<b>' + esc(c.seud) + '</b><span class="tag">' + esc(lbl[c.tipo] || c.tipo) + '</span></li>'; }).join('') + '</ol>' : '<p class="small">Nadie está en la cola. La docente da la palabra.</p>') + '</div>';
+    (pend.length ? '<ol class="zcola">' + pend.slice(0, 5).map(function (c) { return '<li>' + avatarSVG((prof(c.sid) || {}).av, 24) + '<b>' + esc(c.seud) + '</b><span class="tag">' + esc(lbl[c.tipo] || c.tipo) + '</span></li>'; }).join('') + '</ol>' : '<p class="small">Nadie está en la cola. La asesora técnica da la palabra.</p>') + '</div>';
 }
 
 /* ---------- Mesa Técnica simulada: preguntas por vacíos y dictamen ---------- */
@@ -4740,9 +4997,9 @@ var TOURS = {
     { t: '¡Hola! Te muestro la app', d: 'Son 10 paradas cortas. Puedes avanzar, volver o saltar el recorrido cuando quieras. Toca «Escuchar» si prefieres oírlo.' },
     { sel: '.top .who', t: 'Este eres tú', d: 'Aquí están tu avatar, tu nombre, tu rol, tu mesa y tu grupo. Así te reconocen tus compañeros.' },
     { sel: '.amini', t: 'Tu avance y tu nivel', d: 'El anillo muestra cuánto llevas. Al lado ves tu nivel y tu XP. Tócalo para ver tus logros.' },
-    { sel: '.mainnav', t: 'Las tres zonas', d: 'Laboratorio: preparas el trabajo. Audiencia: presentan y conversan. Mi avatar: cambias tu apariencia.' },
+    { sel: '.mainnav', t: 'El menú: tres opciones en orden', d: '1. Mi avatar: tu identidad, tu rol y tu mesa. 2. Laboratorio: preparas el trabajo. 3. Audiencia: presentan y conversan. La Audiencia se abre cuando terminas el laboratorio.' },
     { sel: '.focobar', t: 'Herramientas para concentrarte', d: '«Bloque de 10 min» te ayuda a trabajar un rato sin distraerte. «Modo enfoque» deja una sola tarea en pantalla.' },
-    { sel: '.ruta', t: 'Tu ruta', d: 'Primero la Misión y luego 6 pasos en orden. Cada paso cumplido se marca con ✓. Puedes volver a un paso cuando quieras.' },
+    { sel: '.ruta', t: 'Tu ruta', d: 'Primero la Misión y luego 6 pasos en orden. Un paso se abre cuando completas el anterior (los cerrados tienen 🔒). Cada paso cumplido se marca con ✓ y puedes volver a él cuando quieras.' },
     { sel: '.mis-tiles', alt: '.pasocard', t: 'Qué hacer en cada paso', d: 'Cada pantalla dice qué vas a hacer, cómo hacerlo y cuándo está listo. Lee «Está listo cuando…» para saber si terminaste.' },
     { sel: '.rstep.prog', t: 'Logros y avance', d: 'Aquí ves tus insignias, tu nivel, los retos cortos y la misión de tu equipo. El XP nunca se pierde.' },
     { sel: '#guia .guia-fab', t: 'M.E.R.C.Y. te ayuda', d: 'Si no sabes qué sigue, toca «¿Qué hago ahora?». M.E.R.C.Y. te dice el siguiente paso. No decide por ti.' },
@@ -4750,12 +5007,13 @@ var TOURS = {
     { t: '¡Listo para empezar!', d: 'Empieza por la Misión: son 5 módulos cortos. Recuerda: toda afirmación lleva su prueba y aquí nadie es acusado.' }
   ],
   aud: [
-    { t: 'Así funciona la audiencia', d: 'Te muestro cómo seguir la audiencia y cómo participar. Son 6 paradas.' },
+    { t: 'Así funciona la audiencia', d: 'Te muestro cómo seguir la audiencia y cómo participar. Son 7 paradas.' },
+    { sel: '.tstrip', t: 'Los turnos de las mesas', d: 'La asesora técnica de la jueza asigna los turnos: qué mesa pasa al estrado y qué mesa tiene la palabra en preguntas y réplicas. Aquí ves el puesto de tu mesa y cuándo te toca.' },
     { sel: '.crono', t: 'La cronología', d: 'Muestra en qué momento estamos: apertura, alegatos, preguntas, réplicas y cierre. El punto ● es el momento actual.' },
     { sel: '.reloj', alt: '.audmeta', t: 'El tiempo', d: 'Es tiempo simulado de la actividad, no un plazo legal. Si te pone nervioso, puedes ocultarlo en Accesibilidad.' },
-    { sel: '.ib-btns', alt: '.ibar', t: 'La barra de intervención', d: 'Con estos botones hablas, preguntas, respondes, citas una evidencia, pides una aclaración o pasas el turno.' },
+    { sel: '.ib-btns', alt: '.ibar', t: 'La barra de intervención', d: 'Con estos botones hablas, preguntas, respondes, citas una evidencia, pides una aclaración o pasas el turno. Se activan cuando tu mesa está en el estrado o tiene el turno de palabra.' },
     { sel: '.ib-b[data-v="responder"]', t: 'Responder con respeto', d: 'Antes de responder, escribe lo que entendiste de la otra persona. Así la conversación es justa.' },
-    { sel: '.hilo', t: 'El hilo de voces', d: 'Aquí aparece lo que se ha dicho. La docente da la palabra en orden y M.E.R.C.Y. puede leer tu intervención.' },
+    { sel: '.hilo', t: 'El hilo de voces', d: 'Aquí aparece lo que se ha dicho. La asesora técnica da la palabra en orden y M.E.R.C.Y. puede leer tu intervención.' },
     { t: '¡A participar!', d: 'Escucha con atención, cita tus tarjetas y pregunta con respeto. Toda participación suma XP para ti y tu equipo.' }
   ]
 };
@@ -4845,9 +5103,9 @@ var ESTACIONES = [
   { id: 'entrar', n: 'Entra con tu código', ic: 'perspectiva', que: 'Escribe el código que te dio tu docente. La app te lleva a tu grupo (11°1, 11°2, 11°3 u 11°4).', como: ['Escribe tu código personal.', 'Toca «Entrar».', 'Si sale un error, revisa el código con tu docente.'], listo: 'Ves tu nombre en la pantalla.', tip: 'Tu código es personal: no lo compartas.' },
   { id: 'perfil', n: 'Arma tu avatar y elige tu rol', ic: 'equipo', que: 'Confirma tu nombre, arma tu avatar, elige tu rol y tu mesa con el nodo del equipo.', como: ['Revisa que el nombre sea el tuyo.', 'Elige presentación, piel, cabello y accesorio.', 'Elige tu rol y tu mesa; el nodo lo comparte todo el equipo.'], listo: 'Tocaste «Guardar y empezar».', tip: 'Todos los roles valen lo mismo. Puedes cambiar tu avatar en «Mi avatar».', ir: ['go', 'perfil'] },
   { id: 'mision', n: 'Revisa tu misión', ic: 'mapa', que: 'Cinco módulos cortos: la finalidad, tu rol, el producto final, el material de referencia y un chequeo de 3 preguntas.', como: ['Lee cada módulo o toca «Escuchar».', 'Toca «Entendido. Siguiente».', 'Responde el chequeo final.'], listo: 'Ves «¡Misión activada!».', tip: 'Puedes volver a la misión cuando quieras desde la ruta.', ir: ['paso', 'mision'] },
-  { id: 'ruta', n: 'Haz los 6 pasos del laboratorio', ic: 'evidencia', que: 'Conoce tu nodo, ubica actores, clasifica evidencias, arma argumentos, prepara la herramienta y prepara la audiencia.', como: RUTA.map(function (r, i) { return (i + 1) + '. ' + r.n + ': ' + r.que; }), listo: 'Cada paso muestra ✓ cuando cumples «Está listo cuando…».', tip: 'Ve en orden. Si te equivocas, recibes una pista y no pierdes nada.', ir: ['paso', 'nodo'] },
+  { id: 'ruta', n: 'Haz los 6 pasos del laboratorio', ic: 'evidencia', que: 'Conoce tu nodo, ubica actores, clasifica evidencias, arma argumentos, prepara la herramienta y prepara la audiencia.', como: RUTA.map(function (r, i) { return (i + 1) + '. ' + r.n + ': ' + r.que; }), listo: 'Cada paso muestra ✓ cuando cumples «Está listo cuando…».', tip: 'Los pasos se abren en orden: termina uno para pasar al siguiente. Si te equivocas, recibes una pista y no pierdes nada.', ir: ['paso', 'nodo'] },
   { id: 'mercy', n: 'Pide ayuda a M.E.R.C.Y.', ic: 'pregunta', que: 'M.E.R.C.Y. es una guía virtual: te dice qué sigue y revisa si tu idea tiene prueba y fuente. No decide el caso.', como: ['Toca «¿Qué hago ahora?» si no sabes qué sigue.', 'Mira los avisos: ✓ conexión clara, △ dato por revisar.', 'Toca «Escuchar» para oír cualquier texto.'], listo: 'Sabes cuál es tu siguiente paso.', tip: 'Los colores siempre van con un ícono y un texto.' },
-  { id: 'aud', n: 'Participa en la audiencia', ic: 'turno', que: 'Cada equipo presenta 5 bloques, la Mesa Técnica pregunta y luego hay réplicas. Tú participas con la barra de intervención.', como: ['Mira la cronología para saber en qué momento van.', 'Usa la barra: hablar, preguntar, responder, citar evidencia, pedir aclaración o pasar.', 'Para responder, primero cuenta lo que entendiste.'], listo: 'La docente te dio la palabra o tu intervención está en el hilo.', tip: 'Si prefieres no hablar en público, escribe y M.E.R.C.Y. lee tu texto.', ir: ['go', 'audiencia'] },
+  { id: 'aud', n: 'Participa en la audiencia', ic: 'turno', que: 'Se abre cuando terminas el laboratorio. La asesora técnica de la jueza asigna los turnos: cada mesa presenta 5 bloques, la Mesa Técnica pregunta y luego hay réplicas. Tú participas con la barra de intervención cuando tu mesa tiene el turno.', como: ['Mira la cronología para saber en qué momento van.', 'Usa la barra: hablar, preguntar, responder, citar evidencia, pedir aclaración o pasar.', 'Para responder, primero cuenta lo que entendiste.'], listo: 'La asesora técnica te dio la palabra o tu intervención está en el hilo.', tip: 'Si prefieres no hablar en público, escribe y M.E.R.C.Y. lee tu texto.', ir: ['go', 'audiencia'] },
   { id: 'cierre', n: 'Reflexiona y valora a tu equipo', ic: 'propuesta', que: 'Al final escribes tu reflexión en tres partes y valoras cómo trabajó cada compañero.', como: ['Saber conocer: ¿qué aprendiste?', 'Saber hacer: ¿cómo usaste las pruebas?', 'Saber ser: ¿qué voz escuchaste y qué propones?'], listo: 'Ves «¡Guardada!» en tu reflexión.', tip: 'La coevaluación solo la ve tu docente.' },
   { id: 'logros', n: 'Mira tus logros', ic: 'check', que: 'Tu trabajo suma XP, sube tu nivel y desbloquea insignias. Con tu equipo tienen una misión compartida.', como: ['Toca «Logros y avance» en la ruta.', 'Mira los retos cortos sugeridos.', 'Ayuda a tu equipo: el marco dorado es de todos.'], listo: 'Sabes qué reto hacer ahora.', tip: 'No hay tabla de posiciones: nadie compite contra nadie.', ir: ['paso', 'progreso'] }
 ];
@@ -5090,7 +5348,7 @@ ACT.pedirPalabra = function () {
   if (tipo === 'replica' && paraf.length < 20) return say('Antes de replicar, resume el argumento del otro (20 caracteres o más).', 'bad');
   var p = prof(); var tipoEv = tipo === 'replica' ? 'replica' : tipo === 'mocion' ? 'mocion' : 'intervencion';
   send([{ k: 'aud', p: ['cola'], m: 'push', v: { id: uid(), sid: ME.sid, seud: p.seud, team: p.team, tipo: tipo, para: para, paraf: tipo === 'replica' ? paraf : '', txt: txt, estado: 'pendiente', t: now() } }], [ev(tipoEv, tipo, { para: para })]);
-  UI.d['w-txt'] = ''; UI.d['w-paraf'] = ''; say('Listo, quedaste en la cola. Tu docente te dará la palabra cuando sea el momento.', 'good');
+  UI.d['w-txt'] = ''; UI.d['w-paraf'] = ''; say('Listo, quedaste en la cola. La asesora técnica te dará la palabra cuando sea el momento.', 'good');
 };
 ACT.ceder = function () { var to = val('cede'); var p = prof(); send([{ k: 'aud', p: ['cola'], m: 'push', v: { id: uid(), sid: ME.sid, seud: p.seud, team: p.team, tipo: 'cede', para: p.team, txt: p.seud + ' invita a ' + seud(to) + ' a tomar la palabra.', to: to, estado: 'pendiente', t: now() } }], [ev('invitar', to)]); say('Invitación enviada a la cola.', 'good'); };
 ACT.saveFinal = function () {
@@ -5152,6 +5410,7 @@ ACT.acta = function () {
     lines.push('  Integrantes (seudónimos): ' + members(tm).map(function (m) { return m.seud + ' (' + profRol(m) + ')'; }).join(', '));
     lines.push('  Herramienta analizada: ' + ((x.herr || {}).n || ''));
     lines.push('  Solicitud: ' + (sol || 'sin solicitud'));
+    var rf = refsDe(t); if (rf.length) { lines.push('  Referencias consultadas (APA):'); rf.forEach(function (r) { lines.push('    - ' + apaTexto(r)); }); }
     var qs = (a.hilo || []).filter(function (h) { return h.para === tm && (h.tipo === 'mesa' || h.tipo === 'pregunta'); });
     qs.forEach(function (q) { lines.push('  Pregunta: ' + q.txt); });
     lines.push('');
@@ -5161,7 +5420,7 @@ ACT.acta = function () {
 
 /* docente */
 ACT.llamar = function (b) { var t = b.getAttribute('data-v'); send([audSet(['turno'], { team: t, sub: '', inicio: 0, dur: 0, pausa: 0 }), audSet(['palabra'], null)], [ev('turno', t)]); };
-ACT.pausa = function () { var tu = aud().turno || {}; if (!tu.sub) return; if (tu.pausa) send([audSet(['turno'], { team: tu.team, sub: tu.sub, inicio: now(), dur: tu.pausa, pausa: 0 })]); else { var rem = Math.max(1, tu.dur - (now() - tu.inicio) / 1000); send([audSet(['turno', 'pausa'], rem)]); } };
+ACT.pausa = function () { var tu = aud().turno || {}; if (!tu.sub) return; if (tu.pausa) send([audSet(['turno'], { team: tu.team, sub: tu.sub, inicio: now(), dur: tu.pausa, pausa: 0, voces: tu.voces || [] })]); else { var rem = Math.max(1, tu.dur - (now() - tu.inicio) / 1000); send([audSet(['turno', 'pausa'], rem)]); } };
 ACT.finTurno = function () { var tu = aud().turno || {}; send([{ k: 'aud', p: ['hecho'], m: 'push', v: tu.team }, audSet(['turno'], { team: '', sub: '', inicio: 0, dur: 0, pausa: 0 }), audSet(['palabra'], null)], [ev('turno_fin', tu.team)]); };
 ACT.darPalabra = function () { var sid = val('pal'); send([audSet(['palabra'], { sid: sid, seud: seud(sid) })]); };
 ACT.quitarPalabra = function () { send([audSet(['palabra'], null)]); };
@@ -5234,7 +5493,7 @@ ACT.ibSend = function () {
   var tipoEv = x.tipo === 'replica' ? 'replica' : x.tipo === 'pasa' ? 'pasa_turno' : 'intervencion';
   send([{ k: 'aud', p: ['cola'], m: 'push', v: item }], [ev(tipoEv, x.tipo)]);
   ['ib-txt', 'ib-paraf', 'ib-card'].forEach(function (k) { delete UI.d[k]; }); UI.ib = '';
-  say(x.id === 'pasar' ? 'Listo. Cuando quieras, vuelve a pedir la palabra.' : 'Enviado a la cola. La docente te dará la palabra.', 'good');
+  say(x.id === 'pasar' ? 'Listo. Cuando quieras, vuelve a pedir la palabra.' : 'Enviado a la cola. La asesora técnica te dará la palabra.', 'good');
 };
 ACT.prefTog = function (b) { var k = b.getAttribute('data-k'); UI.prefs[k] = !UI.prefs[k]; applyPrefs(); doRender(); };
 /* v3: Mesa Técnica simulada */
@@ -5284,6 +5543,616 @@ function seedDemo() {
 }
 
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
+
+/* ============================================================
+   v8 · Ajustes solicitados por la docente
+   1) Menú en tres opciones: Mi avatar · Laboratorio · Audiencia.
+   2) No se avanza si la etapa actual está incompleta.
+   3) La docente edita los nombres visibles de sus estudiantes, por mesa.
+   4) Referencias y evidencias consultadas en formato APA dentro del producto.
+   5) Hasta 2.500 caracteres para desarrollar la idea del argumento.
+   6) Audiencia por turnos de mesa, asignados por la asesora técnica de la jueza.
+   7) Matriz de triangulación de evidencias como insumo de partida.
+   ============================================================ */
+ACT = ACT || {};
+var ARG_MAX = 2500;
+
+/* ---------- 2) avanzar solo con la etapa completa ---------- */
+function rutaCompleta(p) { return RUTA.every(function (r) { try { return pasoHecho(r.id, p); } catch (e) { return false; } }); }
+function audienciaAbierta(p) { return !!(p && p.team && NODO_BY_ID[p.nodo] && misionHecha(p) && rutaCompleta(p)); }
+function primerPendiente(p) { if (!misionHecha(p)) return 'mision'; var f = RUTA.find(function (r) { return !pasoHecho(r.id, p); }); return f ? f.id : ''; }
+function pasoAbierto(id, p) {
+  if (id === 'progreso' || id === 'mision' || id === 'tutorial') return true;
+  var i = RUTA.findIndex(function (r) { return r.id === id; }); if (i < 0) return true;
+  if (!misionHecha(p)) return false;
+  for (var k = 0; k < i; k++) if (!pasoHecho(RUTA[k].id, p)) return false;
+  return true;
+}
+function msgBloqueo(p, destino) {
+  var f = primerPendiente(p);
+  if (f === 'mision') return 'Primero completa tu misión: revisa los módulos y responde el chequeo final.' + (destino ? ' Después se abre ' + destino + '.' : '');
+  var i = RUTA.findIndex(function (r) { return r.id === f; }); var r = RUTA[i];
+  if (!r) return '';
+  return 'Primero completa el paso ' + (i + 1) + ', «' + r.n + '». Está listo cuando: ' + r.listo.charAt(0).toLowerCase() + r.listo.slice(1);
+}
+(function () {
+  var paso0 = ACT.paso;
+  ACT.paso = function (b) {
+    var v = b.getAttribute('data-v'); var p = prof();
+    if (p && !pasoAbierto(v, p)) { say(msgBloqueo(p), 'bad'); return; }
+    return paso0.apply(this, arguments);
+  };
+  var ir0 = ACT.irPaso;
+  ACT.irPaso = function (b) {
+    var v = b.getAttribute('data-v'); var p = prof();
+    if (p && !pasoAbierto(v, p)) { var f = primerPendiente(p); UI.lab = f === 'mision' ? 'mision' : ''; if (f && f !== 'mision') UI.paso = f; say(msgBloqueo(p), 'bad'); go('equipo'); return; }
+    return ir0.apply(this, arguments);
+  };
+  var go0 = ACT.go;
+  ACT.go = function (b) {
+    var v = b.getAttribute('data-v'); var p = prof();
+    if (ME.role === 'est') {
+      if (v === 'equipo' && !(p && p.team && NODO_BY_ID[p.nodo])) { say('Primero completa «Mi avatar»: tu identidad, tu avatar, tu rol y tu mesa con el nodo del equipo.', 'bad'); return go('perfil'); }
+      if (v === 'audiencia' && !audienciaAbierta(p)) {
+        if (!(p && p.team && NODO_BY_ID[p.nodo])) { say('Primero completa «Mi avatar».', 'bad'); return go('perfil'); }
+        var f = primerPendiente(p); UI.lab = f === 'mision' ? 'mision' : ''; if (f && f !== 'mision') UI.paso = f;
+        say('La audiencia se abre cuando terminas tu laboratorio. ' + msgBloqueo(p), 'bad'); return go('equipo');
+      }
+    }
+    return go0.apply(this, arguments);
+  };
+  /* preguntas de la herramienta: una a la vez, en orden */
+  function herrMax(p) {
+    var t = team(p.team); var ht = (t.herr || {})[p.nodo] || {}; var hq = ((p.hq || {})[p.nodo]) || {};
+    var ok = [hq.busca && hq.busca.ok, hq.ante && hq.ante.ok, herrOkTeam(p.team), hq.procede && hq.procede.ok, !!ht.sol];
+    var i = ok.findIndex(function (x) { return !x; }); return i < 0 ? 4 : i;
+  }
+  var hs0 = ACT.hstep;
+  ACT.hstep = function (b) {
+    var p = prof(); var v = Number(b.getAttribute('data-v'));
+    if (p && v > herrMax(p)) { say(herrMax(p) === 2 ? 'Primero marquen al menos 3 requisitos que ya tiene el borrador de tu equipo.' : 'Primero responde bien esta pregunta. Si te equivocas, lee la tarjeta de verificación.', 'bad'); return; }
+    return hs0.apply(this, arguments);
+  };
+  var lh0 = LAB.herramienta;
+  LAB.herramienta = function (p) {
+    var html = lh0.apply(this, arguments); var mx = herrMax(p);
+    return html.replace(/data-a="hstep" data-v="(\d)"/g, function (m, d) { return Number(d) > mx ? m + ' disabled aria-disabled="true" title="Se abre al completar la pregunta anterior"' : m; });
+  };
+  /* laboratorio: misión primero y pasos en orden */
+  var ve = VIEWS.equipo;
+  VIEWS.equipo = function () {
+    var p = prof();
+    if (p && p.team && NODO_BY_ID[p.nodo]) {
+      if (!misionHecha(p) && UI.lab !== 'progreso' && UI.lab !== 'tutorial') UI.lab = 'mision';
+      if (UI.paso && !pasoAbierto(UI.paso, p)) UI.paso = primerPendiente(p) || 'audiencia';
+    }
+    var html = ve.apply(this, arguments);
+    if (!p || !p.team || !NODO_BY_ID[p.nodo]) return html;
+    RUTA.forEach(function (r) {
+      if (pasoAbierto(r.id, p)) return;
+      html = html.replace('" data-a="paso" data-v="' + r.id + '" aria-current=', ' lock" data-a="paso" data-v="' + r.id + '" aria-disabled="true" title="Se abre al completar la etapa anterior" aria-current=');
+    });
+    return html;
+  };
+  /* la audiencia se abre al terminar la ruta */
+  var va = VIEWS.audiencia;
+  VIEWS.audiencia = function () {
+    var p = prof();
+    if (ME.role === 'est' && p && p.team && NODO_BY_ID[p.nodo] && !audienciaAbierta(p)) {
+      var a = aud(); var f = primerPendiente(p);
+      var falta = RUTA.map(function (r, i) { var ok = pasoHecho(r.id, p); return '<li class="' + (ok ? 'ok' : '') + '"><i>' + (ok ? '✓' : i + 1) + '</i>' + esc(r.n) + (ok ? '' : ' · <span class="small">' + esc(r.listo) + '</span>') + '</li>'; }).join('');
+      return topbar() + '<main class="wrap aud"><div class="panel lockpanel">' + hud('Audiencia bloqueada', 'turno') + mercySVG(110, 'revisar') +
+        '<h2>' + (a.etapa !== 'espera' ? 'La audiencia ya empezó, pero primero termina tu laboratorio' : 'La audiencia se abre cuando termines tu laboratorio') + '</h2><p>' + esc(msgBloqueo(p)) + '</p>' +
+        '<ul class="checklist">' + (misionHecha(p) ? '<li class="ok"><i>✓</i>Misión</li>' : '<li><i>◆</i>Misión · <span class="small">revisa los módulos y responde el chequeo</span></li>') + falta + '</ul>' +
+        '<div class="row"><button class="btn big" data-a="irPaso" data-v="' + esc(f === 'mision' ? 'mision' : f) + '">' + (f === 'mision' ? 'Ir a la misión' : 'Ir al paso pendiente') + ' →</button></div></div></main>';
+    }
+    return va.apply(this, arguments);
+  };
+  var sa0 = siguienteAccion;
+  siguienteAccion = function () {
+    var p = prof(); var a = aud();
+    if (p && p.team && NODO_BY_ID[p.nodo] && a.etapa !== 'espera' && !audienciaAbierta(p)) { var f = primerPendiente(p); return { msg: 'La audiencia ya empezó. Para entrar, termina tu laboratorio. ' + msgBloqueo(p), acts: [{ l: f === 'mision' ? 'Ir a la misión' : 'Ir al paso pendiente', a: f === 'mision' ? 'paso' : 'irPaso', v: f }] }; }
+    if (p && p.team && !misionHecha(p) && a.etapa === 'espera') return { msg: 'Empieza por tu misión: revisa los módulos y responde el chequeo. Después se abren los pasos del laboratorio.', acts: [{ l: 'Ir a la misión', a: 'paso', v: 'mision' }] };
+    return sa0.apply(this, arguments);
+  };
+})();
+
+/* ---------- 1) menú: Mi avatar · Laboratorio · Audiencia ---------- */
+(function () {
+  var tb = topbar;
+  topbar = function () {
+    var p = prof();
+    if (ME.role === 'est' && p && p.seud && p.seud !== ME.nombre) { ME.nombre = p.seud; saveSess(); }
+    return tb.apply(this, arguments);
+  };
+})();
+
+/* ---------- 7) matriz de triangulación: insumo de partida ---------- */
+function matrizCabecera() { return '<div class="mtri-h" aria-hidden="true"><span>' + esc(MATRIZ_TITULO) + '</span></div>'; }
+function matrizPartida(p) {
+  var t = team(p.team); var mz = t.matriz || {};
+  var cols = COLS.map(function (co) {
+    var n = Object.keys(mz).filter(function (id) { return mz[id].col === co.id; }).length;
+    return '<div class="mtri-col col-' + co.id + '"><b>' + esc(co.n) + '</b><span class="mtri-q">¿Quién lo dice? ' + esc(co.q) + '</span><p>' + esc(co.d) + '</p><em>' + n + (n === 1 ? ' tarjeta' : ' tarjetas') + ' de tu equipo</em></div>';
+  }).join('');
+  return '<article class="panel mtri">' + hud('Insumo de partida · plan de aprendizaje', 'evidencia') + '<h2>' + esc(MATRIZ_TITULO) + '</h2>' +
+    '<p>Es la herramienta con la que tu equipo cruza tres miradas sobre el caso. En el paso 3 cada tarjeta de evidencia se ubica en una de estas tres categorías. Una conclusión es más sólida cuando las tres dialogan: lo que dice la institución, lo que muestra el territorio y la norma que aplica o se vulnera.</p>' +
+    '<div class="mtri-wrap">' + matrizCabecera() + '<div class="mtri-cols">' + cols + '</div></div>' +
+    '<p class="small">Triangular no es elegir un bando: es comparar fuentes distintas para ver dónde coinciden, dónde se contradicen y qué falta verificar.</p></article>';
+}
+(function () {
+  var ln0 = LAB.nodo;
+  LAB.nodo = function (p) {
+    var html = ln0.apply(this, arguments);
+    var n = NODO_BY_ID[p.nodo]; if (n && n.sensible && !UI.open['sens' + n.id]) return html;
+    var k = html.indexOf('<div class="two">'); if (k < 0) return html + matrizPartida(p);
+    return html.slice(0, k) + matrizPartida(p) + html.slice(k);
+  };
+})();
+
+/* ---------- 4) referencias y evidencias consultadas en APA ---------- */
+var APA_TIPOS = [
+  { id: 'web', n: 'Página web o noticia', ej: 'Alcaldía de Medellín. (2026, 12 de abril). Título de la página. Sitio web. https://…' },
+  { id: 'documento', n: 'Documento, informe o norma', ej: 'Congreso de Colombia. (1998). Ley 472 de 1998. https://…' },
+  { id: 'sentencia', n: 'Sentencia o fallo', ej: 'Corte Constitucional de Colombia. (2010). Sentencia T-xxx de 2010. https://…' },
+  { id: 'video', n: 'Video', ej: 'Revista Raya. (2026, octubre). Título del video [Video]. YouTube. https://…' }
+];
+var MESES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+function apaFecha(f) {
+  f = String(f || '').trim(); if (!f) return 's. f.';
+  var m = /^(\d{4})-(\d{1,2})-(\d{1,2})$/.exec(f); if (m) return m[1] + ', ' + Number(m[3]) + ' de ' + MESES[Number(m[2]) - 1];
+  m = /^(\d{1,2})\s+de\s+([a-záéíóú]+)\s+de\s+(\d{4})$/i.exec(f); if (m) return m[3] + ', ' + Number(m[1]) + ' de ' + m[2].toLowerCase();
+  m = /^([a-záéíóú]+)\s+(?:de\s+)?(\d{4})$/i.exec(f); if (m) return m[2] + ', ' + m[1].toLowerCase();
+  return f;
+}
+function apaPunto(s) { s = String(s || '').trim(); return s ? (/[.?!]$/.test(s) ? s : s + '.') : ''; }
+/* devuelve las partes para mostrar la cursiva en pantalla y el texto plano para el acta */
+function apaPartes(r) {
+  var autor = apaPunto(r.autor || 'Autor por identificar');
+  var fecha = '(' + apaFecha(r.fecha) + ').';
+  var tit = String(r.titulo || 'Título por completar').trim().replace(/\.$/, '');
+  var suf = r.tipo === 'video' ? ' [Video].' : '.';
+  var fuente = r.fuente && String(r.fuente).trim() !== String(r.autor || '').trim() ? apaPunto(r.fuente) : '';
+  return { pre: autor + ' ' + fecha + ' ', tit: tit, post: suf + (fuente ? ' ' + fuente : '') + (r.url ? ' ' + String(r.url).trim() : '') };
+}
+function apaTexto(r) { var x = apaPartes(r); return x.pre + x.tit + x.post; }
+function apaHtml(r) { var x = apaPartes(r); return esc(x.pre) + '<i>' + esc(x.tit) + '</i>' + esc(x.post); }
+function apaRevisa(r) {
+  var f = [];
+  if (!String(r.autor || '').trim()) f.push('el autor o la entidad');
+  if (!String(r.fecha || '').trim()) f.push('la fecha (si no la tiene, escribe «s. f.»)');
+  if (!String(r.titulo || '').trim()) f.push('el título');
+  if ((r.tipo === 'web' || r.tipo === 'video') && !/^https?:\/\//i.test(String(r.url || '').trim())) f.push('el enlace (empieza por http)');
+  return f;
+}
+function refsDe(t, sid) { var r = t.refs || {}; return Object.keys(r).map(function (k) { var x = r[k]; x._id = k; return x; }).filter(function (x) { return x && (!sid || x.by === sid); }).sort(function (a, b) { return (a.t || 0) - (b.t || 0); }); }
+function refsPanel(p) {
+  var t = team(p.team); var all = refsDe(t); var mias = refsDe(t, ME.sid).length;
+  var mz = Object.keys(t.matriz || {});
+  var tipo = draft('r-tipo', 'web'); var tdef = APA_TIPOS.find(function (x) { return x.id === tipo; }) || APA_TIPOS[0];
+  var prev = { tipo: tipo, autor: draft('r-autor'), fecha: draft('r-fecha'), titulo: draft('r-titulo'), fuente: draft('r-fuente'), url: draft('r-url') };
+  var falta = apaRevisa(prev);
+  var lista = all.length ? '<ol class="apalist">' + all.map(function (r) {
+    var c = r.card && CARD_BY_ID[r.card];
+    return '<li><p class="apa">' + apaHtml(r) + '</p><div class="apa-m">' + (c ? '<span class="cref" title="' + esc(c.txt) + '"><span class="cid">' + r.card + '</span>' + esc(colName(((t.matriz || {})[r.card] || {}).col || c.cols[0])) + '</span>' : '') + '<small>Registró ' + esc(seud(r.by)) + '</small>' + (r.by === ME.sid ? '<button class="linkbtn" data-a="refDel" data-v="' + r._id + '">quitar</button>' : '') + '</div></li>';
+  }).join('') + '</ol>' : '<p class="empty">Todavía no hay referencias en el dictamen.</p>';
+  var form = '<div class="apaform"><div class="cfg"><div><label for="r-tipo">Tipo de fuente</label><select id="r-tipo" data-c="redraw">' + APA_TIPOS.map(function (x) { return '<option value="' + x.id + '"' + (tipo === x.id ? ' selected' : '') + '>' + esc(x.n) + '</option>'; }).join('') + '</select></div>' +
+    '<div><label for="r-card">Evidencia del expediente que respalda</label><select id="r-card" data-c="refCard"><option value="">Ninguna o externa</option>' + mz.map(function (id) { var c = CARD_BY_ID[id]; return c ? '<option value="' + id + '"' + (draft('r-card') === id ? ' selected' : '') + '>' + id + ' · ' + esc(c.txt.slice(0, 48)) + '…</option>' : ''; }).join('') + '</select></div>' +
+    '<div><label for="r-autor">Autor o entidad</label><input id="r-autor" maxlength="160" value="' + esc(prev.autor) + '" placeholder="Apellido, N. o nombre de la entidad"></div>' +
+    '<div><label for="r-fecha">Fecha de publicación</label><input id="r-fecha" maxlength="40" value="' + esc(prev.fecha) + '" placeholder="2026, 12 de abril · 2026 · s. f."></div>' +
+    '<div class="wide"><label for="r-titulo">Título</label><input id="r-titulo" maxlength="300" value="' + esc(prev.titulo) + '" placeholder="Título del documento, la noticia o el video"></div>' +
+    '<div><label for="r-fuente">Sitio, medio o editorial</label><input id="r-fuente" maxlength="160" value="' + esc(prev.fuente) + '" placeholder="Ej.: El Colombiano, YouTube"></div>' +
+    '<div><label for="r-url">Enlace (URL)</label><input id="r-url" type="url" maxlength="500" value="' + esc(prev.url) + '" placeholder="https://…"></div></div>' +
+    '<p class="small"><b>Modelo:</b> ' + esc(tdef.ej) + '</p>' +
+    '<div class="apaprev"><span class="hudlbl">Así queda en APA</span><p class="apa">' + apaHtml(prev) + '</p>' + (falta.length ? '<p class="small m-ambar">△ Falta: ' + esc(falta.join(', ')) + '.</p>' : '<p class="small m-cian">✓ Referencia completa.</p>') + '</div>' +
+    '<div class="row end"><button class="btn-ghost" data-a="refPrev">Ver cómo queda</button><button class="btn" data-a="refAdd">Agregar referencia</button></div></div>';
+  return '<article class="panel dsec refs">' + hud('Referencias y evidencias consultadas · APA 7', 'fuente') + '<h2>¿De dónde salen tus argumentos?</h2>' +
+    '<p>Registra cada fuente que consultaste para sostener tu argumento: las tarjetas del expediente y cualquier otra lectura, noticia, norma o video. ' + (mias ? '<b>Llevas ' + mias + (mias === 1 ? ' referencia' : ' referencias') + '.</b>' : '<b>Para completar este paso necesitas al menos 1 referencia tuya.</b>') + '</p>' +
+    lista + form + '</article>';
+}
+ACT.refCard = function (t) {
+  UI.d['r-card'] = t.value; var c = CARD_BY_ID[t.value];
+  if (c) {
+    var s = SRC[c.src] || {};
+    if (!draft('r-titulo')) UI.d['r-titulo'] = s.t || '';
+    if (!draft('r-url') && s.u) UI.d['r-url'] = s.u;
+    if (!draft('r-fecha') && SRC_FECHA[c.src]) UI.d['r-fecha'] = SRC_FECHA[c.src];
+    if (s.u && /youtube|youtu\.be|vimeo/i.test(s.u)) UI.d['r-tipo'] = 'video';
+    say('Completé el título, el enlace y la fecha con los datos de la tarjeta ' + c.id + '. Revisa y escribe el autor o la entidad.', '');
+  }
+  doRender();
+};
+ACT.refPrev = function () { doRender(); };
+ACT.refAdd = function () {
+  var r = { tipo: val('r-tipo') || 'web', autor: (val('r-autor') || '').trim(), fecha: (val('r-fecha') || '').trim(), titulo: (val('r-titulo') || '').trim(), fuente: (val('r-fuente') || '').trim(), url: (val('r-url') || '').trim(), card: val('r-card') || '' };
+  var f = apaRevisa(r); if (f.length) { doRender(); return say('Antes de agregarla, completa: ' + f.join(', ') + '.', 'bad'); }
+  r.by = ME.sid; r.t = now(); r.apa = apaTexto(r);
+  send([setT(['refs', uid()], r)], [ev('referencia_apa', r.tipo, { card: r.card })]);
+  ['r-autor', 'r-fecha', 'r-titulo', 'r-fuente', 'r-url', 'r-card'].forEach(function (k) { delete UI.d[k]; });
+  say('Referencia agregada al dictamen en formato APA.', 'good');
+};
+ACT.refDel = function (b) { send([{ k: 't:' + myTeam(), p: ['refs', b.getAttribute('data-v')], m: 'del' }], [ev('referencia_apa_x', 'refs')]); };
+(function () {
+  var la0 = LAB.argumentos;
+  LAB.argumentos = function (p) {
+    var html = la0.apply(this, arguments);
+    var k = html.indexOf('<article class="panel dsec care">'); var rp = refsPanel(p);
+    return k < 0 ? html + rp : html.slice(0, k) + rp + html.slice(k);
+  };
+})();
+
+/* ---------- 6) audiencia por turnos de mesa ---------- */
+function ordenDe(a) {
+  a = a || aud(); var teams = teamsWithMembers();
+  var o = (a.orden || []).filter(function (t) { return teams.indexOf(t) >= 0; });
+  teams.forEach(function (t) { if (o.indexOf(t) < 0) o.push(t); });
+  return o;
+}
+function mesasPendientes(a) { a = a || aud(); var tu = a.turno || {}; return ordenDe(a).filter(function (t) { return (a.hecho || []).indexOf(t) < 0 && t !== tu.team; }); }
+function vozSiguiente(a) { var tu = a.turno || {}; var ya = tu.voces || []; return ordenDe(a).filter(function (t) { return t !== tu.team && ya.indexOf(t) < 0; })[0] || ''; }
+/* la misma regla la aplican la app, la demostración y el servidor */
+function colaPermitida(a, tm, tipo) {
+  if (!a || a.etapa !== 'turnos') return true;
+  if (tipo === 'pasa') return true;
+  var tu = a.turno || {}; if (!tu.team) return false;
+  if (tm === tu.team) return true;
+  return (tu.sub === 'preguntas' || tu.sub === 'replicas') && a.voz === tm;
+}
+function turnoMsg(p, a) {
+  var tu = a.turno || {}; var orden = ordenDe(a); var pos = orden.indexOf(p.team) + 1;
+  if (a.etapa !== 'turnos') return null;
+  if ((a.hecho || []).indexOf(p.team) >= 0 && tu.team !== p.team) { if (a.voz === p.team) return { k: 'voz', t: '¡Turno de palabra para tu mesa!', d: 'Pregunten, citen una evidencia o pidan una aclaración con la barra de abajo.' }; return { k: 'hecho', t: 'Tu mesa ya sustentó', d: tu.team ? 'Escucha a la ' + mesaName(tu.team) + '. Podrás intervenir cuando la asesora técnica le dé el turno de palabra a tu mesa.' : 'Espera a que la asesora técnica llame a la siguiente mesa.' }; }
+  if (tu.team === p.team) return { k: 'estrado', t: '¡Tu mesa está en el estrado!', d: tu.sub === 'alegato' ? 'Presenten los 5 bloques. Las demás mesas escuchan.' : tu.sub === 'preguntas' ? 'Respondan las preguntas con sus evidencias.' : tu.sub === 'replicas' ? 'Escuchen las réplicas y respondan contando primero lo que entendieron.' : 'Prepárense: en un momento empieza su alegato.' };
+  if (a.voz === p.team) return { k: 'voz', t: '¡Turno de palabra para tu mesa!', d: 'La asesora técnica les dio la palabra. Usen la barra de abajo: preguntar, responder, citar evidencia o pedir aclaración.' };
+  if (mesasPendientes(a)[0] === p.team) return { k: 'sigue', t: 'Prepárate: tu mesa sigue', d: (tu.team ? 'Cuando termine la ' + mesaName(tu.team) + ', ' : '') + 'la asesora técnica llamará a tu mesa al estrado. Revisen sus guiones.' };
+  return { k: 'espera', t: 'Tu mesa va en el puesto ' + pos + ' de ' + orden.length, d: tu.team ? (tu.sub === 'preguntas' || tu.sub === 'replicas' ? (a.voz ? 'Ahora tiene el turno de palabra la ' + mesaName(a.voz) + '. ' : '') + 'Espera a que la asesora técnica le dé el turno de palabra a tu mesa.' : 'Escucha el alegato de la ' + mesaName(tu.team) + '. Podrás intervenir en las preguntas, cuando la asesora técnica le dé el turno a tu mesa.') : 'Espera a que la asesora técnica llame a la siguiente mesa.' };
+}
+function turnosStrip(p) {
+  var a = aud(); var tu = a.turno || {}; var orden = ordenDe(a);
+  var msg = p ? turnoMsg(p, a) : null;
+  return '<div class="panel tstrip">' + hud('Turnos de las mesas · los asigna la asesora técnica', 'turno') +
+    (msg ? '<div class="tmsg k-' + msg.k + '" role="status"><b>' + esc(msg.t) + '</b><span>' + esc(msg.d) + '</span></div>' : '') +
+    '<ol class="tord">' + orden.map(function (t, i) {
+      var done = (a.hecho || []).indexOf(t) >= 0; var now_ = tu.team === t; var voz = a.voz === t; var sig = !now_ && mesasPendientes(a)[0] === t;
+      var st = now_ ? 'En el estrado' : voz ? 'Con la palabra' : done ? 'Ya sustentó' : sig ? 'Sigue' : 'En espera';
+      return '<li class="' + (now_ ? 'now' : '') + (done ? ' done' : '') + (voz ? ' voz' : '') + (sig ? ' sig' : '') + (p && t === p.team ? ' mine' : '') + '"><i>' + (done ? '✓' : i + 1) + '</i><div><b>' + mesaName(t) + (p && t === p.team ? ' · tu mesa' : '') + '</b><span>Nodo ' + nodoDe(t) + ' · ' + st + '</span></div></li>';
+    }).join('') + '</ol></div>';
+}
+/* reemplaza la lista simple del orden en la instalación y la espera */
+ordenTurnos = function (p) { return turnosStrip(p); };
+(function () {
+  var ts0 = turnoStudent;
+  turnoStudent = function (p, a) {
+    var html = ts0.apply(this, arguments);
+    var tu = a.turno || {};
+    if (!tu.team) return html;
+    return turnosStrip(p) + html;
+  };
+  /* barra de intervención: solo la mesa en el estrado y la mesa con el turno de palabra */
+  var ib0 = ibarHtml;
+  ibarHtml = function () {
+    var html = ib0.apply(this, arguments); if (!html) return html;
+    var p = prof(); var a = aud(); if (a.etapa !== 'turnos') return html;
+    var ok = colaPermitida(a, p.team, 'x');
+    if (ok) return html;
+    var m = turnoMsg(p, a) || { t: 'Espera tu turno', d: '' };
+    html = html.replace(/<button class="ib-b([^"]*)" data-a="ib" data-v="(\w+)"/g, function (s, cls, v) { return v === 'pasar' ? s : '<button class="ib-b' + cls + ' lock" disabled aria-disabled="true" data-a="ib" data-v="' + v + '"'; });
+    html = html.replace(/<span class="ib-st[^"]*">[\s\S]*?<\/span>/, '<span class="ib-st wait">⏳ ' + esc(m.t) + '</span>');
+    return html.replace('<nav class="ibar"', '<p class="ib-wait" role="status">' + esc(m.d) + '</p><nav class="ibar"');
+  };
+  var ibs0 = ACT.ibSend;
+  ACT.ibSend = function () {
+    var p = prof(); var a = aud(); var x = IBAR.find(function (i) { return i.id === UI.ib; });
+    if (x && !colaPermitida(a, p.team, x.tipo)) { var m = turnoMsg(p, a); return say((m ? m.t + (/[.!?]$/.test(m.t) ? ' ' : '. ') + m.d : 'Espera el turno de tu mesa.'), 'bad'); }
+    return ibs0.apply(this, arguments);
+  };
+  var ib1 = ACT.ib;
+  ACT.ib = function (b) {
+    var p = prof(); var a = aud(); var v = b.getAttribute('data-v'); var x = IBAR.find(function (i) { return i.id === v; });
+    if (v && x && !colaPermitida(a, p.team, x.tipo)) { var m = turnoMsg(p, a); return say((m ? m.t + '. ' + m.d : 'Espera el turno de tu mesa.'), 'bad'); }
+    return ib1.apply(this, arguments);
+  };
+  var pp0 = ACT.pedirPalabra;
+  ACT.pedirPalabra = function () { var p = prof(); if (!colaPermitida(aud(), p.team, val('w-tipo'))) { var m = turnoMsg(p, aud()); return say(m ? m.t + '. ' + m.d : 'Espera el turno de tu mesa.', 'bad'); } return pp0.apply(this, arguments); };
+  /* avisos cuando cambia el turno de la mesa */
+  var ga0 = guiaAuto;
+  guiaAuto = function () {
+    ga0.apply(this, arguments);
+    if (ME.role !== 'est') return; var p = prof(); if (!p || !p.team) return;
+    var a = aud(); var m = turnoMsg(p, a); var k = m ? m.k + '|' + ((a.turno || {}).team || '') + '|' + ((a.turno || {}).sub || '') : '';
+    if (UI.turnoK !== undefined && UI.turnoK !== k && m && (m.k === 'voz' || m.k === 'sigue')) { guia(m.t + (/[.!?]$/.test(m.t) ? ' ' : '. ') + m.d, 'alerta', UI.route !== 'audiencia' && audienciaAbierta(p) ? [{ l: 'Ir a la audiencia', a: 'go', v: 'audiencia' }] : []); try { chime(); } catch (e) { } }
+    UI.turnoK = k;
+  };
+})();
+
+/* panel de la asesora técnica de la jueza (vista Mesa Técnica) */
+function turnosPanel() {
+  var a = aud(); var tu = a.turno || {}; var orden = ordenDe(a); var etT = a.etapa === 'turnos';
+  var pend = mesasPendientes(a); var sig = pend[0];
+  var items = orden.map(function (t, i) {
+    var done = (a.hecho || []).indexOf(t) >= 0; var now_ = tu.team === t; var r = teamReady(t); var ok = r.filter(function (x) { return x.ok; }).length;
+    var movible = !done && !now_;
+    var st = now_ ? '<span class="tg on">En el estrado</span>' : done ? '<span class="tg done">Ya sustentó</span>' : t === sig ? '<span class="tg sig">Sigue</span>' : '<span class="tg">En espera</span>';
+    return '<li class="' + (now_ ? 'now' : '') + (done ? ' done' : '') + '"><i>' + (i + 1) + '</i><div><b>' + mesaName(t) + ' · nodo ' + nodoDe(t) + '</b><span>' + members(t).length + (members(t).length === 1 ? ' integrante' : ' integrantes') + ' · lista ' + ok + '/6</span></div>' + st +
+      (movible ? '<span class="tmove"><button class="btn-ghost sm" data-a="tMover" data-v="' + t + '" data-d="-1" aria-label="Subir ' + mesaName(t) + '"' + (i === 0 ? ' disabled' : '') + '>↑</button><button class="btn-ghost sm" data-a="tMover" data-v="' + t + '" data-d="1" aria-label="Bajar ' + mesaName(t) + '"' + (i === orden.length - 1 ? ' disabled' : '') + '>↓</button></span>' : '') + '</li>';
+  }).join('');
+  var ctl = '';
+  if (!etT) ctl = '<p class="note">Ordene las mesas antes de empezar. Podrá llamar a cada mesa al estrado cuando la docente abra la etapa «Alegatos y preguntas».</p>';
+  else if (!tu.team) ctl = sig ? '<div class="row"><button class="btn big" data-a="tLlamar" data-v="' + sig + '">Llamar al estrado: ' + mesaName(sig) + ' →</button></div><p class="small">Se respeta el orden de la lista. Para cambiarlo, use ↑ ↓.</p>' : '<p class="callout ok">Todas las mesas sustentaron. La docente puede pasar a la síntesis final.</p>';
+  else {
+    var fases = [['', 'Llamada'], ['alegato', 'Alegato'], ['preguntas', 'Preguntas'], ['replicas', 'Réplicas']];
+    var idx = fases.findIndex(function (f) { return f[0] === (tu.sub || ''); });
+    var nextBtn = idx === 0 ? '<button class="btn" data-a="sub" data-v="alegato">Iniciar alegato</button>' : idx === 1 ? '<button class="btn" data-a="sub" data-v="preguntas">Pasar a preguntas</button>' : idx === 2 ? '<button class="btn" data-a="sub" data-v="replicas">Abrir réplicas</button>' : '<button class="btn" data-a="finTurno">Terminar turno de la ' + mesaName(tu.team) + '</button>';
+    ctl = '<div class="tfases">' + fases.map(function (f, i) { return '<span class="tf' + (i === idx ? ' on' : '') + (i < idx ? ' ok' : '') + '">' + (i < idx ? '✓ ' : '') + f[1] + '</span>'; }).join('') + '</div>' +
+      '<div class="tctl"><b>' + mesaName(tu.team) + '</b><span class="bigtimer" data-timer="turno">' + mmss(tu.dur || 0) + '</span>' + nextBtn + (tu.sub ? '<button class="btn-ghost" data-a="pausa">' + (tu.pausa ? 'Reanudar' : 'Pausar') + '</button><button class="btn-ghost" data-a="masTiempo">+30 s</button>' : '') + (idx < 3 && idx > 0 ? '<button class="btn-ghost" data-a="finTurno">Terminar turno</button>' : '') + '</div>';
+    if (tu.sub === 'preguntas' || tu.sub === 'replicas') {
+      var ya = tu.voces || []; var vs = vozSiguiente(a);
+      ctl += '<h3>Turno de palabra por mesa</h3><p class="small">En ' + (tu.sub === 'preguntas' ? 'las preguntas' : 'las réplicas') + ' interviene una mesa a la vez, en el orden de la lista. Solo la mesa con el turno y la mesa en el estrado pueden pedir la palabra.</p><ol class="tvoz">' +
+        orden.filter(function (t) { return t !== tu.team; }).map(function (t) { var on = a.voz === t; var hecho = ya.indexOf(t) >= 0 && !on; return '<li class="' + (on ? 'on' : '') + (hecho ? ' done' : '') + '"><b>' + mesaName(t) + '</b><span>' + (on ? 'Tiene el turno de palabra' : hecho ? 'Ya intervino' : t === vs ? 'Sigue' : 'En espera') + '</span></li>'; }).join('') + '</ol>' +
+        '<div class="row">' + (vs ? '<button class="btn" data-a="tVoz" data-v="' + vs + '">Dar el turno de palabra: ' + mesaName(vs) + '</button>' : '<span class="small">Todas las mesas tuvieron su turno de palabra en esta fase.</span>') + (a.voz ? '<button class="btn-ghost" data-a="tVoz" data-v="">Cerrar el turno de la ' + mesaName(a.voz) + '</button>' : '') + '</div>';
+    }
+    var hablan = allStudents().filter(function (s) { return s.team === tu.team || (a.voz && s.team === a.voz); });
+    ctl += '<div class="row"><label for="pal">Dar la palabra a</label><select id="pal">' + hablan.map(function (s) { return '<option value="' + s.sid + '">' + esc(s.seud) + ' · ' + mesaName(s.team) + '</option>'; }).join('') + '</select><button class="btn-ghost" data-a="darPalabra">Dar la palabra</button><button class="btn-ghost" data-a="quitarPalabra">Retirar</button></div>' + (a.palabra && a.palabra.sid ? '<p class="small">Tiene la palabra: <b>' + esc(a.palabra.seud || seud(a.palabra.sid)) + '</b></p>' : '');
+  }
+  return '<div class="panel tpanel">' + hud('Turnos de las mesas · asesoría técnica de la jueza', 'turno') + '<p class="small">Usted asigna los turnos: el orden en que cada mesa pasa al estrado y qué mesa tiene la palabra en preguntas y réplicas. La app no deja intervenir a una mesa fuera de su turno.</p><ol class="tadmin">' + (items || '<li class="empty">Aún no hay mesas con estudiantes.</li>') + '</ol>' + ctl + '</div>';
+}
+function colaPanel(editable) {
+  var a = aud(); var tu = a.turno || {};
+  var cola = (a.cola || []).map(function (c, i) { c._i = i; return c; }).filter(function (c) { return c.estado === 'pendiente'; });
+  var lbl = { pregunta: 'Pregunta', replica: 'Réplica', aclaracion: 'Aclaración', escrita: 'Intervención escrita', mocion: 'Moción de orden', cede: 'Invita a hablar', hablar: 'Pide la palabra', cita: 'Cita evidencia', pasa: 'Pasa el turno' };
+  return '<div class="panel">' + hud('Solicitudes de palabra (' + cola.length + ')', 'pregunta') + (cola.length ? cola.map(function (c) {
+    var fuera = a.etapa === 'turnos' && !colaPermitida(a, c.team, c.tipo);
+    return '<div class="citem' + (fuera ? ' fuera' : '') + '"><div class="hh">' + avatarSVG((prof(c.sid) || {}).av, 28) + '<b>' + esc(c.seud) + '</b><span class="tag">' + (lbl[c.tipo] || c.tipo) + '</span><span>' + mesaName(c.team) + (c.para ? ' → ' + (c.para === 'mesa' ? 'Mesa Técnica' : mesaName(c.para)) : '') + '</span>' + (fuera ? '<span class="tag warn">Fuera de turno</span>' : '') + '</div>' + (c.paraf ? '<p class="paraf">Resume: «' + esc(c.paraf) + '»</p>' : '') + '<p>' + esc(c.txt) + '</p>' +
+      (editable ? '<div class="row"><button class="btn sm" data-a="aprobar" data-i="' + c._i + '"' + (fuera ? ' disabled title="Su mesa no tiene el turno"' : '') + '>Aprobar y dar la palabra</button><button class="btn-ghost sm" data-a="descartar" data-i="' + c._i + '">Descartar</button></div>' : '') + '</div>';
+  }).join('') : '<p class="empty">No hay solicitudes pendientes.</p>') + (editable ? '' : '<p class="small">Las solicitudes las aprueba la asesora técnica en su vista.</p>') + '</div>';
+}
+ACT.tMover = function (b) {
+  var t = b.getAttribute('data-v'); var d = Number(b.getAttribute('data-d')); var o = ordenDe(); var i = o.indexOf(t); var j = i + d;
+  if (i < 0 || j < 0 || j >= o.length) return;
+  var a = aud(); var fijo = function (x) { return (a.hecho || []).indexOf(x) >= 0 || (a.turno || {}).team === x; };
+  if (fijo(o[j])) return toast('Esa mesa ya pasó al estrado: no se puede mover delante de ella.', 'bad');
+  o.splice(i, 1); o.splice(j, 0, t);
+  send([audSet(['orden'], o)], [ev('turno_orden', t, { orden: o.join(',') })]);
+};
+ACT.tLlamar = function (b) {
+  var t = b.getAttribute('data-v'); var a = aud();
+  if (a.etapa !== 'turnos') return toast('Primero la docente debe abrir la etapa «Alegatos y preguntas».', 'bad');
+  if ((a.turno || {}).team) return toast('Termine primero el turno de la ' + mesaName(a.turno.team) + '.', 'bad');
+  if (mesasPendientes(a)[0] !== t) return toast('Se respeta el orden: sigue la ' + mesaName(mesasPendientes(a)[0]) + '.', 'bad');
+  send([audSet(['orden'], ordenDe(a)), audSet(['turno'], { team: t, sub: '', inicio: 0, dur: 0, pausa: 0, voces: [] }), audSet(['palabra'], null), audSet(['voz'], '')], [ev('turno', t)]);
+};
+ACT.tVoz = function (b) {
+  var t = b.getAttribute('data-v'); var a = aud(); var tu = a.turno || {};
+  var ops = [audSet(['voz'], t), audSet(['palabra'], null)];
+  if (t) { var ya = (tu.voces || []).slice(); if (ya.indexOf(t) < 0) ya.push(t); ops.push(audSet(['turno', 'voces'], ya)); }
+  send(ops, [ev('turno_voz', t || 'cierre', { team: t })]);
+  if (t) toast('Turno de palabra para la ' + mesaName(t) + '.', 'good');
+};
+(function () {
+  /* al cambiar de fase o de mesa se cierra el turno de palabra */
+  var sub0 = ACT.sub;
+  ACT.sub = function (b) { var r = sub0.apply(this, arguments); send([audSet(['voz'], ''), audSet(['turno', 'voces'], [])]); return r; };
+  var fin0 = ACT.finTurno;
+  ACT.finTurno = function () { var r = fin0.apply(this, arguments); send([audSet(['voz'], '')]); return r; };
+  var ll0 = ACT.llamar;
+  ACT.llamar = function () { var r = ll0.apply(this, arguments); send([audSet(['voz'], '')]); return r; };
+})();
+ACT.verAsesora = function () { UI.route = 'mesa'; doRender(); window.scrollTo(0, 0); };
+ACT.volverDoc = function () { UI.route = 'docente'; doRender(); window.scrollTo(0, 0); };
+
+/* ---------- 3) la docente edita los nombres visibles, por mesa ---------- */
+DOC.estudiantes = function () {
+  var ros = rosterDe(); if (!ros) loadRoster();
+  var teams = teamsWithMembers();
+  var studs = allStudents();
+  var tsum = '<div class="ggrid">' + teams.map(function (t) { var x = avanceTeam(t); return '<div class="panel tsum">' + ringSVG(x.pct, 72) + '<div><b>' + mesaName(t) + ' · nodo ' + nodoDe(t) + '</b><span class="small">' + x.n + (x.n === 1 ? ' integrante' : ' integrantes') + ' · lista ' + x.ready + '/6 · ' + x.nivel.s + ' ' + esc(x.nivel.n) + '</span></div></div>'; }).join('') + '</div>';
+  var nomCell = function (sid, vis) {
+    if (UI.editNom === sid) return '<div class="row nedit"><input id="en-' + sid + '" maxlength="40" value="' + esc(draft('en-' + sid, vis)) + '" aria-label="Nombre visible"><button class="btn sm" data-a="saveNombre" data-v="' + sid + '">Guardar</button><button class="btn-ghost sm" data-a="editNombre" data-v="">Cancelar</button></div>';
+    if (ros && !ros.some(function (r) { return r.id === sid; })) return '<span class="nvis">' + esc(vis) + '</span> <span class="small">(no está en el listado)</span>';
+    return '<span class="nvis">' + esc(vis) + '</span> <button class="linkbtn" data-a="editNombre" data-v="' + sid + '" aria-label="Editar el nombre de ' + esc(vis) + '">Editar nombre</button>';
+  };
+  var fila = function (s) {
+    var a = avanceEst(s); var vis = ((ros || []).find(function (r) { return r.id === s.sid; }) || {}).vis || s.seud;
+    return '<tr><td class="who-cell">' + avatarSVG(s.av, 28, { label: vis }) + nomCell(s.sid, vis) + '</td><td>' + esc(nombreCompleto(s.sid) || '—') + '</td><td>' + esc(profRol(s)) + '</td><td>' + nodoChip(s.nodo, true) + '</td><td class="avcell">' + barra(a.pct) + '<span>' + a.pct + '% · ' + esc(a.nivel.n) + '</span></td><td class="small">' + esc(a.sig) + '</td><td><span class="dot inline" data-online="' + s.sid + '"></span></td></tr>';
+  };
+  var head = '<thead><tr><th>Nombre visible</th><th>Nombre completo</th><th>Rol</th><th>Nodo</th><th>Avance</th><th>Siguiente paso</th><th>Conexión</th></tr></thead>';
+  var grupos = teams.map(function (t) {
+    var ms = members(t);
+    return '<div class="panel mesagrp">' + hud(mesaName(t) + ' · nodo ' + nodoDe(t) + ' · ' + ms.length + (ms.length === 1 ? ' integrante' : ' integrantes'), 'equipo') + '<div class="tablewrap"><table>' + head + '<tbody>' + ms.map(fila).join('') + '</tbody></table></div></div>';
+  }).join('');
+  var conPerfil = {}; studs.forEach(function (s) { if (s.team) conPerfil[s.sid] = 1; });
+  var sin = (ros || []).filter(function (r) { return !conPerfil[r.id]; });
+  var sinHtml = ros ? '<div class="panel mesagrp">' + hud('Sin mesa todavía (' + sin.length + ')', 'perspectiva') + (sin.length ? '<p class="small">Aún no han entrado o no han elegido mesa. Puede corregir su nombre antes de que entren.</p><div class="tablewrap"><table><thead><tr><th>Nombre visible</th><th>Nombre completo</th></tr></thead><tbody>' + sin.map(function (r) { return '<tr><td>' + nomCell(r.id, r.vis) + '</td><td>' + esc(r.nombre) + '</td></tr>'; }).join('') + '</tbody></table></div>' : '<p class="empty">Todos los estudiantes del listado ya tienen mesa.</p>') + '</div>' : '<div class="panel center"><p>Cargando el listado…</p></div>';
+  return tsum + '<div class="panel"><h2>Estudiantes del grupo ' + esc(grupoName(ME.sala)) + ' por mesa</h2><p class="small">El <b>nombre visible</b> es el que ven los compañeros junto al avatar y el que aparece en la valoración. Puede corregirlo aquí: se actualiza en la hoja de cálculo y en la app. El código de acceso no cambia.</p></div>' + (grupos || '<div class="panel"><p class="empty">Aún no hay mesas con estudiantes en este grupo.</p></div>') + sinHtml;
+};
+ACT.editNombre = function (b) { var v = b.getAttribute('data-v'); UI.editNom = v || ''; if (v) delete UI.d['en-' + v]; doRender(); var el = v && document.getElementById('en-' + v); if (el) { el.focus(); el.select(); } };
+ACT.saveNombre = function (b) {
+  var sid = b.getAttribute('data-v'); var nom = String(val('en-' + sid) || '').replace(/\s+/g, ' ').trim();
+  if (nom.length < 3 || nom.length > 40) return toast('El nombre debe tener entre 3 y 40 caracteres.', 'bad');
+  if (!/^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ' .-]+$/.test(nom)) return toast('Use solo letras, espacios, puntos, guiones o apóstrofos.', 'bad');
+  req({ a: 'setNombre', id: sid, nombre: nom }).then(function (r) {
+    if (!r || !r.ok) return toast((r && r.error) || 'No se pudo cambiar el nombre.', 'bad');
+    var row = (rosterDe() || []).find(function (x) { return x.id === sid; }); if (row) row.vis = r.nombre || nom;
+    var p = S.kv['s:' + sid]; if (p) p.seud = r.nombre || nom;
+    UI.editNom = ''; delete UI.d['en-' + sid]; toast('Nombre actualizado: ' + (r.nombre || nom) + '.', 'good'); poll(true).then(doRender);
+  });
+};
+
+/* ---------- demostración: mismas reglas que el servidor ---------- */
+(function () {
+  var h0 = DemoT.handle;
+  DemoT.handle = function (rq) {
+    var d = this.db(); var sala = String(rq.sala || '').toUpperCase(); var S_ = d && d.salas && d.salas[sala];
+    if (rq.a === 'setNombre') {
+      if (rq.role !== 'doc' || hashStr('doc|' + rq.pin) !== d.pinDoc) return { ok: false, error: 'Solo la docente puede hacer esto.' };
+      var st = d.roster.find(function (x) { return x.id === rq.id && x.sala === sala; }); if (!st) return { ok: false, error: 'Estudiante no encontrado en este grupo.' };
+      var nom = String(rq.nombre || '').replace(/\s+/g, ' ').trim(); if (nom.length < 3 || nom.length > 40) return { ok: false, error: 'El nombre debe tener entre 3 y 40 caracteres.' };
+      st.vis = nom; if (S_ && S_.kv['s:' + st.id]) { S_.kv['s:' + st.id].seud = nom; S_.v = Date.now(); }
+      this.save(d); return { ok: true, nombre: nom };
+    }
+    if (rq.a === 'ops' && rq.role === 'est' && S_) {
+      var me = d.roster.find(function (x) { return x.codigo.toUpperCase() === String(rq.code || '').toUpperCase(); });
+      var pf = me ? (S_.kv['s:' + me.id] || {}) : {};
+      var bad = (rq.ops || []).some(function (op) { return op.k === 'aud' && (op.p || [])[0] === 'cola' && op.m === 'push' && !colaPermitida(S_.kv.aud, pf.team, (op.v || {}).tipo); });
+      if (bad) return { ok: false, error: 'Tu mesa no tiene el turno de palabra. Espera a que la asesora técnica se lo dé.' };
+    }
+    return h0.apply(this, arguments);
+  };
+})();
+
+/* ============================================================
+   v9 · Panel docente «Equipos y estudiantes»
+   1) Reiniciar a un estudiante o a todo el grupo.
+   2) Cambiar la mesa y el nodo de cada estudiante (el nodo es de toda la mesa).
+   3) Aporte de cada integrante a la mesa y alcance de sus competencias según sus logros.
+   ============================================================ */
+ACT = ACT || {};
+
+/* ---------- 3) aporte y competencias ---------- */
+var APORTE_PESOS = [
+  ['cards', 'Tarjetas clasificadas', 1], ['actores', 'Actores ubicados', 1], ['args', 'Argumentos', 3], ['refs', 'Referencias APA', 2],
+  ['coment', 'Comentarios', 1], ['titulo', 'Título del dictamen', 2], ['sol', 'Solicitud', 3], ['guiones', 'Guiones', 2], ['interv', 'Intervenciones', 2]
+];
+function aporteDe(p) {
+  var t = team(p.team); var sid = p.sid; var a = aud(); var n = nodoDe(p.team);
+  var args = 0; DICT.forEach(function (d) { argsDe(t, d.id).forEach(function (x) { if (x.by === sid) args++; }); });
+  var guiones = Object.keys(t.guion || {}).filter(function (k) { return (t.guion[k] || {}).by === sid; }).length;
+  var interv = (a.cola || []).filter(function (c) { return c.sid === sid && c.tipo !== 'pasa'; }).length;
+  var d = {
+    cards: cntMine(t.matriz, sid), actores: cntMine(t.actores, sid), args: args, refs: refsDe(t, sid).length, coment: cntMine(t.coment, sid),
+    titulo: (t.titulo || {}).by === sid ? 1 : 0, sol: ((((t.herr || {})[n] || {}).sol) || {}).by === sid ? 1 : 0, guiones: guiones, interv: interv
+  };
+  d.pts = APORTE_PESOS.reduce(function (s, w) { return s + d[w[0]] * w[2]; }, 0);
+  return d;
+}
+function competenciasDe(p) {
+  var c = ctxLogros(p); var t = team(p.team); var done = p.done || {}; var mz = t.matriz || {};
+  var marco = 0; DICT.forEach(function (d) { argsDe(t, d.id).forEach(function (x) { if (x.by === p.sid && (x.cards || []).some(function (id) { var k = CARD_BY_ID[id]; return k && ((mz[id] || {}).col || k.cols[0]) === 'marco'; })) marco++; }); });
+  var ind = {
+    ps: [['Leyó la ficha de su nodo', !!done.nodo], ['Respondió bien las preguntas de la herramienta', c.hqOk >= 3], ['Citó el marco legal en un argumento', marco >= 1], ['Registró referencias en APA', refsDe(t, p.sid).length >= 1]],
+    iap: [['Ubicó actores en el mapa', c.actores >= 2], ['Clasificó 4 o más tarjetas', c.cards >= 4], ['Escribió un argumento con evidencia', c.args >= 1], ['Propuso cómo verificar una fuente', c.conf >= 1]],
+    prs: [['Logró conexión clara en un argumento', c.cian >= 1], ['Escribió la reflexión de cuidado', !!done.reflexion], ['Preparó su guion o su pregunta', c.guiones >= 1 || c.preg], ['Respondió con paráfrasis en la audiencia', c.replicas >= 1], ['Escribió la reflexión final', c.final]]
+  };
+  var out = {};
+  Object.keys(ind).forEach(function (k) { var ok = ind[k].filter(function (x) { return x[1]; }).length; out[k] = { items: ind[k], ok: ok, total: ind[k].length, pct: Math.round(ok / ind[k].length * 100) }; });
+  return out;
+}
+function alcanceLbl(pct) { return pct >= 100 ? ['Alcanzada', 'good'] : pct >= 50 ? ['En desarrollo', 'mid'] : pct > 0 ? ['En inicio', 'low'] : ['Sin evidencias aún', 'none']; }
+function dimDe(p) { var ins = insigniasDe(p); var out = {}; ['conocer', 'hacer', 'ser'].forEach(function (d) { var all = ins.filter(function (x) { return x.b.dim === d; }); out[d] = { ok: all.filter(function (x) { return x.ok; }).length, total: all.length, items: all }; }); return out; }
+function aportesMesa(tm) {
+  var ms = members(tm); if (!ms.length) return '';
+  var ap = ms.map(function (m) { return { m: m, a: aporteDe(m) }; }); var tot = ap.reduce(function (s, x) { return s + x.a.pts; }, 0);
+  var cols = ['#8CEBFA', '#D7C17A', '#A98BFF', '#E77964', '#9DB8E0', '#E9A6AC', '#E6D18A'];
+  var barra_ = '<div class="apbar" role="img" aria-label="Reparto del aporte en la ' + esc(mesaName(tm)) + '">' + (tot ? ap.map(function (x, i) { var pc = x.a.pts / tot * 100; return pc ? '<span style="width:' + pc.toFixed(1) + '%;background:' + cols[i % cols.length] + '" title="' + esc(x.m.seud) + ': ' + Math.round(pc) + ' %"></span>' : ''; }).join('') : '<span class="apnone">Todavía no hay aportes registrados</span>') + '</div>' +
+    '<ul class="apleg">' + ap.map(function (x, i) { return '<li><i style="background:' + cols[i % cols.length] + '"></i>' + esc(x.m.seud) + ' <b>' + (tot ? Math.round(x.a.pts / tot * 100) : 0) + ' %</b></li>'; }).join('') + '</ul>';
+  var cards = ap.map(function (x) {
+    var m = x.m; var cp = competenciasDe(m); var dm = dimDe(m); var xp = xpDe(m);
+    var chips = APORTE_PESOS.filter(function (w) { return x.a[w[0]]; }).map(function (w) { return '<span class="apchip">' + esc(w[1]) + ' <b>' + x.a[w[0]] + '</b></span>'; }).join('') || '<span class="small">Sin aportes al trabajo de la mesa todavía.</span>';
+    var comp = Object.keys(COMPETENCIAS).map(function (k) {
+      var v = cp[k]; var l = alcanceLbl(v.pct);
+      var dk = 'cm-' + m.sid + '-' + k;
+      return '<details class="compm" data-keep="' + dk + '"' + ((UI.keep || {})[dk] ? ' open' : '') + '><summary><span class="cn">' + esc(COMPETENCIAS[k].n) + '</span><span class="cbar"><i class="' + l[1] + '" style="width:' + v.pct + '%"></i></span><span class="clv ' + l[1] + '">' + l[0] + ' · ' + v.ok + '/' + v.total + '</span></summary><ul>' + v.items.map(function (it) { return '<li class="' + (it[1] ? 'ok' : '') + '">' + (it[1] ? '✓ ' : '· ') + esc(it[0]) + '</li>'; }).join('') + '</ul></details>';
+    }).join('');
+    var dims = ['conocer', 'hacer', 'ser'].map(function (d) { var v = dm[d]; return '<span class="dimtag d-' + d + '" title="' + esc(v.items.filter(function (y) { return y.ok; }).map(function (y) { return y.b.n; }).join(', ') || 'Sin insignias todavía') + '">' + esc(DIMENSIONES[d]) + ' ' + v.ok + '/' + v.total + '</span>'; }).join('');
+    return '<article class="apcard">' + '<header>' + avatarSVG(m.av, 40, { label: m.seud, marco: marcoDe(m) }) + '<div><b>' + esc(m.seud) + '</b><span>' + esc(profRol(m)) + ' · Nv ' + (xp.lv + 1) + ' ' + esc(xp.nivel.n) + ' · ' + xp.xp + ' XP</span></div><em>' + (tot ? Math.round(x.a.pts / tot * 100) : 0) + ' % del aporte</em></header>' +
+      '<div class="apchips">' + chips + '</div>' +
+      '<h4>Competencias (Saber 11 · Sociales y Ciudadanas)</h4>' + comp +
+      '<h4>Logros por dimensión</h4><div class="comptags">' + dims + '</div></article>';
+  }).join('');
+  return '<details class="aportes" data-keep="ap-' + tm + '"' + ((UI.keep || {})['ap-' + tm] === false ? '' : ' open') + '><summary>Aporte de cada integrante y alcance de sus competencias</summary>' +
+    '<p class="small">El aporte reparte el trabajo registrado en la mesa (tarjetas, actores, argumentos, referencias, comentarios, título, solicitud, guiones e intervenciones). Las competencias se leen de los logros de cada estudiante: toque una competencia para ver sus evidencias. Es una orientación para su valoración, no una nota.</p>' +
+    barra_ + '<div class="apgrid">' + cards + '</div></details>';
+}
+
+/* ---------- 2) mesa y nodo de cada estudiante ---------- */
+function asigCell(s) {
+  if (UI.editAsig !== s.sid) return nodoChip(s.nodo, true) + ' <button class="linkbtn" data-a="editAsig" data-v="' + s.sid + '" aria-label="Cambiar la mesa o el nodo de ' + esc(s.seud) + '">Cambiar</button>';
+  var c = cfg(); var nm = Math.max(c.mesas || 7, parseInt(String(s.team || 'm1').slice(1), 10) || 1);
+  var mesa = draft('am-' + s.sid, s.team); var nodo = draft('an-' + s.sid, String(s.nodo || ''));
+  var mesas = ''; for (var i = 1; i <= nm; i++) { var tn = nodoDe('m' + i); mesas += '<option value="m' + i + '"' + (mesa === 'm' + i ? ' selected' : '') + '>Mesa ' + i + (tn ? ' · nodo ' + tn : ' · vacía') + '</option>'; }
+  var otros = members(mesa).filter(function (x) { return x.sid !== s.sid; }); var nodoMesa = otros.length ? Number(otros[0].nodo) : 0;
+  var conflicto = UI.confirm === 'asig:' + s.sid && nodoMesa && nodoMesa !== Number(nodo);
+  return '<div class="asig"><label for="am-' + s.sid + '">Mesa</label><select id="am-' + s.sid + '" data-c="redraw">' + mesas + '</select><label for="an-' + s.sid + '">Nodo</label><select id="an-' + s.sid + '">' + NODOS.map(function (n) { return '<option value="' + n.id + '"' + (String(nodo) === String(n.id) ? ' selected' : '') + '>Nodo ' + n.id + ' · ' + esc(n.n) + '</option>'; }).join('') + '</select>' +
+    (conflicto ? '<p class="callout warnbox">La ' + mesaName(mesa) + ' trabaja el <b>nodo ' + nodoMesa + '</b>. El nodo es de toda la mesa.</p><div class="row"><button class="btn sm danger" data-a="saveAsig" data-v="' + s.sid + '" data-m="toda">Pasar toda la mesa al nodo ' + esc(nodo) + '</button><button class="btn-ghost sm" data-a="saveAsig" data-v="' + s.sid + '" data-m="mesa">Usar el nodo ' + nodoMesa + ' de la mesa</button></div>' :
+      '<div class="row"><button class="btn sm" data-a="saveAsig" data-v="' + s.sid + '">Guardar</button><button class="btn-ghost sm" data-a="editAsig" data-v="">Cancelar</button></div>') + '</div>';
+}
+ACT.editAsig = function (b) { var v = b.getAttribute('data-v'); UI.editAsig = v || ''; UI.confirm = ''; if (v) { delete UI.d['am-' + v]; delete UI.d['an-' + v]; } doRender(); };
+/* cambia el nodo de un estudiante; si cambia, debe volver a leer la ficha del nuevo nodo */
+function opsNodo(m, nodo, team_) {
+  var ops = [{ k: 's:' + m.sid, p: ['nodo'], m: 'set', v: Number(nodo) }];
+  if (team_) ops.push({ k: 's:' + m.sid, p: ['team'], m: 'set', v: team_ });
+  if (Number(m.nodo) !== Number(nodo)) ops.push({ k: 's:' + m.sid, p: ['done', 'nodo'], m: 'del' });
+  return ops;
+}
+ACT.saveAsig = function (b) {
+  var sid = b.getAttribute('data-v'); var modo = b.getAttribute('data-m') || ''; var s = S.kv['s:' + sid]; if (!s) return;
+  var mesa = val('am-' + sid) || s.team; var nodo = Number(val('an-' + sid) || s.nodo);
+  var otros = members(mesa).filter(function (x) { return x.sid !== sid; }); var nodoMesa = otros.length ? Number(otros[0].nodo) : 0;
+  if (nodoMesa && nodoMesa !== nodo && !modo) { UI.confirm = 'asig:' + sid; return doRender(); }
+  var ops = [];
+  if (modo === 'mesa') nodo = nodoMesa;
+  ops = ops.concat(opsNodo(s, nodo, mesa));
+  if (modo === 'toda') otros.forEach(function (m) { ops = ops.concat(opsNodo(m, nodo)); });
+  send(ops, [ev('docente_asigna', sid, { sid: sid, mesa: mesa, nodo: nodo, toda: modo === 'toda' })]);
+  UI.editAsig = ''; UI.confirm = ''; delete UI.d['am-' + sid]; delete UI.d['an-' + sid];
+  toast(seud(sid) + ': ' + mesaName(mesa) + ', nodo ' + nodo + (modo === 'toda' ? ' (toda la mesa)' : '') + '.', 'good');
+};
+ACT.nodoMesa = function (b) {
+  var tm = b.getAttribute('data-v'); var nodo = Number(val('nm-' + tm)); if (!nodo) return;
+  var ops = []; members(tm).forEach(function (m) { ops = ops.concat(opsNodo(m, nodo)); });
+  send(ops, [ev('docente_asigna', tm, { mesa: tm, nodo: nodo, toda: true })]); delete UI.d['nm-' + tm];
+  toast(mesaName(tm) + ' trabaja ahora el nodo ' + nodo + '.', 'good');
+};
+
+/* ---------- 1) reiniciar ---------- */
+ACT.reiniciarEst = function (b) {
+  var sid = b.getAttribute('data-v'); var nom = seud(sid);
+  send([{ k: 's:' + sid, p: [], m: 'del' }], [ev('estudiante_reiniciado', sid, { sid: sid })]);
+  UI.confirm = ''; toast(nom + ' vuelve a empezar desde «Mi avatar».', 'good');
+};
+ACT.reiniciarGrupo = function () {
+  var ops = []; var keep = { cfg: 1, edicion: 1 };
+  Object.keys(S.kv).forEach(function (k) { if (k.indexOf('s:') === 0 || k.indexOf('t:') === 0) ops.push({ k: k, p: [], m: 'del' }); });
+  ops.push({ k: 'aud', p: [], m: 'set', v: defaultAud() });
+  var ed = edicion(); ops.push({ k: 'edicion', p: [], m: 'set', v: { n: (Number(ed.n) || 1) + 1, inicio: Date.now(), titulo: casoMeta().titulo, id: (CASO && CASO.id) || '' } });
+  send(ops, [ev('grupo_reiniciado', ME.sala)]);
+  UI.confirm = ''; UI.events = null; toast('Grupo ' + grupoName(ME.sala) + ' reiniciado: edición ' + ((Number(ed.n) || 1) + 1) + '.', 'good');
+};
+
+DOC.estudiantes = function () {
+  var ros = rosterDe(); if (!ros) loadRoster();
+  var teams = teamsWithMembers(); var studs = allStudents();
+  var tsum = '<div class="ggrid">' + teams.map(function (t) { var x = avanceTeam(t); return '<div class="panel tsum">' + ringSVG(x.pct, 72) + '<div><b>' + mesaName(t) + ' · nodo ' + nodoDe(t) + '</b><span class="small">' + x.n + (x.n === 1 ? ' integrante' : ' integrantes') + ' · lista ' + x.ready + '/6 · ' + x.nivel.s + ' ' + esc(x.nivel.n) + '</span></div></div>'; }).join('') + '</div>';
+  var nomCell = function (sid, vis) {
+    if (UI.editNom === sid) return '<div class="row nedit"><input id="en-' + sid + '" maxlength="40" value="' + esc(draft('en-' + sid, vis)) + '" aria-label="Nombre visible"><button class="btn sm" data-a="saveNombre" data-v="' + sid + '">Guardar</button><button class="btn-ghost sm" data-a="editNombre" data-v="">Cancelar</button></div>';
+    if (ros && !ros.some(function (r) { return r.id === sid; })) return '<span class="nvis">' + esc(vis) + '</span> <span class="small">(no está en el listado)</span>';
+    return '<span class="nvis">' + esc(vis) + '</span> <button class="linkbtn" data-a="editNombre" data-v="' + sid + '" aria-label="Editar el nombre de ' + esc(vis) + '">Editar nombre</button>';
+  };
+  var accion = function (s) {
+    if (UI.confirm === 'rest:' + s.sid) return '<div class="row"><span class="small">¿Reiniciar a ' + esc(s.seud) + '?</span><button class="btn sm danger" data-a="reiniciarEst" data-v="' + s.sid + '">Sí, reiniciar</button><button class="btn-ghost sm" data-a="confirm" data-v="">No</button></div>';
+    return '<button class="btn-ghost sm" data-a="confirm" data-v="rest:' + s.sid + '">Reiniciar</button>';
+  };
+  var fila = function (s) {
+    var a = avanceEst(s); var vis = ((ros || []).find(function (r) { return r.id === s.sid; }) || {}).vis || s.seud;
+    return '<tr><td class="who-cell">' + avatarSVG(s.av, 28, { label: vis }) + nomCell(s.sid, vis) + '</td><td>' + esc(nombreCompleto(s.sid) || '—') + '</td><td>' + esc(profRol(s)) + '</td><td class="asigcell">' + asigCell(s) + '</td><td class="avcell">' + barra(a.pct) + '<span>' + a.pct + '% · ' + esc(a.nivel.n) + '</span></td><td class="small">' + esc(a.sig) + '</td><td><span class="dot inline" data-online="' + s.sid + '"></span></td><td>' + accion(s) + '</td></tr>';
+  };
+  var head = '<thead><tr><th>Nombre visible</th><th>Nombre completo</th><th>Rol</th><th>Mesa y nodo</th><th>Avance</th><th>Siguiente paso</th><th>Conexión</th><th>Reiniciar</th></tr></thead>';
+  var grupos = teams.map(function (t) {
+    var ms = members(t); var nd = nodoDe(t);
+    var cambio = '<div class="row nmesa"><label for="nm-' + t + '">Nodo de toda la mesa</label><select id="nm-' + t + '">' + NODOS.map(function (n) { return '<option value="' + n.id + '"' + (String(draft('nm-' + t, String(nd))) === String(n.id) ? ' selected' : '') + '>Nodo ' + n.id + ' · ' + esc(n.n) + '</option>'; }).join('') + '</select><button class="btn-ghost sm" data-a="nodoMesa" data-v="' + t + '">Aplicar a la mesa</button></div>';
+    return '<div class="panel mesagrp">' + hud(mesaName(t) + ' · nodo ' + nd + ' · ' + ms.length + (ms.length === 1 ? ' integrante' : ' integrantes'), 'equipo') + cambio + '<div class="tablewrap"><table>' + head + '<tbody>' + ms.map(fila).join('') + '</tbody></table></div>' + aportesMesa(t) + '</div>';
+  }).join('');
+  var conPerfil = {}; studs.forEach(function (s) { if (s.team) conPerfil[s.sid] = 1; });
+  var sin = (ros || []).filter(function (r) { return !conPerfil[r.id]; });
+  var sinHtml = ros ? '<div class="panel mesagrp">' + hud('Sin mesa todavía (' + sin.length + ')', 'perspectiva') + (sin.length ? '<p class="small">Aún no han entrado o no han elegido mesa. Puede corregir su nombre antes de que entren.</p><div class="tablewrap"><table><thead><tr><th>Nombre visible</th><th>Nombre completo</th></tr></thead><tbody>' + sin.map(function (r) { return '<tr><td>' + nomCell(r.id, r.vis) + '</td><td>' + esc(r.nombre) + '</td></tr>'; }).join('') + '</tbody></table></div>' : '<p class="empty">Todos los estudiantes del listado ya tienen mesa.</p>') + '</div>' : '<div class="panel center"><p>Cargando el listado…</p></div>';
+  var reinicio = '<div class="panel">' + hud('Reiniciar', 'reloj') + '<p class="small"><b>Reiniciar a un estudiante</b> (botón de cada fila) borra su avatar, su rol, su mesa, su misión y su avance individual: vuelve a empezar desde «Mi avatar» con el mismo código. Lo que ya aportó al trabajo de su mesa se conserva.</p>' +
+    '<p class="small"><b>Reiniciar a todo el grupo</b> borra los perfiles y el trabajo de todas las mesas, devuelve la audiencia a preparación e inicia una edición nueva: el seguimiento formativo vuelve a contar desde cero. Se conservan el listado, los códigos, los PIN, la configuración y el caso. La bitácora anterior queda guardada en la hoja.</p>' +
+    (UI.confirm === 'restGrupo' ? '<div class="row"><span>¿Reiniciar a todo el grupo ' + esc(grupoName(ME.sala)) + '? No se puede deshacer.</span><button class="btn danger" data-a="reiniciarGrupo">Sí, reiniciar el grupo</button><button class="btn-ghost" data-a="confirm" data-v="">No</button></div>' : '<div class="row"><button class="btn-ghost" data-a="confirm" data-v="restGrupo">Reiniciar a todo el grupo ' + esc(grupoName(ME.sala)) + '</button></div>') + '</div>';
+  return tsum + '<div class="panel"><h2>Estudiantes del grupo ' + esc(grupoName(ME.sala)) + ' por mesa</h2><p class="small">Aquí puede corregir el <b>nombre visible</b>, cambiar la <b>mesa y el nodo</b> de cada estudiante, ver el <b>aporte de cada integrante</b> y el alcance de sus competencias, y <b>reiniciar</b>. El nodo es de toda la mesa: si mueve a un estudiante a una mesa que trabaja otro nodo, la app le pregunta qué hacer.</p></div>' + (grupos || '<div class="panel"><p class="empty">Aún no hay mesas con estudiantes en este grupo.</p></div>') + sinHtml + reinicio;
+};
+
+/* recuerda qué secciones desplegables abrió la docente, aunque la pantalla se actualice */
+document.addEventListener('toggle', function (e) { var d = e.target; if (!d || !d.getAttribute) return; var k = d.getAttribute('data-keep'); if (!k) return; UI.keep = UI.keep || {}; UI.keep[k] = d.open; }, true);
 
 </script>
 </body>
